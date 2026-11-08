@@ -7,14 +7,14 @@
 export type Palette = { from: string; via: string; to: string; accent: string };
 
 export const profile = {
-  fullName: 'Dasari Venkata Ratna Sri Sushmita',
-  displayName: 'Sushmita Dasari',
-  firstName: 'SUSHMITA',
+  fullName: 'Sumit Panchal',
+  displayName: 'Sumit Panchal',
+  firstName: 'SUMIT PANCHAL',
   seriesTag: 'THE SERIES',
   /** Fictional studio card shown at the very start of the opening sequence. */
-  originalLabel: 'A DASARI ORIGINAL',
-  role: 'Full-Stack Developer',
-  tagline: ['Full-Stack Developer', 'AI / ML', 'Java'],
+  originalLabel: 'A PANCHAL ORIGINAL',
+  role: 'Manual & Automated Testing • QA Engineer • AI / ML',
+  tagline: ['Manual QA Engineer', 'AI / ML', 'Function & Regression Testing', 'Automation Testing', 'Selenium', 'Cypress', 'JMeter', 'Postman', 'API Testing'],
   intro:
     'A B.Tech Artificial Intelligence & Machine Learning student (CGPA 9.10) and full-stack developer building AI-powered platforms, payment systems and multi-tenant SaaS with Java, Python, React, Node.js and Docker.',
   location: 'Ahemdabad, Gujarat',
@@ -23,10 +23,11 @@ export const profile = {
     linkedin: 'https://www.linkedin.com/in/sumit-panchal-b790a8236/',
     github: 'https://github.com/lifeofthecoders',
   },
-  resumePdf: '/assets/Sumit_Panchal_Resume.pdf',
+  resumePdf: `${import.meta.env.BASE_URL}assets/Sumit_Panchal_Resume.pdf`,
+
   portrait: {
-    src: '/assets/portrait-720.webp',
-    srcSet: '/assets/portrait-420.webp 420w, /assets/portrait-720.webp 720w, /assets/portrait-1100.webp 1100w',
+    src: `${import.meta.env.BASE_URL}assets/portrait-720.webp`,
+    srcSet: `${import.meta.env.BASE_URL}assets/portrait-420.webp 420w, ${import.meta.env.BASE_URL}assets/portrait-720.webp 720w, ${import.meta.env.BASE_URL}assets/portrait-1100.webp 1100w`,
     alt: 'Portrait of Sumit Panchal, a young man with short black hair and a friendly smile, wearing a casual shirt and looking directly at the camera.',
   },
   interests: ['System Design', 'Cloud Computing (AWS)', 'Machine Learning'],
@@ -573,35 +574,35 @@ export const viewerProfiles: {
   color: string;
   order: SectionId[];
 }[] = [
-  {
-    id: 'sumit',
-    name: 'sumit',
-    blurb: 'The full series, in order',
-    color: '#e5132b',
-    order: ['about', 'journey', 'originals', 'picks', 'skills', 'moments', 'story'],
-  },
-  {
-    id: 'recruiter',
-    name: 'Recruiter',
-    blurb: 'Resume, achievements & skills first',
-    color: '#4cc9ff',
-    order: ['story', 'moments', 'skills', 'originals', 'about', 'journey', 'picks'],
-  },
-  {
-    id: 'developer',
-    name: 'Developer',
-    blurb: 'Projects, stack & GitHub first',
-    color: '#46e3a8',
-    order: ['originals', 'skills', 'journey', 'moments', 'about', 'picks', 'story'],
-  },
-  {
-    id: 'creative',
-    name: 'Creative',
-    blurb: 'The story arc & highlights first',
-    color: '#ffb547',
-    order: ['journey', 'picks', 'originals', 'moments', 'about', 'skills', 'story'],
-  },
-];
+    {
+      id: 'sumit',
+      name: 'sumit',
+      blurb: 'The full series, in order',
+      color: '#e5132b',
+      order: ['about', 'journey', 'originals', 'picks', 'skills', 'moments', 'story'],
+    },
+    {
+      id: 'recruiter',
+      name: 'Recruiter',
+      blurb: 'Resume, achievements & skills first',
+      color: '#4cc9ff',
+      order: ['story', 'moments', 'skills', 'originals', 'about', 'journey', 'picks'],
+    },
+    {
+      id: 'developer',
+      name: 'Developer',
+      blurb: 'Projects, stack & GitHub first',
+      color: '#46e3a8',
+      order: ['originals', 'skills', 'journey', 'moments', 'about', 'picks', 'story'],
+    },
+    {
+      id: 'creative',
+      name: 'Creative',
+      blurb: 'The story arc & highlights first',
+      color: '#ffb547',
+      order: ['journey', 'picks', 'originals', 'moments', 'about', 'skills', 'story'],
+    },
+  ];
 
 export const sectionMeta: Record<SectionId, { nav: string; card: string; meta: string; palette: Palette }> = {
   about: { nav: 'About', card: 'About Me', meta: 'The Pilot • Education & training', palette: violet },

@@ -16,7 +16,7 @@ export function ProfileAvatar({
   if (id === 'sumit') {
     return (
       <img
-        src="/assets/portrait-420.webp"
+        src={`${import.meta.env.BASE_URL}assets/portrait-420.webp`}
         alt="Sumit Panchal"
         className={`${sizeClass} rounded-xl object-cover`}
       />
