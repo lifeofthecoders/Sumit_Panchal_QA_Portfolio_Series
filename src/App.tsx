@@ -1,8 +1,9 @@
 import { lazy, Suspense, useCallback, useEffect, useState, type ReactNode } from 'react';
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
-import { viewerProfiles, type ProfileId, type Project, type SectionId } from './data/portfolio';
+import { viewerProfiles, projects, type ProfileId, type Project, type SectionId } from './data/portfolio';
 import { SmoothScrollProvider, useSmoothScroll } from './hooks/smoothScroll';
 import CustomCursor from './components/CustomCursor';
+import InteractiveCanvas from './components/InteractiveCanvas';
 import OpeningSequence from './components/OpeningSequence';
 import ProfileSelector from './components/ProfileSelector';
 import Navbar from './components/Navbar';
@@ -19,7 +20,7 @@ import ResumeSection from './components/ResumeViewer';
 import FinalCTA from './components/FinalCTA';
 import { EASE } from './components/fx';
 
-// Overlays are only needed on demand — split them out of the first load.
+// Overlays are only needed on demand - split them out of the first load.
 const PlayIntro = lazy(() => import('./components/PlayIntro'));
 const ProjectModal = lazy(() => import('./components/ProjectModal'));
 const ResumeModal = lazy(() => import('./components/ResumeModal'));
@@ -37,6 +38,11 @@ function readStoredProfile(): ProfileId | null {
   }
 }
 
+function readProjectFromUrl(): Project | null {
+  const projectId = new URLSearchParams(window.location.search).get('project');
+  return projectId ? projects.find((item) => item.id === projectId) ?? null : null;
+}
+
 export default function App() {
   return (
     <SmoothScrollProvider>
@@ -47,10 +53,10 @@ export default function App() {
 
 function Series() {
   const stored = readStoredProfile();
-  const [stage, setStage] = useState<Stage>(stored ? 'home' : 'opening');
+  const [stage, setStage] = useState<Stage>(readProjectFromUrl() || stored ? 'home' : 'opening');
   const [profileId, setProfileId] = useState<ProfileId>(stored ?? 'sumit');
   const [playing, setPlaying] = useState(false);
-  const [project, setProject] = useState<Project | null>(null);
+  const [project, setProject] = useState<Project | null>(() => readProjectFromUrl());
   const [resumeOpen, setResumeOpen] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
   const { scrollTo, lock, unlock } = useSmoothScroll();
@@ -69,14 +75,14 @@ function Series() {
       try {
         sessionStorage.setItem(STORAGE_KEY, id);
       } catch {
-        /* storage unavailable — profile simply won't persist */
+        /* storage unavailable - profile simply won't persist */
       }
       if (stage !== 'home') {
         window.scrollTo(0, 0);
         setStage('home');
       } else {
         const p = viewerProfiles.find((v) => v.id === id)!;
-        setToast(`Now watching as ${p.name} — ${p.blurb.toLowerCase()}`);
+        setToast(`Now watching as ${p.name} - ${p.blurb.toLowerCase()}`);
         scrollTo(0, { offset: 0 });
       }
     },
@@ -90,13 +96,43 @@ function Series() {
   }, [toast]);
 
   const closeIntro = useCallback(() => setPlaying(false), []);
-  const closeProject = useCallback(() => setProject(null), []);
+  const openProject = useCallback((nextProject: Project) => {
+    const url = new URL(window.location.href);
+    url.searchParams.set('project', nextProject.id);
+    window.history.pushState({ projectId: nextProject.id }, '', url);
+    setProject(nextProject);
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }, []);
+
+  const closeProject = useCallback(() => {
+    const url = new URL(window.location.href);
+    url.searchParams.delete('project');
+    window.history.pushState({}, '', url);
+    setProject(null);
+  }, []);
+
+  const switchProject = useCallback((nextProject: Project) => {
+    const url = new URL(window.location.href);
+    url.searchParams.set('project', nextProject.id);
+    window.history.pushState({ projectId: nextProject.id }, '', url);
+    setProject(nextProject);
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }, []);
+
+  useEffect(() => {
+    const syncProjectRoute = () => {
+      setProject(readProjectFromUrl());
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    };
+    window.addEventListener('popstate', syncProjectRoute);
+    return () => window.removeEventListener('popstate', syncProjectRoute);
+  }, []);
   const closeResume = useCallback(() => setResumeOpen(false), []);
 
   const sections: Record<SectionId, ReactNode> = {
     about: <About />,
     journey: <Seasons />,
-    originals: <Originals onOpen={setProject} />,
+    originals: <Originals onOpen={openProject} />,
     picks: <TopPicks />,
     skills: <Skills />,
     moments: <Achievements />,
@@ -106,6 +142,7 @@ function Series() {
   return (
     <LayoutGroup>
       <div className="grain" aria-hidden />
+      <InteractiveCanvas />
       <CustomCursor />
 
       <AnimatePresence>
@@ -113,7 +150,7 @@ function Series() {
         {stage === 'profiles' && <ProfileSelector key="profiles" onPick={pickProfile} />}
       </AnimatePresence>
 
-      {stage === 'home' && (
+      {stage === 'home' && !project && (
         <motion.div initial={{ opacity: 0, scale: 1.03, filter: 'blur(10px)' }} animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }} transition={{ duration: 1, ease: EASE }}>
           <Navbar order={order} profileId={profileId} onSwitch={pickProfile} />
           <main>
@@ -131,7 +168,7 @@ function Series() {
 
       <Suspense fallback={null}>
         <AnimatePresence>{playing && <PlayIntro key="intro" onClose={closeIntro} />}</AnimatePresence>
-        <AnimatePresence>{project && <ProjectModal key="project" project={project} onClose={closeProject} onSwitch={setProject} />}</AnimatePresence>
+        {project && <ProjectModal key={project.id} project={project} onClose={closeProject} onSwitch={switchProject} />}
         <AnimatePresence>{resumeOpen && <ResumeModal key="resume" onClose={closeResume} />}</AnimatePresence>
       </Suspense>
 

@@ -26,7 +26,7 @@ export function ProfileAvatar({
   const glyph: Record<ProfileId, string> = {
     sumit: 'SP',
     recruiter: 'R',
-    developer: '</>',
+    qa: 'QA',
     creative: '✦',
   };
 
@@ -124,7 +124,7 @@ export default function ProfileSelector({
       </motion.ul>
 
       <p className="relative mt-12 max-w-md text-center text-xs leading-relaxed text-smoke">
-        Every profile watches the same true story of {profile.displayName} — it only changes what plays first.
+        Every profile explores the same QA story of {profile.displayName} - it only changes what plays first.
       </p>
     </motion.div>
   );

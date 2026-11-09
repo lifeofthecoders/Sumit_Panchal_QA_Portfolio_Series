@@ -21,7 +21,7 @@ export default function Achievements() {
 
   return (
     <>
-      <SectionHeading kicker="Awards season" title="Top Moments" />
+      <SectionHeading kicker="Quality Impact" title="QA Contributions & Credentials" />
 
       <div className="gutter grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 [perspective:1400px]">
         {achievements.map((a, i) => (
@@ -91,6 +91,7 @@ export default function Achievements() {
                   <span className="text-sm text-smoke transition group-hover:text-bone">↗</span>
                 </div>
                 <p className="mt-6 text-sm font-medium leading-snug text-bone">{c.name}</p>
+                <p className="mt-2 text-[10px] text-smoke">{c.date}</p>
               </motion.a>
             ))}
           </div>

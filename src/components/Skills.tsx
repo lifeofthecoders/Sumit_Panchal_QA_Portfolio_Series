@@ -44,7 +44,7 @@ export default function Skills() {
                 className="mb-5 text-sm text-mist"
                 variants={{ hidden: { opacity: 0 }, show: { opacity: 1 }, exit: { opacity: 0 } }}
               >
-                <span className="font-semibold text-bone">{category.title}</span> — {category.subtitle}
+                <span className="font-semibold text-bone">{category.title}</span> - {category.subtitle}
               </motion.p>
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-4">
                 {category.skills.map((s) => (

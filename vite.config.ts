@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  base: '/Portfolio_Series/',
+  base: '/Sumit_Panchal_QA_Portfolio_Series/',
   plugins: [react(), tailwindcss()],
   build: {
     target: 'es2020',

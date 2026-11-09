@@ -4,7 +4,7 @@ import { useFinePointer, useReducedMotionPref } from '../hooks/useMedia';
 
 export const EASE = [0.22, 1, 0.36, 1] as const;
 
-/** Wraps a control so it drifts toward the pointer — desktop only. */
+/** Wraps a control so it drifts toward the pointer - desktop only. */
 export function Magnetic({ children, strength = 0.35, className = '' }: { children: ReactNode; strength?: number; className?: string }) {
   const fine = useFinePointer();
   const reduced = useReducedMotionPref();
@@ -126,7 +126,7 @@ export function SectionHeading({ kicker, title, aside }: { kicker: string; title
   );
 }
 
-/** Lightweight drifting dust particles on a canvas — pauses when off screen. */
+/** Lightweight drifting dust particles on a canvas - pauses when off screen. */
 export function Particles({ count = 46, color = '255,90,110', className = '' }: { count?: number; color?: string; className?: string }) {
   const ref = useRef<HTMLCanvasElement>(null);
   const reduced = useReducedMotionPref();

@@ -58,7 +58,7 @@ body {
   padding-right: var(--gutter);
 }
 
-/* Film grain — a single fixed layer, cheap and subtle */
+/* Film grain - a single fixed layer, cheap and subtle */
 .grain {
   position: fixed;
   inset: -50%;

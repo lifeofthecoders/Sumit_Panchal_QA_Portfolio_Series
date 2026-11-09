@@ -1,615 +1,411 @@
 /**
- * Central portfolio data — generated from Sushmita's resume (Sushmita_dasari.pdf).
- * Every fact on the site comes from this file. Update it here and the whole site follows.
- * Nothing here should be added unless it appears on the resume.
+ * Central portfolio data for Sumit Panchal's Manual QA Engineer portfolio.
+ * Professional facts are grounded in the supplied resume and QA reference portfolio.
+ * Project-specific testing scope and images come from the supplied project reference archive.
  */
 
 export type Palette = { from: string; via: string; to: string; accent: string };
+
+const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
 
 export const profile = {
   fullName: 'Sumit Panchal',
   displayName: 'Sumit Panchal',
   firstName: 'SUMIT PANCHAL',
-  seriesTag: 'THE SERIES',
-  /** Fictional studio card shown at the very start of the opening sequence. */
-  originalLabel: 'A PANCHAL ORIGINAL',
-  role: 'Manual & Automated Testing • QA Engineer • AI / ML',
-  tagline: ['Manual QA Engineer', 'AI / ML', 'Function & Regression Testing', 'Automation Testing', 'Selenium', 'Cypress', 'JMeter', 'Postman', 'API Testing'],
-  intro:
-    'A B.Tech Artificial Intelligence & Machine Learning student (CGPA 9.10) and full-stack developer building AI-powered platforms, payment systems and multi-tenant SaaS with Java, Python, React, Node.js and Docker.',
-  location: 'Ahemdabad, Gujarat',
+  seriesTag: 'THE QA SERIES',
+  originalLabel: 'A PANCHAL QUALITY ORIGINAL',
+  role: 'Manual QA Engineer | Quality Assurance Analyst',
+  tagline: ['Manual QA Engineer', 'Functional & Regression Testing', 'Test Design & Defect Analysis'],
+  intro: 'Manual QA Engineer with 5+ years of experience validating web and mobile applications. Focused on understanding requirements, designing structured test scenarios, exercising critical user journeys, identifying reproducible defects, and supporting reliable releases through risk-based testing and careful verification.',
+  location: 'Ahmedabad, Gujarat, India',
   email: 'sumitpanchal5225@gmail.com',
   links: {
     linkedin: 'https://www.linkedin.com/in/sumit-panchal-b790a8236/',
     github: 'https://github.com/lifeofthecoders',
   },
-  resumePdf: `${import.meta.env.BASE_URL}assets/Sumit_Panchal_Resume.pdf`,
-
+  resumePdf: asset('assets/Sumit_Panchal_Resume.pdf'),
   portrait: {
-    src: `${import.meta.env.BASE_URL}assets/portrait-720.webp`,
-    srcSet: `${import.meta.env.BASE_URL}assets/portrait-420.webp 420w, ${import.meta.env.BASE_URL}assets/portrait-720.webp 720w, ${import.meta.env.BASE_URL}assets/portrait-1100.webp 1100w`,
-    alt: 'Portrait of Sumit Panchal, a young man with short black hair and a friendly smile, wearing a casual shirt and looking directly at the camera.',
+    src: asset('assets/portrait-720.webp'),
+    srcSet: `${asset('assets/portrait-720.webp')} 720w, ${asset('assets/portrait-1100.webp')} 1100w`,
+    alt: 'Sumit Panchal wearing a light blue suit and glasses.',
   },
-  interests: ['System Design', 'Cloud Computing (AWS)', 'Machine Learning'],
+  interests: ['Software Quality', 'User-Centered Testing', 'Test Strategy & Coverage'],
 };
 
 export const education = [
   {
-    school: 'Aditya Engineering College',
-    place: 'Surampalem',
-    degree: 'Bachelor of Technology — Artificial Intelligence and Machine Learning',
-    period: 'October 2023 – Present',
-    score: 'CGPA 9.10',
+    school: 'Silver Oak University',
+    place: 'Ahmedabad, Gujarat',
+    degree: 'Bachelor of Engineering - Electronics & Communication Engineering',
+    period: '2014 - 2018',
+    score: 'CGPA 7.48',
   },
   {
-    school: 'Sri Chaitanya Junior College',
-    place: 'Kakinada',
-    degree: 'BIEAP — MPC',
-    period: 'June 2021 – May 2023',
-    score: 'Score 925/1000',
+    school: 'Atul Polytechnic',
+    place: 'Gujarat, India',
+    degree: 'Diploma of Engineering - Electronics & Communication Engineering',
+    period: '2011 - 2014',
+    score: 'CPI 7.74',
   },
 ];
 
 export const experience = [
   {
-    company: 'Technical Hub Pvt Ltd',
-    role: 'Trainee',
-    place: 'Surampalem, AP',
-    period: 'May 2025 – June 2026',
+    company: 'Echo Innovate IT',
+    role: 'Quality Assurance Analyst',
+    place: 'Manual QA · Web & Mobile Applications',
+    period: 'June 2021 - Present',
     points: [
-      'Completed one year of intensive Full-Stack Development (FSD) training covering frontend, backend, database integration, and deployment workflows.',
-      'Developed responsive and functional web applications by implementing user interfaces, server-side logic, and database connectivity.',
-      'Deployed and managed web applications while applying version control, debugging, and end-to-end development practices.',
+      'Tested web and mobile application functionality, usability, and cross-platform compatibility.',
+      'Created and maintained test plans, test cases, test scenarios, and test data based on requirement analysis.',
+      'Clarified requirements and translated business expectations into practical validation coverage.',
+      'Tracked and documented defects in Jira, including clear reproduction steps, severity, priority, and verification notes.',
+      'Maintained test documentation, test data, and traceability using Microsoft Excel.',
+      'Performed risk-based testing, retesting, regression testing, and release-focused validation.',
     ],
   },
 ];
 
-export type Metric = { value: string; label: string };
-
+export type ProjectGalleryImage = { src: string; alt: string; caption: string };
 export type Project = {
   id: string;
   title: string;
-  year: string;
   genre: string;
   logline: string;
-  stack: string[];
+  overview: string;
+  role: string;
+  platforms: string[];
+  image: string;
+  bannerImage: string;
+  gallery: ProjectGalleryImage[];
+  testingAreas: string[];
   build: string[];
   features: string[];
-  metrics: Metric[];
-  /** Omit when the repository isn't public — the GitHub button is hidden instead of linking to a 404. */
-  github?: string;
   palette: Palette;
   motif: 'shield' | 'flow' | 'tenants';
 };
 
+const projectAsset = (name: string) => asset(`project/${name}`);
+
 export const projects: Project[] = [
   {
-    id: 'policyguard-ai',
-    title: 'PolicyGuard AI',
-    year: '2026',
-    genre: 'AI • NLP • LLM',
-    logline: 'An AI-powered policy analysis platform across web, browser extension, mobile and desktop applications.',
-    stack: ['Python', 'NLP', 'LLM', 'REST API'],
+    id: 'lymuv',
+    title: 'LYMÜV - Taxi Booking Application',
+    genre: 'Transportation · Ride-Hailing QA',
+    logline: 'Manual QA coverage for a real-time taxi booking platform spanning ride requests, driver assignment, payments, live tracking, and administrative workflows.',
+    overview: 'A real-time taxi booking platform with live trip tracking, digital payments, wallet functionality, promotions, ratings, invoicing, and admin workflows.',
+    role: 'Project Manager & Manual QA Engineer',
+    platforms: ['Android', 'iOS', 'Web Admin'],
+    image: projectAsset('project-lymuv-qa.jpg'),
+    bannerImage: projectAsset('project-lymuv-banner.jpg'),
+    gallery: [
+      { src: projectAsset('project-lymuv-detail-1.jpg'), alt: 'LYMÜV pickup and route selection screens', caption: 'Pickup and destination selection with ride options' },
+      { src: projectAsset('project-lymuv-detail-2.jpg'), alt: 'LYMÜV live trip and payment screens', caption: 'Live tracking, driver details, and payment summary' },
+      { src: projectAsset('project-lymuv-qa-gallery.jpg'), alt: 'LYMÜV ride booking and trip management overview', caption: 'Ride booking and trip-management platform overview' },
+    ],
+    testingAreas: ['Ride Booking Flow', 'Driver Assignment', 'Payment & Wallet', 'Notifications', 'Reports', 'Admin Panel'],
     build: [
-      'Built an AI-powered policy analysis platform across web, browser extension, mobile, and desktop applications, processing 500+ policy documents with 92% accuracy and reducing manual review time by 60% across 8 policy categories.',
-      'Engineered LLM-based Q&A, key-information extraction, and REST API integration for 10+ document types, enabling real-time policy insights and reducing decision turnaround time by 45%.',
+      'Performed end-to-end validation of ride-booking workflows, including pickup and destination selection and ride options.',
+      'Validated driver assignment behavior and live trip tracking details.',
+      'Tested payment gateway and wallet flows, plus payment summaries and invoicing touchpoints.',
+      'Verified notifications, reports, and administrative workflows.',
     ],
-    features: [
-      'LLM-based Q&A over policy documents',
-      'Key-information extraction',
-      'REST API integration for 10+ document types',
-      'Web, browser extension, mobile & desktop apps',
-      'Real-time policy insights',
-    ],
-    metrics: [
-      { value: '500+', label: 'policy documents processed' },
-      { value: '92%', label: 'accuracy' },
-      { value: '60%', label: 'less manual review time' },
-      { value: '45%', label: 'faster decision turnaround' },
-      { value: '8', label: 'policy categories' },
-    ],
-    // The resume links to https://github.com/Sushmitadasari/PolicyGuard-AI, which is not public yet (404).
-    // Add `github: 'https://github.com/Sushmitadasari/PolicyGuard-AI',` back once the repo is public.
-    palette: { from: '#2a0610', via: '#7a0f24', to: '#0b0710', accent: '#ff3d5a' },
-    motif: 'shield',
-  },
-  {
-    id: 'payment-gateway',
-    title: 'Payment Gateway System',
-    year: '2026',
-    genre: 'Full-Stack • Fintech • Microservices',
-    logline: 'A full-stack UPI & card payment gateway built around a strict payment state machine.',
-    stack: ['Node.js', 'Express', 'PostgreSQL', 'React', 'Docker'],
-    build: [
-      'Built full-stack UPI & card payment gateway processing 1,000+ transactions at 99.8% uptime with a strict payment state machine (processing → success/failed).',
-      'Dockerized microservice architecture cut deployment setup by 70%; backend optimizations reduced API response time by 40% and tripled throughput under load.',
-    ],
-    features: [
-      'UPI & card payments',
-      'Strict payment state machine (processing → success / failed)',
-      'Dockerized microservice architecture',
-      'Backend optimizations for load',
-    ],
-    metrics: [
-      { value: '1,000+', label: 'transactions processed' },
-      { value: '99.8%', label: 'uptime' },
-      { value: '70%', label: 'less deployment setup' },
-      { value: '40%', label: 'faster API response' },
-      { value: '3×', label: 'throughput under load' },
-    ],
-    github: 'https://github.com/Sushmitadasari/Payment-gateway-system-Project',
-    palette: { from: '#1a0d02', via: '#8a4a07', to: '#0a0806', accent: '#ffb547' },
+    features: ['Ride requests and booking lifecycle', 'Driver assignment and trip tracking', 'Digital payments and wallet', 'Promotions, ratings, and invoices', 'Admin reporting and management'],
+    palette: { from: '#07182a', via: '#174a72', to: '#07090e', accent: '#4ea7ff' },
     motif: 'flow',
   },
   {
-    id: 'multi-tenant-saas',
-    title: 'Multi-Tenant SaaS Platform',
-    year: '2026',
-    genre: 'SaaS • Security • DevOps',
-    logline: 'Shared-database multi-tenancy with strict tenant isolation and 4-level JWT/RBAC.',
-    stack: ['Node.js', 'React', 'PostgreSQL', 'Docker Compose'],
+    id: 'dap-me',
+    title: 'Dap Me - Professional Networking Application',
+    genre: 'Professional Networking · Social QA',
+    logline: 'QA coverage across account access, professional profiles, discovery, connection requests, messaging, subscriptions, and moderation.',
+    overview: 'A React Native professional networking app for discovering and connecting with people, sharing professional profiles, chatting in real time, and managing professional interactions, notifications, privacy settings, and admin moderation.',
+    role: 'Project Manager & Manual QA Engineer',
+    platforms: ['Android', 'iOS', 'Web Admin'],
+    image: projectAsset('project-dap-me-qa.jpg'),
+    bannerImage: projectAsset('project-dap-me-banner.jpg'),
+    gallery: [
+      { src: projectAsset('project-dap-me-detail-1.jpg'), alt: 'Dap Me discovery and saved-filter screens', caption: 'Professional discovery, location-based search, and saved filters' },
+      { src: projectAsset('project-dap-me-detail-2.jpg'), alt: 'Dap Me profile, messaging, and connection screens', caption: 'Professional profiles, messaging, and connection requests' },
+      { src: projectAsset('project-dap-me-qa-gallery.jpg'), alt: 'Dap Me professional networking overview', caption: 'Mobile networking and professional discovery overview' },
+    ],
+    testingAreas: ['Registration & Login', 'User Profiles', 'Connections & Networking', 'Chat & Messaging', 'Notifications', 'Search & Discovery', 'Privacy & Account Settings', 'Admin Panel'],
     build: [
-      'Architected shared-database multi-tenancy for 50+ concurrent tenants with strict tenant_id isolation and 4-level JWT/RBAC, achieving zero unauthorized-access incidents across 200+ users.',
-      'Implemented Docker Compose one-command deployment, reducing environment setup time from 45 minutes to under 2 minutes.',
+      'Validated authentication and login flows, profile management, and user data handling.',
+      'Verified connection requests, professional discovery, chat, and messaging workflows.',
+      'Tested subscription and payment touchpoints and related account behavior.',
+      'Reviewed notification, privacy, account settings, and admin moderation workflows.',
     ],
-    features: [
-      'Shared-database multi-tenancy',
-      'Strict tenant_id isolation',
-      '4-level JWT / RBAC',
-      'One-command Docker Compose deployment',
+    features: ['Registration and secure login', 'Profile creation and management', 'Professional discovery and connection requests', 'Real-time chat and notifications', 'Privacy settings and admin moderation'],
+    palette: { from: '#06231b', via: '#0c7655', to: '#070a0b', accent: '#46e3a8' },
+    motif: 'tenants',
+  },
+  {
+    id: 'kinzwin',
+    title: 'Kinzwin - Multiplayer Gaming Platform',
+    genre: 'Gaming · Multiplayer QA',
+    logline: 'Manual testing of gameplay, scoring, multiplayer synchronization, chat, leaderboards, fair-play behavior, and admin controls.',
+    overview: 'A competitive multiplayer gaming platform offering casual and skill-based games, social engagement, and real-time competition.',
+    role: 'Manual QA Engineer',
+    platforms: ['Android', 'iOS', 'Web Admin'],
+    image: projectAsset('project-kinzwin-qa.jpg'),
+    bannerImage: projectAsset('project-kinzwin-banner.jpg'),
+    gallery: [
+      { src: projectAsset('project-kinzwin-detail-1.jpg'), alt: 'Kinzwin multiplayer game room', caption: 'Live game board, player status, and turn flow' },
+      { src: projectAsset('project-kinzwin-detail-2.jpg'), alt: 'Kinzwin tournament results and fair-play screens', caption: 'Tournament leaderboard, results, and fair-play checks' },
+      { src: projectAsset('project-kinzwin-qa-gallery.jpg'), alt: 'Kinzwin multiplayer gaming overview', caption: 'Multiplayer gaming and tournament overview' },
     ],
-    metrics: [
-      { value: '50+', label: 'concurrent tenants' },
-      { value: '200+', label: 'users' },
-      { value: '0', label: 'unauthorized-access incidents' },
-      { value: '45m → <2m', label: 'environment setup time' },
+    testingAreas: ['Gameplay', 'Scoring', 'Multiplayer Synchronization', 'Chat', 'Leaderboards', 'Fair Play', 'Admin Panel'],
+    build: [
+      'Validated core gameplay flows, scoring behavior, and player turn progression.',
+      'Tested multiplayer synchronization and player-state consistency during live sessions.',
+      'Verified chat functionality, leaderboard results, and fair-play scenarios.',
+      'Covered related administrative workflows and release-focused regression areas.',
     ],
-    github: 'https://github.com/Sushmitadasari/Multi-Tenant-SaaS-Platform',
-    palette: { from: '#04121f', via: '#0f4c6e', to: '#05080d', accent: '#4cc9ff' },
+    features: ['Casual and skill-based games', 'Multiplayer sessions and synchronization', 'Scoring and leaderboard results', 'Chat and social engagement', 'Fair-play and admin workflows'],
+    palette: { from: '#1e0a23', via: '#56245f', to: '#08070c', accent: '#c78cff' },
+    motif: 'shield',
+  },
+  {
+    id: 'bunny-books',
+    title: 'Bunny Books - Photo Book E-Commerce Application',
+    genre: 'E-Commerce · Photo Printing QA',
+    logline: 'Testing photo uploads, album creation, design previews, shopping cart, checkout, payments, notifications, and order tracking.',
+    overview: 'A photo-book ordering platform that lets users create and order printed photo books through a guided creation flow, with checkout and delivery tracking.',
+    role: 'Project Manager & Manual QA Engineer',
+    platforms: ['Android', 'iOS', 'Web Admin'],
+    image: projectAsset('project-bunny-books-qa.jpg'),
+    bannerImage: projectAsset('project-bunny-books-banner.jpg'),
+    gallery: [
+      { src: projectAsset('project-bunny-books-detail-1.jpg'), alt: 'Bunny Books photo-book studio screens', caption: 'Photo upload, page layouts, and album preview' },
+      { src: projectAsset('project-bunny-books-detail-2.jpg'), alt: 'Bunny Books checkout and tracking screens', caption: 'Checkout flow and order delivery status' },
+      { src: projectAsset('project-bunny-books-qa-gallery.jpg'), alt: 'Bunny Books photo-book creation overview', caption: 'Photo-book creation and ordering overview' },
+    ],
+    testingAreas: ['Photo Upload', 'Album Creation', 'Design Preview', 'Cart & Checkout', 'Payment Processing', 'Delivery Tracking', 'Notifications', 'Admin Management'],
+    build: [
+      'Tested photo upload and album creation, including the design and preview journey.',
+      'Validated cart, checkout, and payment-processing workflows.',
+      'Verified order management, notifications, and delivery-tracking behavior.',
+      'Covered administrative order-management touchpoints.',
+    ],
+    features: ['Photo upload and album creation', 'Page layout and design preview', 'Cart and checkout', 'Payment processing', 'Order notifications and delivery tracking'],
+    palette: { from: '#201207', via: '#82501c', to: '#090807', accent: '#ffc46c' },
+    motif: 'flow',
+  },
+  {
+    id: 'health-e',
+    title: 'Health-E - Digital Health & Medical Records App',
+    genre: 'Healthcare · Digital Health QA',
+    logline: 'QA coverage for registration, OTP, ABHA generation, medical records, appointments, reminders, health modules, and role-based administration.',
+    overview: 'A digital health locker for managing medical records and health information, ABHA ID creation, appointments, medication reminders, emergency information, pregnancy and paediatric care features, and administrator tools.',
+    role: 'Manual QA Engineer',
+    platforms: ['Mobile App', 'Admin Dashboard'],
+    image: projectAsset('project-health-e-qa.jpg'),
+    bannerImage: projectAsset('project-health-e-banner.jpg'),
+    gallery: [
+      { src: projectAsset('project-health-e-detail-1.jpg'), alt: 'Health-E health records and emergency screens', caption: 'Medical reports, health records, and emergency information' },
+      { src: projectAsset('project-health-e-detail-2.jpg'), alt: 'Health-E appointments and ABHA screens', caption: 'Appointments, ABHA Health ID, and medication reminders' },
+      { src: projectAsset('project-health-e-qa-gallery.jpg'), alt: 'Health-E digital health records overview', caption: 'Digital health records and appointment workflows' },
+    ],
+    testingAreas: ['Registration & OTP Verification', 'Profile & Health Information', 'Medical Records & Reports', 'Appointment Scheduling', 'Medication Reminders', 'Emergency Information', 'ABHA Number Generation', 'Pregnancy & Paediatric Care', 'Admin & Role-Based Access'],
+    build: [
+      'Validated mobile-number registration, OTP entry, and authenticated access.',
+      'Checked profile updates, field validation, and consistency of saved health information.',
+      'Tested medical-record workflows for viewing, adding, searching, editing, deleting, and sharing records.',
+      'Verified appointment booking, modification and cancellation, reminders, and emergency contact information.',
+      'Covered ABHA registration, pregnancy and paediatric workflows, and role-based admin access.',
+    ],
+    features: ['Registration and OTP verification', 'ABHA ID and health profile', 'Medical records and report lifecycle', 'Appointments and medication reminders', 'Emergency, pregnancy, and paediatric care', 'Admin dashboard and role-based access'],
+    palette: { from: '#06152a', via: '#164d79', to: '#07090e', accent: '#57c8f0' },
+    motif: 'shield',
+  },
+  {
+    id: 'regive',
+    title: 'reGive - Community Sharing & Gift Transaction Application',
+    genre: 'Community Sharing · Peer-to-Peer QA',
+    logline: 'End-to-end QA across item posting, requests, promise and acceptance, handover, pickup, transaction status, ratings, and notifications.',
+    overview: 'A community-sharing app where users post items they want to give away, browse articles, send or withdraw requests, and coordinate pickup times through a defined offeror/requester transaction lifecycle.',
+    role: 'Project Manager & Manual QA Engineer',
+    platforms: ['Android Mobile App'],
+    image: projectAsset('project-regive-qa.jpg'),
+    bannerImage: projectAsset('project-regive-banner.jpg'),
+    gallery: [
+      { src: projectAsset('project-regive-detail-1.jpg'), alt: 'reGive item posting and request screens', caption: 'Post item photos and details, set pickup slots, and submit a request' },
+      { src: projectAsset('project-regive-detail-2.jpg'), alt: 'reGive promise, handover, pickup, and rating screens', caption: 'Promise acceptance, handover, pickup, conclusion, and ratings' },
+      { src: projectAsset('project-regive-qa-gallery.jpg'), alt: 'reGive community gifting overview', caption: 'Community gifting and handover workflow overview' },
+    ],
+    testingAreas: ['Post & Edit Article', 'Image Upload & Item Details', 'Request & Withdraw Request', 'Promise, Accept & Decline', 'Pickup Scheduling', 'Expiry & Reminder Timing', 'Handover & Pickup', 'Transaction Status', 'Ratings', 'Push & In-App Notifications'],
+    build: [
+      'Validated article creation and editing, including photos, item details, categories, pickup slots, and address information.',
+      'Verified requester flows to submit or withdraw requests and checked expected transaction status changes.',
+      'Tested offeror promise selection and requester accept/decline behavior, including multiple-requester scenarios.',
+      'Checked time-bound reminders, acceptance expiry, and pickup-slot timing behavior.',
+      'Validated handover, pickup, conclusion, role-specific ratings, and notification navigation.',
+    ],
+    features: ['Article posting and editing', 'Offeror and requester journeys', 'Request and promise lifecycle', 'Pickup scheduling, handover, and conclusion', 'Ratings and in-app/push notifications'],
+    palette: { from: '#071e1b', via: '#126451', to: '#070a09', accent: '#50d9ad' },
     motif: 'tenants',
   },
 ];
 
-export type Achievement = {
-  id: string;
-  title: string;
-  org: string;
-  detail: string;
-  laurel: string;
-  link?: string;
-};
-
+export type Achievement = { id: string; title: string; org: string; detail: string; laurel: string; link?: string };
 export const achievements: Achievement[] = [
-  {
-    id: 'algouniversity',
-    title: 'Tech Fellow',
-    org: 'AlgoUniversity',
-    detail: 'Selected through competitive national selection — advanced DSA, algorithm optimization, and competitive coding.',
-    laurel: 'National Selection',
-  },
-  {
-    id: 'flipkart-grid',
-    title: 'Semi-Finalist',
-    org: 'Flipkart GRiD 7.0',
-    detail: 'Competed among top national engineering talent.',
-    laurel: 'Semi-Finalist',
-    link: 'https://drive.google.com/file/d/16pXA2hssyJqlYMr27wfi6U4bjKDLvh9f/view?usp=drive_link',
-  },
-  {
-    id: 'branch-topper',
-    title: 'AIML Branch Topper',
-    org: 'B.Tech AI & ML',
-    detail: '9.24 SGPA for the semester.',
-    laurel: 'Branch Topper',
-  },
-  {
-    id: 'competitive-coding',
-    title: '850+ Problems Solved',
-    org: 'LeetCode • GFG • CodeChef',
-    detail: 'LeetCode: 350+ DSA problems (peak rating 1442). GFG: 300+ problems (rating 1436). CodeChef: 200+ problems.',
-    laurel: 'Competitive Coding',
-  },
-  {
-    id: 'hackerrank',
-    title: '5-Star Badges',
-    org: 'HackerRank',
-    detail: '5-star badges in C, Python, Java, and SQL.',
-    laurel: 'Four Languages',
-  },
+  { id: 'risk-coverage', title: 'Risk-Based Test Coverage', org: 'TEST PLANNING', detail: 'Improved testing coverage through risk-based prioritization, structured test scenarios, and regression testing.', laurel: 'TEST COVERAGE' },
+  { id: 'impact-regression', title: 'Impact-Based Regression', org: 'REGRESSION TESTING', detail: 'Applied impact-based regression testing and developer collaboration to reduce the risk of post-release defects.', laurel: 'RISK REDUCTION' },
+  { id: 'exploratory', title: 'Proactive Exploratory Testing', org: 'RELEASE QUALITY', detail: 'Supported release stability through exploratory testing and early identification of high-impact issues.', laurel: 'EARLY DETECTION' },
+  { id: 'coordination', title: 'Structured QA Coordination', org: 'TEAM COLLABORATION', detail: 'Contributed to on-time testing commitments through clear documentation, prioritization, and cross-functional coordination.', laurel: 'COLLABORATION' },
+  { id: 'defect-reporting', title: 'Detailed Defect Reporting', org: 'DEFECT MANAGEMENT', detail: 'Recognized for detailed defect reporting and thorough test coverage.', laurel: 'CLEAR REPORTING' },
+  { id: 'uat-signoff', title: 'UAT & Release Sign-Off Support', org: 'USER ACCEPTANCE TESTING', detail: 'Supported client UAT and release sign-off by validating critical workflows and verifying fixes.', laurel: 'RELEASE READINESS' },
+
+  // Four additional QA contributions
+
+  { id: 'requirement-design', title: 'Requirement-Led Test Design', org: 'REQUIREMENT ANALYSIS', detail: 'Translated business requirements into structured test plans, test scenarios, test cases, and practical test data.', laurel: 'TEST DESIGN' },
+  { id: 'cross-platform', title: 'Cross-Platform Validation', org: 'WEB & MOBILE QA', detail: 'Validated application functionality, usability, and compatibility across web browsers and mobile platforms.', laurel: 'PLATFORM QUALITY' },
+  { id: 'user-journey', title: 'Critical User Journey Coverage', org: 'END-TO-END VALIDATION', detail: 'Tested essential product workflows across booking, networking, e-commerce, healthcare, gaming, and community applications.', laurel: 'USER EXPERIENCE' },
+  { id: 'qa-documentation', title: 'Structured QA Documentation', org: 'TEST DOCUMENTATION', detail: 'Maintained test documentation, test data, execution records, and requirement traceability using Microsoft Excel.', laurel: 'QUALITY RECORDS' },
 ];
 
-export type Certification = { issuer: string; name: string; link: string };
-
+export type Certification = { issuer: string; name: string; link: string; date: string; category: string };
 export const certifications: Certification[] = [
-  { issuer: 'NPTEL', name: 'Database Management System', link: 'https://drive.google.com/file/d/1MqkJHchXeaGD4S8mzPmEGxEYddAsxAjN/view?usp=drive_link' },
-  { issuer: 'NPTEL', name: 'Fundamentals of Artificial Intelligence', link: 'https://drive.google.com/file/d/1GqyUQ-lrE-bHaN457t6fIdssgGG4HMXf/view?usp=drive_link' },
-  { issuer: 'NPTEL', name: 'Deep Learning', link: 'https://drive.google.com/file/d/1PWSRP5SQDPzkoTCF3A24eIJoSpTwgsff/view?usp=sharing' },
-  { issuer: 'AWS', name: 'AWS Certified AI Practitioner', link: 'https://drive.google.com/file/d/1h8e5p0a9T6f5gBaOP2ROfwWHZfkkspGn/view?usp=drive_link' },
-  { issuer: 'AWS', name: 'AWS Academy Graduate – Cloud Foundations', link: 'https://www.credly.com/badges/2d4810f9-3dbe-444d-99b9-61312ea5e7df/public_url' },
-  { issuer: 'MongoDB', name: 'MongoDB Certified Associate Developer', link: 'https://www.credly.com/badges/fd3362bd-743a-4c4d-a68e-b1fdc5d46811/public_url' },
-  { issuer: 'GitHub', name: 'GitHub Foundations', link: 'https://drive.google.com/file/d/1o0fkCAMRWTg1oMwxlqu6t6wnOpBv66Vq/view?usp=sharing' },
-  { issuer: 'Pearson', name: 'IT Specialist – HTML and CSS', link: 'https://www.credly.com/badges/e4a55298-e396-41d8-a032-283aafe9fab7/public_url' },
-  { issuer: 'Oracle', name: 'Java Certified Foundations Associate', link: 'https://drive.google.com/file/d/1g-yyceHtLg_k2RWiOIJqH0MMcGlaH90P/view?usp=sharing' },
-  { issuer: 'Oracle', name: 'Oracle Certified Foundations Associate – Database', link: 'https://drive.google.com/file/d/10-DzabbcH2vHrI6bAohoT8czKRZMa2kV/view?usp=drive_link' },
-  { issuer: 'Cisco', name: 'HTML Essentials', link: 'https://www.credly.com/badges/eb27ca95-3b2a-4948-bef9-0385d1d49055/public_url' },
-  { issuer: 'Cisco', name: 'CSS Essentials', link: 'https://www.credly.com/badges/3b37497f-6a61-4889-af3c-ed337a460a0b/public_url' },
-  { issuer: 'Cisco', name: 'JavaScript Essentials 1', link: 'https://www.credly.com/badges/9cdd4d55-6ecc-463f-b254-811ccdd0539c/public_url' },
-  { issuer: 'Cisco', name: 'JavaScript Essentials 2', link: 'https://www.credly.com/badges/0e1b036e-4318-4c8e-b750-2aca77314442/public_url' },
-  { issuer: 'Cisco', name: 'Python Essentials 1', link: 'https://www.credly.com/badges/0e21e3eb-d8ef-4770-95d7-dcbd6f8696b1/public_url' },
-  { issuer: 'Udemy', name: 'Microsoft Azure Hands-On Training (AZ-900, AZ-104, AZ-305)', link: 'https://drive.google.com/file/d/1KrXClhY0nJ3Acxs7DioNf4Q1rpaMvgPT/view?usp=sharing' },
+  { issuer: "LearnTube.ai", name: "Quality Analyst Assessment Certificate", date: "October 23, 2026", category: "QUALITY ASSURANCE", link: asset('certificates/sumit-panchal-quality-analyst-assessment-certificate.webp') },
+  { issuer: "LearnTube.ai", name: "Automation Testing Assessment Certificate", date: "October 29, 2026", category: "QUALITY ASSURANCE", link: asset('certificates/sumit-panchal-automation-testing-sumit-certificate.webp') },
+  { issuer: "LearnTube.ai", name: "API Integration", date: "October 23, 2026", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-api-integration-certificate-of-completion.webp') },
+  { issuer: "LearnTube.ai", name: "Component Testing", date: "October 23, 2026", category: "QUALITY ASSURANCE", link: asset('certificates/sumit-panchal-component-testing-certificate.webp') },
+  { issuer: "LearnTube.ai", name: "Frontend Debugging", date: "October 23, 2026", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-frontend-debugging-certificate.webp') },
+  { issuer: "ISTQB / iSQI", name: "ISTQB Certified Tester – Testing with Generative AI (v1.1)", date: "October 08, 2026", category: "QUALITY ASSURANCE", link: asset('certificates/sumit-panchal-istqb-generative-ai-certificate.webp') },
+  { issuer: "ISTQB • Indian Testing Board", name: "ISTQB Automation Test Engineer", date: "October 1, 2026", category: "QUALITY ASSURANCE", link: asset('certificates/sumit-panchal-certificate-of-profession-istqb-automation-test-engineer.webp') },
+  { issuer: "ISTQB • Indian Testing Board", name: "ISTQB CTFL Certificate of Profession", date: "September 1, 2026", category: "QUALITY ASSURANCE", link: asset('certificates/sumit-panchal-istqb-ctfl-certificate-of-profession.webp') },
+  { issuer: "ISTQB • Indian Testing Board", name: "Foundation Level Certificate in Software Testing", date: "August 1, 2026", category: "QUALITY ASSURANCE", link: asset('certificates/sumit-panchal-certificate-of-foundation-level-of-software-testing-profession.webp') },
+  { issuer: "ISTQB • Sri Lanka Software Testing Board", name: "ISTQB Certified Tester – Foundation Level (Core)", date: "October 21, 2026", category: "QUALITY ASSURANCE", link: asset('certificates/sumit-panchal-istqb-foundation-level-certificate.webp') },
+  { issuer: "ISTQB • Sri Lanka Software Testing Board", name: "ISTQB Certified Tester – Foundation Level Agile Tester", date: "October 15, 2026", category: "QUALITY ASSURANCE", link: asset('certificates/sumit-panchal-istqb-foundation-level-agile-tester-certificate.webp') },
+  { issuer: "LinkedIn Learning", name: "Software Testing: Exploratory Testing", date: "August 22, 2020", category: "QUALITY ASSURANCE", link: asset('certificates/sumit-panchal-linkedin-learning-certificate-of-completion.webp') },
+  { issuer: "Deloitte • Forage", name: "Quality Assurance Job Simulation", date: "July 22, 2026", category: "QUALITY ASSURANCE", link: asset('certificates/sumit-panchal-deloitte-quality-assurance-certificate.webp') },
+  { issuer: "Tata • Forage", name: "Quality Assurance Job Simulation", date: "July 17, 2026", category: "QUALITY ASSURANCE", link: asset('certificates/sumit-panchal-tata-forage-certificate-of-completion.webp') },
+  { issuer: "LearnTube.ai", name: "Business Analyst Assessment Certificate", date: "February 13, 2025", category: "QUALITY ASSURANCE", link: asset('certificates/sumit-panchal-business-analyst-assessment-certificate.webp') },
+  { issuer: "Microsoft", name: "GitHub Foundations", date: "October 21, 2026", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-microsoft-github-foundations-certificate.webp') },
+  { issuer: "Oracle University", name: "Oracle Certified Foundations Associate – Java", date: "May 8, 2025", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-oracle-certified-foundations-associate-certificate.webp') },
+  { issuer: "Oracle University", name: "Oracle Data Platform 2025 Certified Foundations Associate", date: "September 29, 2025", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-oracle-foundations-associate-oracle-dataplatform-certificate.webp') },
+  { issuer: "LinkedIn Learning", name: "React Essential Training", date: "October 11, 2025", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-react-essential-training-certificate.webp') },
+  { issuer: "LinkedIn Learning", name: "Learning Python", date: "October 11, 2025", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-linkedin-learning-python-certificates.webp') },
+  { issuer: "LinkedIn Learning", name: "Processing Text with Python Essential Training", date: "October 11, 2025", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-linkedin-learning-python-essential-certificate.webp') },
+  { issuer: "Cisco Networking Academy • JS Institute", name: "Introduction to Data Science", date: "February 21, 2025", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-cisco-networking-academy-certificate.webp') },
+  { issuer: "Cisco Networking Academy • Silver Oak University", name: "JavaScript Essentials 1", date: "August 23, 2017", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-javascript-essentials-certificate-1.webp') },
+  { issuer: "Cisco Networking Academy • Silver Oak University", name: "JavaScript Essentials 2", date: "August 23, 2017", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-javascript-essentials-certificate-2.webp') },
+  { issuer: "Cisco Networking Academy • Silver Oak University", name: "CSS Essentials", date: "July 19, 2017", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-modern-css-essentials-certificate.webp') },
+  { issuer: "Cisco Networking Academy • Silver Oak University", name: "HTML Essentials", date: "July 17, 2017", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-modern-html-essentials-certificate.webp') },
+  { issuer: "C++ Institute • Cisco Networking Academy", name: "CLA: Programming Essentials in C", date: "March 21, 2017", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-c-programming-achievement-certificate.webp') },
+  { issuer: "CampusCrew • Unstop", name: "QuizOff 2026: India's Biggest AI Quiz", date: "July 19, 2026", category: "ACHIEVEMENTS", link: asset('certificates/sumit-panchal-quizoff-2026-certificate-for-sumit-panchal.webp') }
 ];
 
 export type Skill = { name: string; mono: string; note?: string };
 export type SkillCategory = { id: string; title: string; subtitle: string; skills: Skill[] };
-
+const skills = (names: string[]) => names.map((name) => ({ name, mono: name.replace(/[^A-Za-z0-9]/g, '').slice(0, 2).toUpperCase() || 'QA' }));
 export const skillCategories: SkillCategory[] = [
-  {
-    id: 'languages',
-    title: 'Languages',
-    subtitle: 'Java is the primary language',
-    skills: [
-      { name: 'Java', mono: 'Jv', note: 'Primary' },
-      { name: 'Python', mono: 'Py' },
-      { name: 'C', mono: 'C' },
-      { name: 'C++', mono: 'C+' },
-    ],
-  },
-  {
-    id: 'frontend',
-    title: 'Frontend',
-    subtitle: 'Interfaces & the web platform',
-    skills: [
-      { name: 'React', mono: 'Re' },
-      { name: 'HTML', mono: 'Ht' },
-      { name: 'CSS', mono: 'Cs' },
-      { name: 'JavaScript', mono: 'Js' },
-    ],
-  },
-  {
-    id: 'backend',
-    title: 'Backend',
-    subtitle: 'Server-side logic',
-    skills: [
-      { name: 'Node.js', mono: 'No' },
-      { name: 'Express.js', mono: 'Ex' },
-    ],
-  },
-  {
-    id: 'infra',
-    title: 'Infra & Tools',
-    subtitle: 'Shipping & architecture',
-    skills: [
-      { name: 'Docker', mono: 'Dk' },
-      { name: 'Docker Compose', mono: 'Dc' },
-      { name: 'REST APIs', mono: 'Ap' },
-      { name: 'Microservices', mono: 'Ms' },
-      { name: 'JWT Auth', mono: 'Jw' },
-      { name: 'Git / GitHub', mono: 'Gt' },
-      { name: 'Postman', mono: 'Pm' },
-    ],
-  },
-  {
-    id: 'databases',
-    title: 'Databases',
-    subtitle: 'Indexing • Normalization',
-    skills: [
-      { name: 'PostgreSQL', mono: 'Pg' },
-      { name: 'MongoDB', mono: 'Mg' },
-      { name: 'MySQL', mono: 'My' },
-    ],
-  },
-  {
-    id: 'fundamentals',
-    title: 'CS Fundamentals',
-    subtitle: 'The foundations',
-    skills: [
-      { name: 'DSA', mono: 'Ds' },
-      { name: 'OS', mono: 'Os' },
-      { name: 'CN', mono: 'Cn' },
-      { name: 'DBMS', mono: 'Db' },
-      { name: 'OOPs', mono: 'Oo' },
-      { name: 'Collections', mono: 'Co' },
-      { name: 'Multithreading', mono: 'Mt' },
-    ],
-  },
-  {
-    id: 'interests',
-    title: 'Interests',
-    subtitle: 'Coming soon to the series',
-    skills: [
-      { name: 'System Design', mono: 'Sd' },
-      { name: 'Cloud Computing (AWS)', mono: 'Aw' },
-      { name: 'Machine Learning', mono: 'Ml' },
-    ],
-  },
+  { id: 'manual-testing', title: 'Manual Testing', subtitle: 'Core test execution', skills: skills(['Functional Testing', 'Regression Testing', 'Smoke Testing', 'Sanity Testing', 'Exploratory Testing', 'Retesting', 'UAT', 'End-to-End Testing', 'Integration Testing', 'System Testing', 'Black-Box Testing']) },
+  { id: 'test-design', title: 'Test Design & Documentation', subtitle: 'Requirements into coverage', skills: skills(['Requirement Analysis', 'Test Planning', 'Test Case Design', 'Test Scenarios', 'Test Data Preparation', 'Test Documentation', 'Test Coverage', 'RTM', 'Test Reporting']) },
+  { id: 'defect-management', title: 'Defect Management', subtitle: 'Clear, actionable defect lifecycle', skills: skills(['Bug Reporting', 'Defect Lifecycle', 'Severity & Priority', 'Defect Reproduction', 'Retesting & Verification', 'Root Cause Analysis']) },
+  { id: 'web-mobile-qa', title: 'Web & Mobile QA', subtitle: 'Product behavior across platforms', skills: skills(['UI Validation', 'Cross-Browser Testing', 'Cross-Platform Testing', 'Responsive Testing', 'Usability Testing', 'Accessibility Testing', 'Compatibility Testing', 'API Testing Concepts', 'Mobile App Testing']) },
+  { id: 'qa-methodologies', title: 'QA Methodologies', subtitle: 'Quality throughout delivery', skills: skills(['SDLC', 'STLC', 'Agile / Scrum', 'Risk-Based Testing', 'Positive & Negative Testing', 'Boundary Testing', 'Release Validation']) },
+  { id: 'qa-tools', title: 'QA Tools & Technical Exposure', subtitle: 'Testing, investigation, and collaboration', skills: skills(['Jira', 'Microsoft Excel', 'Browser DevTools', 'Postman', 'Git & GitHub', 'BrowserStack', 'Selenium WebDriver', 'Java', 'TestNG', 'Maven', 'REST Assured', 'Jenkins']) },
 ];
 
-/**
- * Factual cross-references shown when a skill card is hovered/tapped:
- * where the skill appears in the projects, certifications or achievements on the resume.
- */
 export const skillEvidence: Record<string, string[]> = {
-  Java: ['Oracle Java Certified Foundations Associate', 'HackerRank 5-star'],
-  Python: ['PolicyGuard AI', 'Cisco Python Essentials 1', 'HackerRank 5-star'],
-  C: ['HackerRank 5-star'],
-  React: ['Payment Gateway System', 'Multi-Tenant SaaS Platform'],
-  HTML: ['Pearson IT Specialist – HTML and CSS', 'Cisco HTML Essentials'],
-  CSS: ['Pearson IT Specialist – HTML and CSS', 'Cisco CSS Essentials'],
-  JavaScript: ['Cisco JavaScript Essentials 1 & 2'],
-  'Node.js': ['Payment Gateway System', 'Multi-Tenant SaaS Platform'],
-  'Express.js': ['Payment Gateway System'],
-  Docker: ['Payment Gateway System'],
-  'Docker Compose': ['Multi-Tenant SaaS Platform'],
-  'REST APIs': ['PolicyGuard AI'],
-  Microservices: ['Payment Gateway System'],
-  'JWT Auth': ['Multi-Tenant SaaS Platform'],
-  'Git / GitHub': ['GitHub Foundations'],
-  PostgreSQL: ['Payment Gateway System', 'Multi-Tenant SaaS Platform'],
-  MongoDB: ['MongoDB Certified Associate Developer'],
-  DBMS: ['NPTEL Database Management System', 'Oracle Database Foundations'],
-  DSA: ['AlgoUniversity Tech Fellow', '850+ problems solved'],
-  'Cloud Computing (AWS)': ['AWS Certified AI Practitioner', 'AWS Academy Cloud Foundations'],
-  'Machine Learning': ['B.Tech AI & ML', 'NPTEL Deep Learning'],
+  'Functional Testing': ['LYMÜV', 'Dap Me', 'Health-E', 'reGive'],
+  'Regression Testing': ['Release validation', 'Defect-fix verification'],
+  'Exploratory Testing': ['Kinzwin', 'Health-E', 'reGive'],
+  'Test Case Design': ['Requirement analysis', 'Structured test scenarios'],
+  'RTM': ['Requirement traceability'],
+  'Bug Reporting': ['Jira', 'Reproducible defect documentation'],
+  'Cross-Browser Testing': ['Web and admin workflows'],
+  'API Testing Concepts': ['Postman', 'API Integration credential'],
+  'Jira': ['Defect tracking and lifecycle management'],
+  'Microsoft Excel': ['Test data', 'Test documentation and traceability'],
+  'Selenium WebDriver': ['Automation testing learning'],
+  'TestNG': ['Automation testing learning'],
 };
 
-export type Episode = {
-  code: string;
-  title: string;
-  description: string;
-  tags: string[];
-  runtime: string;
-  palette: Palette;
-};
-
-export type Season = {
-  number: number;
-  title: string;
-  period: string;
-  synopsis: string;
-  episodes: Episode[];
-};
-
+export type Episode = { code: string; title: string; description: string; tags: string[]; runtime: string; palette: Palette };
+export type Season = { number: number; title: string; period: string; synopsis: string; episodes: Episode[] };
 const crimson: Palette = { from: '#24060b', via: '#6e0d1d', to: '#09070a', accent: '#ff3d5a' };
 const amber: Palette = { from: '#1c1003', via: '#6b3c06', to: '#0a0806', accent: '#ffb547' };
 const ocean: Palette = { from: '#04121f', via: '#0f4c6e', to: '#05080d', accent: '#4cc9ff' };
 const violet: Palette = { from: '#120822', via: '#3d1a6e', to: '#07060c', accent: '#b98bff' };
 const jade: Palette = { from: '#03150f', via: '#0d5a40', to: '#050a08', accent: '#46e3a8' };
-
 export const seasons: Season[] = [
   {
-    number: 1,
-    title: 'The Beginning',
-    period: '2021 – 2023',
-    synopsis: 'Intermediate years at Sri Chaitanya Junior College, Kakinada — Mathematics, Physics and Chemistry.',
-    episodes: [
-      {
-        code: 'S01 E01',
-        title: 'The Foundation',
-        description: 'BIEAP, MPC at Sri Chaitanya Junior College, Kakinada — finishing with a score of 925/1000.',
-        tags: ['MPC', 'BIEAP'],
-        runtime: 'Jun 2021 – May 2023',
-        palette: amber,
-      },
-    ],
+    number: 1, title: 'The Engineering Foundation', period: '2011 – 2018', synopsis: 'Academic foundation in Electronics & Communication Engineering.', episodes: [
+      { code: 'S01 E01', title: 'The Diploma', description: 'Diploma of Engineering in Electronics & Communication Engineering at Atul Polytechnic.', tags: ['Diploma', 'Electronics & Communication', 'CPI 7.74'], runtime: '2011 – 2014', palette: amber },
+      { code: 'S01 E02', title: 'The Degree', description: 'Bachelor of Engineering in Electronics & Communication Engineering at Silver Oak University.', tags: ['B.E.', 'Electronics & Communication', 'CGPA 7.48'], runtime: '2014 – 2018', palette: violet },
+    ]
   },
   {
-    number: 2,
-    title: 'Enter: AI & ML',
-    period: '2023 – Present',
-    synopsis: 'B.Tech in Artificial Intelligence and Machine Learning at Aditya Engineering College, Surampalem.',
-    episodes: [
-      {
-        code: 'S02 E01',
-        title: 'The Engineer',
-        description: 'Bachelor of Technology in Artificial Intelligence and Machine Learning — CGPA 9.10.',
-        tags: ['B.Tech', 'AI & ML', 'CGPA 9.10'],
-        runtime: 'Oct 2023 – Present',
-        palette: violet,
-      },
-      {
-        code: 'S02 E02',
-        title: 'The Topper',
-        description: 'AIML Branch Topper with a 9.24 SGPA for the semester.',
-        tags: ['9.24 SGPA', 'Branch Topper'],
-        runtime: 'One semester',
-        palette: crimson,
-      },
-      {
-        code: 'S02 E03',
-        title: 'The Problem Solver',
-        description: 'LeetCode 350+ (peak 1442), GFG 300+ (1436), CodeChef 200+ and HackerRank 5-star badges in C, Python, Java and SQL.',
-        tags: ['DSA', 'LeetCode', 'GFG', 'CodeChef', 'HackerRank'],
-        runtime: '850+ problems',
-        palette: jade,
-      },
-    ],
+    number: 2, title: 'The QA Journey', period: 'June 2021 - Present', synopsis: 'Quality assurance work focused on web and mobile functionality, requirements, test design, defect analysis, and release validation.', episodes: [
+      { code: 'S02 E01', title: 'Understanding the Product', description: 'Analyzing requirements and clarifying expected behavior before defining test coverage.', tags: ['Requirement Analysis', 'Business Workflows'], runtime: 'QA Practice', palette: ocean },
+      { code: 'S02 E02', title: 'Testing with Intent', description: 'Preparing test plans, scenarios, cases, test data, and risk-based validation across application workflows.', tags: ['Test Design', 'Functional QA', 'Risk-Based Testing'], runtime: 'QA Practice', palette: crimson },
+      { code: 'S02 E03', title: 'From Defect to Confidence', description: 'Documenting defects in Jira, reproducing issues, verifying fixes, and performing regression testing.', tags: ['Jira', 'Defect Lifecycle', 'Regression'], runtime: 'QA Practice', palette: jade },
+    ]
   },
   {
-    number: 3,
-    title: 'Learning to Build',
-    period: '2025 – 2026',
-    synopsis: 'One year of intensive Full-Stack Development training as a Trainee at Technical Hub Pvt Ltd.',
-    episodes: [
-      {
-        code: 'S03 E01',
-        title: 'The Trainee',
-        description: 'Intensive Full-Stack Development training covering frontend, backend, database integration and deployment workflows.',
-        tags: ['FSD', 'Frontend', 'Backend', 'Databases'],
-        runtime: 'May 2025 – Jun 2026',
-        palette: ocean,
-      },
-      {
-        code: 'S03 E02',
-        title: 'The Developer',
-        description: 'Developed responsive web applications — user interfaces, server-side logic and database connectivity.',
-        tags: ['React', 'Node.js', 'Express.js'],
-        runtime: 'Technical Hub',
-        palette: violet,
-      },
-      {
-        code: 'S03 E03',
-        title: 'The Deployer',
-        description: 'Deployed and managed web applications with version control, debugging and end-to-end development practices.',
-        tags: ['Git / GitHub', 'Deployment'],
-        runtime: 'Technical Hub',
-        palette: jade,
-      },
-    ],
+    number: 3, title: 'Products & User Journeys', period: 'Six QA project case studies', synopsis: 'Testing focus across transportation, professional networking, gaming, e-commerce, digital health, and community sharing.', episodes: [
+      { code: 'S03 E01', title: 'Mobility & Networking', description: 'LYMÜV ride booking, driver assignment, payments and tracking; Dap Me authentication, profiles, connections and messaging.', tags: ['LYMÜV', 'Dap Me', 'Mobile QA'], runtime: 'Project case studies', palette: ocean },
+      { code: 'S03 E02', title: 'Gaming & Commerce', description: 'Kinzwin gameplay, scoring, multiplayer synchronization; Bunny Books photo upload, album creation, checkout and order tracking.', tags: ['Kinzwin', 'Bunny Books', 'Regression'], runtime: 'Project case studies', palette: amber },
+      { code: 'S03 E03', title: 'Health & Community', description: 'Health-E registration, ABHA, records and appointments; reGive item requests, transaction lifecycle, handover, pickup and ratings.', tags: ['Health-E', 'reGive', 'End-to-End QA'], runtime: 'Project case studies', palette: jade },
+    ]
   },
   {
-    number: 4,
-    title: 'Building Real Products',
-    period: '2026',
-    synopsis: 'Three Originals — an AI platform, a payment gateway and a multi-tenant SaaS — plus national-level recognition.',
-    episodes: [
-      {
-        code: 'S04 E01',
-        title: 'The AI Builder',
-        description: 'PolicyGuard AI — LLM-based Q&A and key-information extraction across 500+ policy documents at 92% accuracy.',
-        tags: ['Python', 'NLP', 'LLM'],
-        runtime: '2026',
-        palette: crimson,
-      },
-      {
-        code: 'S04 E02',
-        title: 'The Architect',
-        description: 'Payment Gateway System and Multi-Tenant SaaS Platform — state machines, microservices, tenant isolation and RBAC.',
-        tags: ['Node.js', 'PostgreSQL', 'Docker'],
-        runtime: '2026',
-        palette: amber,
-      },
-      {
-        code: 'S04 E03',
-        title: 'The Fellow',
-        description: 'Selected as a Tech Fellow at AlgoUniversity and reached the Semi-Finals of Flipkart GRiD 7.0.',
-        tags: ['AlgoUniversity', 'Flipkart GRiD 7.0'],
-        runtime: 'National stage',
-        palette: ocean,
-      },
-    ],
+    number: 4, title: 'The QA Toolkit', period: 'Methods & Tools', synopsis: 'The processes, documentation, and tools used to plan, execute, and communicate testing.', episodes: [
+      { code: 'S04 E01', title: 'The Test Plan', description: 'Requirement analysis, test planning, test scenarios, test cases, test data, and traceability.', tags: ['Test Design', 'RTM', 'Documentation'], runtime: 'Core practice', palette: violet },
+      { code: 'S04 E02', title: 'The Verification Loop', description: 'Functional, regression, smoke, sanity, exploratory, retesting, and UAT validation.', tags: ['Manual Testing', 'UAT', 'Release Validation'], runtime: 'Core practice', palette: crimson },
+      { code: 'S04 E03', title: 'The Toolset', description: 'Jira, Excel, browser developer tools, Postman, Git/GitHub, and additional automation-testing exposure.', tags: ['Jira', 'Excel', 'Postman', 'DevTools'], runtime: 'QA Toolkit', palette: ocean },
+    ]
   },
   {
-    number: 5,
-    title: "What's Next",
-    period: 'Now streaming',
-    synopsis: 'The interests on the resume point to the next arc of the story.',
-    episodes: [
-      {
-        code: 'S05 E01',
-        title: 'The Next Chapter',
-        description: 'Exploring System Design, Cloud Computing (AWS) and Machine Learning.',
-        tags: ['System Design', 'AWS', 'Machine Learning'],
-        runtime: 'In production',
-        palette: violet,
-      },
-    ],
+    number: 5, title: 'Learning & Credentials', period: 'Professional development', synopsis: 'Software-testing credentials and technical learning that support a quality-focused practice.', episodes: [
+      { code: 'S05 E01', title: 'Software Testing', description: 'ISTQB software-testing credentials and LearnTube.ai QA assessments.', tags: ['ISTQB', 'LearnTube.ai', 'Software Testing'], runtime: 'Certifications', palette: jade },
+      { code: 'S05 E02', title: 'Supporting Technical Skills', description: 'Additional learning in API integration, component testing, debugging, GitHub, Java, Python, web technologies, and data.', tags: ['API Integration', 'Debugging', 'Technical Learning'], runtime: 'Certifications', palette: amber },
+    ]
   },
 ];
 
 export type TopPick = { label: string; title: string; detail: string; palette: Palette };
-
 export const topPicks: TopPick[] = [
-  { label: 'Primary language', title: 'Java', detail: 'Listed as primary on the resume • Oracle certified', palette: amber },
-  { label: 'The AI Original', title: 'PolicyGuard AI', detail: '500+ documents • 92% accuracy', palette: crimson },
-  { label: 'Biggest stage', title: 'Flipkart GRiD 7.0', detail: 'Semi-Finalist', palette: ocean },
-  { label: 'National selection', title: 'AlgoUniversity', detail: 'Tech Fellow', palette: violet },
-  { label: 'Academic high', title: 'Branch Topper', detail: '9.24 SGPA in AI & ML', palette: jade },
-  { label: 'Cloud credential', title: 'AWS AI Practitioner', detail: 'AWS Certified', palette: amber },
-  { label: 'Problems solved', title: '850+', detail: 'LeetCode 350+ • GFG 300+ • CodeChef 200+', palette: crimson },
-  { label: 'The training arc', title: '1 Year of FSD', detail: 'Technical Hub Pvt Ltd', palette: ocean },
-  { label: 'Database credential', title: 'MongoDB', detail: 'Certified Associate Developer', palette: jade },
-  { label: 'Current focus', title: 'System Design', detail: 'with Cloud (AWS) & Machine Learning', palette: violet },
+  { label: 'Test Execution', title: 'Functional Testing', detail: 'Validate expected product behavior and business workflows.', palette: crimson },
+  { label: 'Regression', title: 'Regression Testing', detail: 'Recheck impacted areas after changes and defect fixes.', palette: ocean },
+  { label: 'Test Design', title: 'Test Scenarios', detail: 'Turn requirements into clear, traceable coverage.', palette: violet },
+  { label: 'Defect Control', title: 'Bug Reporting', detail: 'Clear steps, expected results, evidence, and reproducibility.', palette: amber },
+  { label: 'Exploration', title: 'Exploratory Testing', detail: 'Investigate product behavior beyond scripted paths.', palette: jade },
+  { label: 'Risk Focus', title: 'Risk-Based Testing', detail: 'Prioritize critical workflows and potential user impact.', palette: crimson },
+  { label: 'Verification', title: 'Retesting', detail: 'Verify fixes and confirm the reported behavior is resolved.', palette: ocean },
+  { label: 'Compatibility', title: 'Web & Mobile QA', detail: 'Validate UI, responsiveness, and cross-platform behavior.', palette: violet },
+  { label: 'Collaboration', title: 'Jira & QA Reports', detail: 'Support transparent defect tracking and test communication.', palette: amber },
+  { label: 'Experience', title: '5+ Years in QA', detail: 'Quality assurance across web and mobile application workflows.', palette: jade },
 ];
 
-/** Slides for the "▶ Play Intro" cinematic sequence. */
 export type IntroSlide = { kicker: string; title: string; lines: string[]; chips?: string[] };
-
 export const introSlides: IntroSlide[] = [
-  {
-    kicker: 'Education',
-    title: 'B.Tech · AI & ML',
-    lines: ['Aditya Engineering College, Surampalem', 'October 2023 – Present'],
-    chips: ['CGPA 9.10'],
-  },
-  {
-    kicker: 'Skills',
-    title: 'Java first.',
-    lines: ['Python, C, C++ · React, Node.js, Express.js', 'PostgreSQL, MongoDB, MySQL · Docker, REST, JWT'],
-    chips: ['Java', 'Python', 'React', 'Node.js', 'Docker', 'PostgreSQL'],
-  },
-  {
-    kicker: 'Training',
-    title: 'The Training Arc',
-    lines: ['One year of intensive Full‑Stack Development training', 'Trainee · Technical Hub Pvt Ltd · May 2025 – June 2026', 'Frontend · Backend · Databases · Deployment'],
-  },
-  {
-    kicker: 'Projects',
-    title: 'Three Originals',
-    lines: ['PolicyGuard AI — 500+ documents, 92% accuracy', 'Payment Gateway — 1,000+ transactions, 99.8% uptime', 'Multi-Tenant SaaS — 50+ tenants, zero unauthorized access'],
-  },
-  {
-    kicker: 'Achievements',
-    title: 'Top Moments',
-    lines: ['Tech Fellow — AlgoUniversity', 'Semi-Finalist — Flipkart GRiD 7.0', 'AIML Branch Topper — 9.24 SGPA'],
-  },
-  {
-    kicker: 'Certified',
-    title: '16 Certifications',
-    lines: ['AWS · MongoDB · Oracle · GitHub · Pearson', 'NPTEL · Cisco · Udemy'],
-  },
-  {
-    kicker: 'Current mission',
-    title: 'Now exploring',
-    lines: ['System Design · Cloud Computing (AWS) · Machine Learning'],
-  },
+  { kicker: 'Profile', title: 'Manual QA Engineer', lines: ['Sumit Panchal · Quality Assurance Analyst', '5+ years of experience in software testing'], chips: ['Web QA', 'Mobile QA'] },
+  { kicker: 'Test Design', title: 'Requirements to Coverage', lines: ['Requirement analysis · Test planning · Test scenarios', 'Test cases · Test data · RTM'], chips: ['Test Design', 'Documentation'] },
+  { kicker: 'Execution', title: 'Validate the Journey', lines: ['Functional · Regression · Smoke · Sanity', 'Exploratory · Retesting · UAT · End-to-End'], chips: ['Manual Testing', 'Risk-Based QA'] },
+  { kicker: 'Defects', title: 'Make Issues Actionable', lines: ['Reproduction steps · Severity & priority', 'Defect lifecycle · Retesting · Root cause analysis'], chips: ['Jira', 'Defect Analysis'] },
+  { kicker: 'Projects', title: 'Six QA Case Studies', lines: ['LYMÜV · Dap Me · Kinzwin · Bunny Books', 'Health-E · reGive'], chips: ['Web', 'Mobile', 'Admin'] },
+  { kicker: 'Certified', title: `${certifications.length} Credentials`, lines: ['Software testing · QA assessments · API integration', 'ISTQB · LearnTube.ai · Technical learning'], chips: ['Software Quality', 'Continuous Learning'] },
 ];
 
-export type ProfileId = 'sumit' | 'recruiter' | 'developer' | 'creative';
+export type ProfileId = 'sumit' | 'recruiter' | 'qa' | 'creative';
 export type SectionId = 'about' | 'journey' | 'originals' | 'picks' | 'skills' | 'moments' | 'story';
-
-export const viewerProfiles: {
-  id: ProfileId;
-  name: string;
-  blurb: string;
-  color: string;
-  order: SectionId[];
-}[] = [
-    {
-      id: 'sumit',
-      name: 'sumit',
-      blurb: 'The full series, in order',
-      color: '#e5132b',
-      order: ['about', 'journey', 'originals', 'picks', 'skills', 'moments', 'story'],
-    },
-    {
-      id: 'recruiter',
-      name: 'Recruiter',
-      blurb: 'Resume, achievements & skills first',
-      color: '#4cc9ff',
-      order: ['story', 'moments', 'skills', 'originals', 'about', 'journey', 'picks'],
-    },
-    {
-      id: 'developer',
-      name: 'Developer',
-      blurb: 'Projects, stack & GitHub first',
-      color: '#46e3a8',
-      order: ['originals', 'skills', 'journey', 'moments', 'about', 'picks', 'story'],
-    },
-    {
-      id: 'creative',
-      name: 'Creative',
-      blurb: 'The story arc & highlights first',
-      color: '#ffb547',
-      order: ['journey', 'picks', 'originals', 'moments', 'about', 'skills', 'story'],
-    },
-  ];
+export const viewerProfiles: { id: ProfileId; name: string; blurb: string; color: string; order: SectionId[] }[] = [
+  { id: 'sumit', name: 'Sumit', blurb: 'The complete QA portfolio', color: '#e5132b', order: ['about', 'journey', 'originals', 'picks', 'skills', 'moments', 'story'] },
+  { id: 'recruiter', name: 'Recruiter', blurb: 'Experience, QA skills & resume first', color: '#4cc9ff', order: ['story', 'moments', 'skills', 'originals', 'about', 'journey', 'picks'] },
+  { id: 'qa', name: 'QA Team', blurb: 'Testing projects, methods & defect workflows', color: '#46e3a8', order: ['originals', 'skills', 'journey', 'moments', 'about', 'picks', 'story'] },
+  { id: 'creative', name: 'Product Team', blurb: 'Product journeys & quality highlights', color: '#ffb547', order: ['journey', 'originals', 'picks', 'moments', 'about', 'skills', 'story'] },
+];
 
 export const sectionMeta: Record<SectionId, { nav: string; card: string; meta: string; palette: Palette }> = {
-  about: { nav: 'About', card: 'About Me', meta: 'The Pilot • Education & training', palette: violet },
-  journey: { nav: 'Journey', card: 'My Journey', meta: `${seasons.length} Seasons • ${seasons.reduce((n, s) => n + s.episodes.length, 0)} Episodes`, palette: amber },
-  originals: { nav: 'Originals', card: 'My Projects', meta: `${projects.length} Originals • 2026`, palette: crimson },
-  picks: { nav: 'Top Picks', card: 'Top Picks', meta: 'Top 10 from the resume', palette: jade },
-  skills: { nav: 'Skills', card: 'My Skills', meta: `${skillCategories.length} Categories`, palette: ocean },
-  moments: { nav: 'Moments', card: 'My Achievements', meta: `${achievements.length} Moments • ${certifications.length} Certifications`, palette: crimson },
-  story: { nav: 'Resume', card: 'The Full Story', meta: 'Resume • View & download', palette: violet },
+  about: { nav: 'About', card: 'About Me', meta: 'Profile • Education & experience', palette: violet },
+  journey: { nav: 'Journey', card: 'QA Journey', meta: `${seasons.length} Seasons • ${seasons.reduce((n, s) => n + s.episodes.length, 0)} Episodes`, palette: amber },
+  originals: { nav: 'Projects', card: 'QA Projects', meta: `${projects.length} Project Case Studies`, palette: crimson },
+  picks: { nav: 'QA Focus', card: 'QA Focus Areas', meta: '10 Testing Priorities', palette: jade },
+  skills: { nav: 'Skills', card: 'QA Skills', meta: `${skillCategories.length} Skill Categories`, palette: ocean },
+  moments: { nav: 'Credentials', card: 'QA Highlights', meta: `${achievements.length} Contributions • ${certifications.length} Credentials`, palette: crimson },
+  story: { nav: 'Resume', card: 'Resume', meta: 'Resume • View & download', palette: violet },
 };
