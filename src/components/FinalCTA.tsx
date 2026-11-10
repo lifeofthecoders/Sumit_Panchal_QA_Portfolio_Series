@@ -285,13 +285,18 @@ export default function FinalCTA({
             </div>
 
             {/* Morse-code identity */}
-            <motion.p
+            <motion.button
+              type="button"
+              onClick={() => scrollTo('#top', { offset: 0 })}
+              aria-label="Return to the top of the portfolio"
+              title="Back to portfolio home"
               whileHover={{ scale: 1.025 }}
+              whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.25 }}
-              className="mt-5 border-b border-crimson/60 pb-2 font-mono text-[9px] tracking-[0.12em] text-crimson-2 transition-colors duration-300 hover:border-blue-400 hover:text-blue-400 sm:text-[10px] sm:tracking-[0.18em]"
+              className="mt-5 border-b-2 border-crimson/70 pb-2 font-mono text-[10px] font-[800] tracking-[0.14em] text-crimson-2 transition-colors duration-300 hover:border-blue-400 hover:text-blue-400 sm:text-[11px] sm:tracking-[0.2em]"
             >
               📡 ... ..- -- .. - / .--. .- -. -.-. .... .- .-.. 🛰️
-            </motion.p>
+            </motion.button>
           </div>
 
           {/* Right: Professional quality statement */}

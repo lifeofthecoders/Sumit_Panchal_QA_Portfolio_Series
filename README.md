@@ -4,7 +4,7 @@
 
 ### A cinematic portfolio showcasing my software quality assurance experience, testing approach, and project case studies.
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-The%20QA%20Series-e5132b?style=for-the-badge&logo=github&logoColor=white)](https://lifeofthecoders.github.io/Portfolio_Series/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-The%20QA%20Series-e5132b?style=for-the-badge&logo=github&logoColor=white)](https://lifeofthecoders.github.io/Sumit_Panchal_QA_Portfolio_Series/)
 [![React](https://img.shields.io/badge/React-18-20232a?style=flat-square&logo=react)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-6-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vite.dev/)
@@ -104,36 +104,37 @@ Project descriptions and testing details are presented as portfolio case-study m
 ## 🧰 Technology Stack
 
 ### Frontend
-- **React 18** — component-based user interface.
-- **TypeScript 5.8** — typed application logic and component contracts.
-- **Vite 6** — local development server and production bundler.
-- **Tailwind CSS 4** — utility-first styling.
-- **Framer Motion 11** — page transitions and interface animations.
+- **React 18** - component-based user interface.
+- **TypeScript 5.8** - typed application logic and component contracts.
+- **Vite 6** - local development server and production bundler.
+- **Tailwind CSS 4** - utility-first styling.
+- **Framer Motion 11** - page transitions and interface animations.
 
 ### Interaction and scrolling
-- **Lenis** — smooth scrolling.
-- **HTML Canvas** — pointer particle trail and ambient spotlight.
-- **SVG and CSS** — vector artwork and visual effects.
-- **Custom React cursor** — pointer-following cursor and contextual hover labels.
+- **Lenis** - smooth scrolling.
+- **HTML Canvas** - pointer particle trail and ambient spotlight.
+- **SVG and CSS** - vector artwork and visual effects.
+- **Custom React cursor** - pointer-following cursor and contextual hover labels.
 
 ### Build and quality tooling
-- **TypeScript compiler** — project type checking.
-- **Vite production build** — optimized static site output.
-- **Sharp** — image processing utility used by the image build script.
+- **TypeScript compiler** - project type checking.
+- **Vite production build** - optimized static site output.
+- **Sharp** - image processing utility used by the image build script.
 
 ## 📁 Project Structure
 
 ```text
-Portfolio_Series/
+Sumit_Panchal_QA_Portfolio_Series/
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml              # GitHub Pages build and deployment
 ├── public/
-│   ├── favicon.svg                 # SP browser icon
-│   ├── favicon.ico                 # Multi-size browser icon
-│   ├── favicon-32.png              # PNG browser / touch icon
+│   ├── favicon/
+│   │   ├── favicon.svg             # Supplied SVG browser icon
+│   │   └── favicon.ico             # Supplied ICO browser icon
+│   ├── Resume/
+│   │   └── Sumit_Panchal_Resume.pdf # Resume used by view and download actions
 │   ├── assets/
-│   │   ├── Sumit_Panchal_Resume.pdf
 │   │   ├── portrait-420.webp
 │   │   ├── portrait-720.webp
 │   │   ├── portrait-1100.webp
@@ -198,8 +199,8 @@ Portfolio_Series/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/lifeofthecoders/Portfolio_Series.git
-cd Portfolio_Series
+git clone https://github.com/lifeofthecoders/Sumit_Panchal_QA_Portfolio_Series.git
+cd Sumit_Panchal_QA_Portfolio_Series
 ```
 
 ### 2. Install dependencies
@@ -219,7 +220,7 @@ npm run dev
 Open the local URL shown in the terminal. Vite normally uses:
 
 ```text
-http://localhost:5173/Portfolio_Series/
+http://localhost:5173/Sumit_Panchal_QA_Portfolio_Series/
 ```
 
 ### 4. Build and preview
@@ -247,8 +248,8 @@ Project details open as dedicated pages rather than pop-up dialogs. The selected
 Example:
 
 ```text
-/Portfolio_Series/?project=lymuv
-/Portfolio_Series/?project=dap-me
+/Sumit_Panchal_QA_Portfolio_Series/?project=lymuv
+/Sumit_Panchal_QA_Portfolio_Series/?project=dap-me
 ```
 
 The exact project identifier is defined in `src/data/portfolio.ts`.
@@ -264,7 +265,7 @@ The exact project identifier is defined in `src/data/portfolio.ts`.
 This repository is configured for **GitHub Pages** with the Vite base path:
 
 ```ts
-base: '/Portfolio_Series/'
+base: '/Sumit_Panchal_QA_Portfolio_Series/',
 ```
 
 A GitHub Actions workflow is located at:
@@ -285,7 +286,7 @@ The workflow installs dependencies with `npm ci`, runs `npm run build`, and depl
 
 The configured public URL is:
 
-[https://lifeofthecoders.github.io/Portfolio_Series/](https://lifeofthecoders.github.io/Portfolio_Series/)
+[GitHub repository](https://github.com/lifeofthecoders/Sumit_Panchal_QA_Portfolio_Series) · [Live portfolio](https://lifeofthecoders.github.io/Sumit_Panchal_QA_Portfolio_Series/)
 
 If the favicon appears unchanged immediately after deployment, perform a hard refresh (`Ctrl + Shift + R`) or clear the browser's cached site icon. Browser favicon caches can persist independently of the page cache.
 

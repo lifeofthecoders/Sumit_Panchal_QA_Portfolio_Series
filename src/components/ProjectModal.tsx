@@ -1,8 +1,9 @@
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { projects, type Project } from '../data/portfolio';
 import { EASE } from './fx';
+import { useSmoothScroll } from '../hooks/smoothScroll';
 import { ProjectArt } from './Poster';
 
 const block = {
@@ -26,10 +27,31 @@ export default function ProjectModal({
   onClose,
   onSwitch,
 }: ProjectModalProps) {
-  const scroller = useRef<HTMLElement>(null);
   const closeBtn = useRef<HTMLButtonElement>(null);
+  const { scrollTo } = useSmoothScroll();
 
-  // Close modal with Escape and manage keyboard focus.
+  // Reset the project details page to the very top whenever
+  // a project is opened, reopened, or switched.
+  useLayoutEffect(() => {
+    scrollTo(0, {
+      offset: 0,
+      immediate: true,
+    });
+
+    const frame = window.requestAnimationFrame(() => {
+      scrollTo(0, {
+        offset: 0,
+        immediate: true,
+      });
+    });
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+    };
+  }, [project.id, scrollTo]);
+
+
+  // Close with Escape and manage keyboard focus.
   useEffect(() => {
     const previousFocus = document.activeElement as HTMLElement | null;
 
@@ -49,16 +71,11 @@ export default function ProjectModal({
     };
   }, [onClose]);
 
-  // Reset modal scroll when switching projects.
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'auto' });
-  }, [project.id]);
-
   const more = projects.filter((p) => p.id !== project.id);
 
   return (
     <motion.main
-      ref={scroller}
+      key={project.id}
       className="relative min-h-screen w-full overflow-x-hidden bg-ink"
       aria-labelledby={`title-${project.id}-modal`}
     >
@@ -66,7 +83,6 @@ export default function ProjectModal({
       <div className="relative mx-auto min-h-screen max-w-5xl bg-ink-2 shadow-2xl">
         <motion.div
           className="relative"
-
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{
@@ -100,7 +116,7 @@ export default function ProjectModal({
               </span>
             </a>
 
-            {/* CLOSE BUTTON */}
+            {/* BACK BUTTON */}
             <button
               ref={closeBtn}
               type="button"
@@ -112,12 +128,12 @@ export default function ProjectModal({
               aria-label="Back to all projects"
               className="absolute left-4 top-4 z-20 flex h-11 items-center justify-center gap-1 rounded-full border border-white/15 bg-black/65 px-4 text-xs font-bold tracking-[0.16em] text-bone shadow-lg backdrop-blur-md transition-all duration-300 hover:scale-105 hover:border-crimson-2 hover:bg-crimson hover:text-white active:scale-95 sm:left-6 sm:top-6"
             >
-              <span className="mr-1">←</span><span className="hidden sm:inline">BACK</span>
+              <span className="mr-1">←</span>
+              <span className="hidden sm:inline">BACK</span>
             </button>
-
           </div>
 
-          {/* PROJECT TITLE - SEPARATE FROM THE CLEAN BANNER */}
+          {/* PROJECT TITLE */}
           <motion.header
             className="px-5 pt-8 sm:px-10 sm:pt-10"
             initial={{ opacity: 0, y: 18 }}
@@ -125,15 +141,19 @@ export default function ProjectModal({
             transition={{ duration: 0.65, ease: EASE, delay: 0.08 }}
           >
             <p className="mb-3 flex items-center gap-2 text-[10px] font-bold tracking-[0.3em] text-mist sm:text-[11px]">
-              <span className="font-display text-xl tracking-normal text-crimson-2">SP</span>
+              <span className="font-display text-xl tracking-normal text-crimson-2">
+                SP
+              </span>
               MANUAL QA CASE STUDY
             </p>
+
             <h1
               id={`title-${project.id}-modal`}
               className="max-w-4xl break-words font-display text-[clamp(2.4rem,6vw,5rem)] leading-[0.95] tracking-wide text-bone"
             >
               {project.title}
             </h1>
+
             <div className="mt-5 h-px w-full bg-gradient-to-r from-crimson-2/70 via-white/15 to-transparent" />
           </motion.header>
 
@@ -283,6 +303,7 @@ export default function ProjectModal({
                           background: project.palette.accent,
                         }}
                       />
+
                       {item}
                     </li>
                   ))}

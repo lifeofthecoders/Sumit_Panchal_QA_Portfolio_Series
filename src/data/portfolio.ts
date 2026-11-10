@@ -23,7 +23,7 @@ export const profile = {
     linkedin: 'https://www.linkedin.com/in/sumit-panchal-b790a8236/',
     github: 'https://github.com/lifeofthecoders',
   },
-  resumePdf: asset('assets/Sumit_Panchal_Resume.pdf'),
+  resumePdf: asset('resume/Sumit_Panchal_Resume.pdf'),
   portrait: {
     src: asset('assets/portrait-720.webp'),
     srcSet: `${asset('assets/portrait-720.webp')} 720w, ${asset('assets/portrait-1100.webp')} 1100w`,
@@ -199,7 +199,7 @@ export const projects: Project[] = [
     logline: 'QA coverage for registration, OTP, ABHA generation, medical records, appointments, reminders, health modules, and role-based administration.',
     overview: 'A digital health locker for managing medical records and health information, ABHA ID creation, appointments, medication reminders, emergency information, pregnancy and paediatric care features, and administrator tools.',
     role: 'Manual QA Engineer',
-    platforms: ['Mobile App', 'Admin Dashboard'],
+    platforms: ['Android', 'iOS', 'Web Admin'],
     image: projectAsset('project-health-e-qa.jpg'),
     bannerImage: projectAsset('project-health-e-banner.jpg'),
     gallery: [
@@ -226,7 +226,7 @@ export const projects: Project[] = [
     logline: 'End-to-end QA across item posting, requests, promise and acceptance, handover, pickup, transaction status, ratings, and notifications.',
     overview: 'A community-sharing app where users post items they want to give away, browse articles, send or withdraw requests, and coordinate pickup times through a defined offeror/requester transaction lifecycle.',
     role: 'Project Manager & Manual QA Engineer',
-    platforms: ['Android Mobile App'],
+    platforms: ['Android', 'iOS', 'Web Admin'],
     image: projectAsset('project-regive-qa.jpg'),
     bannerImage: projectAsset('project-regive-banner.jpg'),
     gallery: [
