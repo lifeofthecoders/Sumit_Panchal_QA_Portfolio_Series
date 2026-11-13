@@ -192,7 +192,7 @@ export default function FinalCTA({
       </div>
 
       {/* Professional footer - normal document flow, no overlapping */}
-      <footer className="relative z-10 mt-24 w-full max-w-[1900px] border-t border-white/10 pt-8 text-left">
+      <footer className="relative z-10 mt-24 w-screen max-w-[1900px] self-center border-t border-white/10 gutter pt-8 text-left">
         <div className="grid gap-9 md:grid-cols-[1fr_1.2fr_1fr] md:items-center">
 
           {/* Left: Brand and copyright */}

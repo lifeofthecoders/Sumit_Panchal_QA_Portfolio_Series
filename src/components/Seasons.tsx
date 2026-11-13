@@ -6,7 +6,7 @@ import EpisodeCard from './EpisodeCard';
 import { RailButtons } from './Rail';
 
 export default function Seasons() {
-  const [active, setActive] = useState(seasons.length - 2);
+  const [active, setActive] = useState(0);
   const season = seasons[active];
   const rail = useRef<HTMLDivElement>(null);
 
@@ -59,7 +59,7 @@ export default function Seasons() {
           <p className="gutter max-w-3xl text-[15px] leading-relaxed text-bone/75">{season.synopsis}</p>
 
           <div className="group/rail relative">
-            <div ref={rail} className="rail gutter flex snap-x snap-mandatory gap-4 overflow-x-auto py-8 [perspective:1200px]">
+            <div ref={rail} className="rail flex snap-x snap-mandatory gap-4 overflow-x-auto px-[var(--gutter)] py-8 scroll-px-[var(--gutter)] [perspective:1200px]">
               {season.episodes.map((e, i) => (
                 <EpisodeCard key={e.code} episode={e} index={i} />
               ))}

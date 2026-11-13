@@ -4,6 +4,21 @@ import { motion } from 'framer-motion';
 import { profile, viewerProfiles, type ProfileId } from '../data/portfolio';
 import { EASE } from './fx';
 
+function toTitleCase(value: string) {
+  const acronyms = new Set(['QA', 'API', 'SDLC', 'STLC', 'RTM', 'UAT', 'ISTQB']);
+  return value
+    .split(/(\s+)/)
+    .map((part) => {
+      if (!part.trim()) return part;
+      return part.split(/([/&-])/).map((word) => {
+        if (!word || /^[/&-]$/.test(word)) return word;
+        if (acronyms.has(word.toUpperCase())) return word.toUpperCase();
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+      }).join('');
+    })
+    .join('');
+}
+
 export function ProfileAvatar({
   id,
   size = 'md',
@@ -13,13 +28,19 @@ export function ProfileAvatar({
 }) {
   const sizeClass = size === 'sm' ? 'h-8 w-8' : 'h-24 w-24';
 
+  const avatarFrame =
+    `${sizeClass} flex shrink-0 items-center justify-center overflow-hidden ` +
+    'rounded-xl border border-white/10 bg-[#202024]';
+
   if (id === 'sumit') {
     return (
-      <img
-        src={`${import.meta.env.BASE_URL}assets/portrait-420.webp`}
-        alt="Sumit Panchal"
-        className={`${sizeClass} rounded-xl object-cover`}
-      />
+      <span className={avatarFrame}>
+        <img
+          src={`${import.meta.env.BASE_URL}assets/portrait-420.webp`}
+          alt="Sumit Panchal"
+          className="h-full w-full object-cover object-center"
+        />
+      </span>
     );
   }
 
@@ -32,7 +53,16 @@ export function ProfileAvatar({
 
   return (
     <span
-      className={`${sizeClass} flex items-center justify-center rounded-xl bg-white/10 font-display text-2xl text-bone`}
+      className={`${avatarFrame} font-display leading-none text-bone ${
+        id === 'qa'
+          ? size === 'sm'
+            ? 'text-sm tracking-tight'
+            : 'text-2xl tracking-tight'
+          : size === 'sm'
+            ? 'text-lg'
+            : 'text-3xl'
+      }`}
+      aria-hidden="true"
     >
       {glyph[id]}
     </span>
@@ -61,7 +91,7 @@ export default function ProfileSelector({
       exit={{ opacity: 0, scale: 1.08, filter: 'blur(10px)' }}
       transition={{ duration: 0.7, ease: EASE }}
       role="dialog"
-      aria-label="Who's watching?"
+      aria-label="Who's Watching?"
     >
       <div
         aria-hidden
@@ -74,7 +104,7 @@ export default function ProfileSelector({
         animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
         transition={{ duration: 0.8, ease: EASE }}
       >
-        Who&apos;s watching?
+        Who&apos;s Watching?
       </motion.h2>
 
       <motion.ul
@@ -106,17 +136,17 @@ export default function ProfileSelector({
 
                 {p.id === 'sumit' && (
                   <span className="absolute -right-2 -top-2 rounded-full bg-crimson px-2 py-0.5 text-[9px] font-bold tracking-[0.18em] text-white">
-                    MAIN
+                    Main
                   </span>
                 )}
               </span>
 
               <span className="font-sans text-sm font-medium text-mist transition group-hover:text-bone sm:text-base">
-                {p.name}
+                {toTitleCase(p.name)}
               </span>
 
               <span className="max-w-[9rem] text-[11px] leading-snug text-smoke">
-                {p.blurb}
+                {toTitleCase(p.blurb)}
               </span>
             </button>
           </motion.li>
@@ -124,7 +154,7 @@ export default function ProfileSelector({
       </motion.ul>
 
       <p className="relative mt-12 max-w-md text-center text-xs leading-relaxed text-smoke">
-        Every profile explores the same QA story of {profile.displayName} - it only changes what plays first.
+        Every Profile Explores The Same QA Story Of {profile.displayName} - It Only Changes What Plays First.
       </p>
     </motion.div>
   );

@@ -72,7 +72,7 @@ export default function Achievements() {
           <p className="text-xs text-smoke">{issuers.join(' · ')}</p>
         </div>
         <div className="group/rail relative">
-          <div ref={rail} className="rail gutter flex snap-x gap-3 overflow-x-auto py-5">
+          <div ref={rail} className="rail flex snap-x gap-3 overflow-x-auto px-[var(--gutter)] py-5 scroll-px-[var(--gutter)]">
             {certifications.map((c, i) => (
               <motion.a
                 key={c.name}

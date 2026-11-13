@@ -167,18 +167,28 @@ export default function ProjectModal({
               delayChildren: 0.25,
             }}
           >
-            {/* ROLE AND CATEGORY */}
+            {/* PROJECT ROLE AND DOMAIN */}
             <motion.div
               variants={block}
-              className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-mist"
+              className="grid gap-4 sm:grid-cols-2"
             >
-              <span className="font-semibold text-[#46e3a8]">
-                {project.role}
-              </span>
+              <div className="rounded-lg border border-white/10 bg-white/[0.03] px-4 py-3">
+                <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-smoke">
+                  Role
+                </p>
+                <p className="mt-1.5 text-sm font-semibold leading-relaxed text-[#46e3a8]">
+                  {project.role}
+                </p>
+              </div>
 
-              <span className="h-1 w-1 rounded-full bg-smoke" />
-
-              <span>{project.genre}</span>
+              <div className="rounded-lg border border-white/10 bg-white/[0.03] px-4 py-3">
+                <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-smoke">
+                  Domain
+                </p>
+                <p className="mt-1.5 text-sm font-semibold leading-relaxed text-bone">
+                  {project.genre}
+                </p>
+              </div>
             </motion.div>
 
             {/* DESCRIPTION */}

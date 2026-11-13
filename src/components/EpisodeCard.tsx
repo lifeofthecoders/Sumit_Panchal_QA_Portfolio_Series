@@ -3,6 +3,22 @@ import type { Episode } from '../data/portfolio';
 import { EASE, Tilt } from './fx';
 import { PosterBackdrop } from './Poster';
 
+const TAG_ACRONYMS = new Set([
+  'QA', 'RTM', 'UAT', 'API', 'SDLC', 'STLC', 'ISTQB', 'LYMÜV',
+]);
+
+function formatTag(tag: string) {
+  return tag
+    .split(' ')
+    .map((word) => {
+      const clean = word.replace(/[^A-Za-z0-9&.-]/g, '');
+      if (TAG_ACRONYMS.has(clean.toUpperCase())) return clean.toUpperCase();
+      if (/^[A-Z0-9]{2,}$/.test(clean)) return word;
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    })
+    .join(' ');
+}
+
 export default function EpisodeCard({ episode, index }: { episode: Episode; index: number }) {
   const [season, ep] = episode.code.split(' ');
   return (
@@ -37,7 +53,7 @@ export default function EpisodeCard({ episode, index }: { episode: Episode; inde
             <div className="mt-auto flex flex-wrap gap-1.5 pt-4">
               {episode.tags.map((t) => (
                 <span key={t} className="rounded-full bg-white/[0.06] px-2.5 py-1 text-[11px] text-mist">
-                  {t}
+                  {formatTag(t)}
                 </span>
               ))}
             </div>

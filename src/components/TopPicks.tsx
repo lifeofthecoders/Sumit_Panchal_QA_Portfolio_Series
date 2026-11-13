@@ -19,7 +19,7 @@ export default function TopPicks() {
       <div className="group/rail relative">
         <div
           ref={rail}
-          className="rail gutter flex snap-x snap-mandatory gap-2 overflow-x-auto py-6"
+          className="rail flex snap-x snap-mandatory gap-2 overflow-x-auto px-8 py-6 scroll-px-[var(--gutter)]"
         >
           {topPicks.map((pick, i) => (
             <motion.div

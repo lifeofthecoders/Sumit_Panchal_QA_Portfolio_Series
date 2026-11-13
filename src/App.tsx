@@ -85,8 +85,10 @@ export default function App() {
 function Series() {
   const stored = readStoredProfile();
 
+  // Always show the signature opening on a fresh portfolio visit.
+  // A direct project URL still opens its requested project immediately.
   const [stage, setStage] = useState<Stage>(
-    readProjectFromUrl() || stored ? 'home' : 'opening',
+    readProjectFromUrl() ? 'home' : 'opening',
   );
 
   const [profileId, setProfileId] = useState<ProfileId>(
@@ -163,6 +165,7 @@ function Series() {
 
   const closeIntro = useCallback(() => {
     setPlaying(false);
+    setStage('profiles');
   }, []);
 
   // OPEN PROJECT:
@@ -338,6 +341,7 @@ function Series() {
           <OpeningSequence
             key="opening"
             onDone={() => setStage('profiles')}
+            onPlay={() => setPlaying(true)}
           />
         )}
 
