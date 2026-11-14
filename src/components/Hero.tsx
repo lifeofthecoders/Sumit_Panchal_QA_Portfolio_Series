@@ -77,13 +77,15 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
         className="absolute inset-x-0 top-12 z-[2] flex h-[64svh] items-end justify-center sm:h-[70svh] lg:bottom-0 lg:left-auto lg:right-[3vw] lg:top-20 lg:h-auto lg:w-[54vw] xl:right-[6vw] xl:w-[48vw]"
         style={{ y: imgY, scale: imgScale, opacity: fade }}
       >
+        
         <motion.div
-          className="relative h-full w-full lg:h-[86vh]"
+          className="relative h-full w-full lg:h-[120vh]"
           style={{ rotateY: imgRotY, rotateX: imgRotX, x: imgShiftX, transformPerspective: 1200 }}
-          initial={{ clipPath: 'inset(100% -30% -10% -30%)', opacity: 0 }}
-          animate={{ clipPath: 'inset(-30% -30% -10% -30%)', opacity: 1 }}
-          transition={{ duration: 1.6, ease: EASE, delay: 0.1 }}
+          initial={{ y: 110, clipPath: 'inset(100% -30% -10% -30%)', opacity: 0 }}
+          animate={{ y: 0, clipPath: 'inset(-30% -30% -10% -30%)', opacity: 1 }}
+          transition={{ duration: 1.6, ease: EASE, delay: 0.18 }}
         >
+
           {/* rim light ring */}
           <div aria-hidden className="absolute bottom-[8%] left-1/2 h-[78%] w-[78%] -translate-x-1/2 rounded-full border border-crimson-2/20 shadow-[0_0_120px_rgba(229,19,43,0.35),inset_0_0_80px_rgba(229,19,43,0.18)]" />
           <img
@@ -142,7 +144,7 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
         </motion.p>
 
         <motion.p variants={item} className="mt-4 max-w-xl text-[15px] leading-relaxed text-bone/80 sm:text-base">
-          {profile.intro}
+          {profile.homeIntro}
         </motion.p>
 
         <motion.div variants={item} className="mt-8 flex flex-wrap items-center gap-3">
@@ -213,9 +215,12 @@ function FloatChip({ text, sub, pos, depth, index, mx, my }: { text: string; sub
     <motion.div
       className={`glass absolute hidden rounded-xl px-4 py-2.5 md:block ${pos}`}
       style={{ x, y }}
-      initial={{ opacity: 0, filter: 'blur(6px)' }}
-      animate={{ opacity: 1, filter: 'blur(0px)' }}
-      transition={{ duration: 0.9, delay: 1.2 + index * 0.18, ease: EASE }}
+      // initial={{ opacity: 0, filter: 'blur(6px)' }}
+      // animate={{ opacity: 1, filter: 'blur(0px)' }}
+      // transition={{ duration: 0.9, delay: 1.2 + index * 0.18, ease: EASE }}
+      initial={{ y: 90, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 1.8, ease: EASE, delay: 0.05 }}
     >
       <motion.div animate={{ y: [0, -6, 0] }} transition={{ duration: 5 + index, repeat: Infinity, ease: 'easeInOut' }}>
         <p className="text-sm font-semibold text-bone">{text}</p>

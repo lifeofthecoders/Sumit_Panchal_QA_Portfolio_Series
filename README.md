@@ -1,8 +1,11 @@
-<div align="center">
 
-# SUMIT PANCHAL | MANUAL QA ENGINEER - The QA Series
+---
 
-### A cinematic portfolio showcasing my software quality assurance experience, testing approach, and project case studies.
+ <div align="center">
+
+# SUMIT PANCHAL | SENIOR QUALITY ANALYST - The QA Series
+
+### A cinematic portfolio showcasing 5+ years of software quality assurance experience, testing expertise, and real-world project case studies.
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-The%20QA%20Series-e5132b?style=for-the-badge&logo=github&logoColor=white)](https://lifeofthecoders.github.io/Sumit_Panchal_QA_Portfolio_Series/)
 [![React](https://img.shields.io/badge/React-18-20232a?style=flat-square&logo=react)](https://react.dev/)
@@ -10,7 +13,7 @@
 [![Vite](https://img.shields.io/badge/Vite-6-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vite.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 
-**Designed, developed, and maintained by Sumit Panchal.**
+**Designed, developed, and maintained by <span style="color: #2563EB;"><strong>Sumit Panchal</strong></span>.**
 
 [Overview](#-overview) · [Features](#-portfolio-highlights) · [QA Focus](#-manual-qa-focus) · [Technology](#-technology-stack) · [Setup](#-getting-started) · [Structure](#-project-structure) · [Deployment](#-deployment) · [Ownership](#-authorship--ownership)
 
@@ -20,75 +23,90 @@
 
 ## 🎯 Overview
 
-**The QA Series** is my personal portfolio as a **Manual QA Engineer / Quality Assurance Analyst**. I built it to present my professional background, software testing capabilities, project experience, QA contributions, certifications, and resume through a cinematic, responsive web experience.
+**The QA Series** is my personal portfolio as a **Senior Quality Analyst | Manual QA Engineer with 5+ years of experience** in software quality assurance and testing. It showcases my professional journey, testing expertise, quality assurance practices, project case studies, certifications, and resume through a cinematic and interactive web experience.
 
-The portfolio is based on a streaming-inspired visual presentation, with an opening sequence, profile selection, animated content sections, project case studies, and dedicated project detail pages. The design is supported by a dark visual system, crimson accents, custom cursor interactions, a particle trail, and a mouse-follow spotlight.
+My professional focus is on ensuring the **quality, reliability, usability, and consistency of web and mobile applications** through structured manual testing, analytical problem-solving, and a user-centric quality mindset.
 
-The portfolio content is focused on my quality assurance role and the work represented in my resume and project reference materials. It is not a generic software development or full-stack developer portfolio.
+The portfolio follows a streaming-inspired visual presentation featuring an animated opening sequence, profile selection, interactive content sections, project case studies, and dedicated project detail pages. Its visual identity combines a dark interface, crimson accents, custom cursor interactions, particle effects, mouse-follow spotlight, and motion-based transitions.
 
-> **Quality is a mindset. Not just a process.**
+The content reflects my experience in functional testing, regression testing, exploratory testing, test design, defect lifecycle management, end-to-end workflow validation, and cross-functional collaboration.
+
+> **Quality is not just about finding what is broken; it is about building confidence in what we deliver.**
 
 ## ✨ Portfolio Highlights
 
 | Area | What it provides |
 |---|---|
-| Personal introduction | Profile, Manual QA role, professional summary, and contact links |
+| Professional introduction | Senior Quality Analyst profile, professional summary, experience, and contact links |
 | Cinematic opening | Animated opening sequence and viewer profile selection |
-| Hero section | Professional introduction, primary actions, and resume access |
-| About | QA philosophy, professional focus, and background |
-| Experience | Quality Assurance Analyst experience and responsibilities |
-| Project case studies | Six project showcases with dedicated detail pages |
-| Project details | Clean banner, project title, overview, platforms, testing coverage, image gallery, QA contributions, and workflows |
-| QA skills | Manual testing, test design, defect management, web/mobile testing, and QA practices |
-| Achievements | Practical quality contributions and professional highlights |
-| Certifications | Certificates and learning credentials |
-| Resume | In-portfolio resume viewer and resume PDF |
+| Hero section | Professional introduction, QA expertise, primary actions, and resume access |
+| About | QA philosophy, professional background, and quality-driven approach |
+| Experience | 5+ years of Quality Assurance experience and professional responsibilities |
+| Project case studies | Six application showcases with dedicated detail pages |
+| Project details | Project overview, platforms, testing coverage, image gallery, QA contributions, and user workflows |
+| QA skills | Manual testing, test design, defect management, web/mobile testing, and quality practices |
+| Achievements | Professional highlights and quality-related contributions |
+| Certifications | Certificates and professional learning credentials |
+| Resume | In-portfolio resume viewer and downloadable resume PDF |
 | Interactive visuals | Custom cursor, crimson particle trail, mouse-follow spotlight, and motion effects |
 | Responsive layout | Layouts designed for desktop, tablet, and mobile screens |
 | Accessibility preferences | Reduced-motion and fine-pointer handling for interactive effects |
 
 ## 🧪 Manual QA Focus
 
-My portfolio presents the following areas of manual quality assurance:
+My professional experience and portfolio highlight the following areas of software quality assurance.
 
 ### Manual Testing
+
 - Functional Testing
 - Regression Testing
 - Smoke Testing
 - Sanity Testing
 - Exploratory Testing
-- Retesting
-- Web and mobile application validation
-- Usability and compatibility checks
+- Black-Box Testing
+- Retesting and Verification
+- Web and Mobile Application Testing
+- End-to-End Workflow Validation
+- Usability and Compatibility Testing
 
 ### Test Design and Documentation
+
 - Requirement Analysis
 - Test Planning
 - Test Scenario Design
 - Test Case Design
 - Test Data Preparation
 - Requirement Traceability Matrix (RTM)
-- Test execution and result documentation
+- Test Execution and Result Documentation
+- Positive and Negative Test Scenarios
+- Boundary Value and Edge Case Validation
 
 ### Defect Management
-- Bug Reporting and Reproduction
+
+- Bug Identification and Reporting
+- Defect Reproduction and Documentation
 - Defect Lifecycle Management
 - Severity and Priority Assessment
 - Retesting and Regression Verification
-- Root Cause Analysis support
-- Clear evidence and reproducible steps
+- Root Cause Analysis Support
+- Clear Reproduction Steps and Evidence
+- Defect Tracking and Follow-up
 
 ### QA Delivery Practices
-- Risk-based testing
-- Critical user journey validation
-- Cross-platform testing
-- Release-focused validation
-- Requirement clarification
-- Structured QA documentation
+
+- Risk-Based Testing
+- Critical User Journey Validation
+- Cross-Platform Testing
+- Release-Focused Validation
+- Requirement Clarification
+- SDLC and STLC
+- Agile Methodologies
+- Developer and Project Manager Collaboration
+- Continuous Quality Improvement
 
 ## 🗂️ Project Case Studies
 
-The portfolio contains six project case studies. Each project detail page presents its available overview, platforms, testing coverage, visual references, QA contributions, and key user workflows.
+The portfolio contains six project case studies representing different application domains and user workflows. Each project detail page presents its available overview, supported platforms, testing coverage, visual references, QA contributions, and important application workflows.
 
 | Project | Domain / Application |
 |---|---|
@@ -99,27 +117,32 @@ The portfolio contains six project case studies. Each project detail page presen
 | **Health-E** | Digital Health & Medical Records App |
 | **reGive** | Community Sharing & Gift Transaction Application |
 
+These case studies demonstrate my approach to understanding application requirements, identifying potential risks, validating functional workflows, designing test scenarios, and documenting defects.
+
 Project descriptions and testing details are presented as portfolio case-study material. They should not be interpreted as independently audited product specifications or claims about production ownership of the referenced applications.
 
 ## 🧰 Technology Stack
 
 ### Frontend
-- **React 18** - component-based user interface.
-- **TypeScript 5.8** - typed application logic and component contracts.
-- **Vite 6** - local development server and production bundler.
-- **Tailwind CSS 4** - utility-first styling.
-- **Framer Motion 11** - page transitions and interface animations.
 
-### Interaction and scrolling
-- **Lenis** - smooth scrolling.
-- **HTML Canvas** - pointer particle trail and ambient spotlight.
-- **SVG and CSS** - vector artwork and visual effects.
-- **Custom React cursor** - pointer-following cursor and contextual hover labels.
+- **React 18** - Component-based user interface.
+- **TypeScript 5.8** - Typed application logic and component contracts.
+- **Vite 6** - Local development server and production bundler.
+- **Tailwind CSS 4** - Utility-first styling.
+- **Framer Motion 11** - Page transitions and interface animations.
 
-### Build and quality tooling
-- **TypeScript compiler** - project type checking.
-- **Vite production build** - optimized static site output.
-- **Sharp** - image processing utility used by the image build script.
+### Interaction and Scrolling
+
+- **Lenis** - Smooth scrolling.
+- **HTML Canvas** - Pointer particle trail and ambient spotlight.
+- **SVG and CSS** - Vector artwork and visual effects.
+- **Custom React Cursor** - Pointer-following cursor and contextual hover labels.
+
+### Build and Quality Tooling
+
+- **TypeScript Compiler** - Project type checking.
+- **Vite Production Build** - Optimized static site generation.
+- **Sharp** - Image processing utility used by the image build script.
 
 ## 📁 Project Structure
 
@@ -127,11 +150,11 @@ Project descriptions and testing details are presented as portfolio case-study m
 Sumit_Panchal_QA_Portfolio_Series/
 ├── .github/
 │   └── workflows/
-│       └── deploy.yml              # GitHub Pages build and deployment
+│       └── deploy.yml               # GitHub Pages build and deployment
 ├── public/
 │   ├── favicon/
-│   │   ├── favicon.svg             # Supplied SVG browser icon
-│   │   └── favicon.ico             # Supplied ICO browser icon
+│   │   ├── favicon.svg              # SVG browser icon
+│   │   └── favicon.ico              # ICO browser icon
 │   ├── Resume/
 │   │   └── Sumit_Panchal_Resume.pdf # Resume used by view and download actions
 │   ├── assets/
@@ -139,10 +162,10 @@ Sumit_Panchal_QA_Portfolio_Series/
 │   │   ├── portrait-720.webp
 │   │   ├── portrait-1100.webp
 │   │   └── og-image.jpg
-│   ├── certificates/               # Certificate preview images
-│   └── project/                    # Project banners and gallery images
+│   ├── certificates/                # Certificate preview images
+│   └── project/                     # Project banners and gallery images
 ├── scripts/
-│   └── build-images.mjs            # Image asset processing
+│   └── build-images.mjs             # Image asset processing
 ├── src/
 │   ├── components/
 │   │   ├── About.tsx
@@ -232,7 +255,7 @@ npm run preview
 
 The production site is generated in the `dist/` directory.
 
-### Available scripts
+### Available Scripts
 
 | Command | Purpose |
 |---|---|
@@ -276,7 +299,7 @@ A GitHub Actions workflow is located at:
 
 The workflow installs dependencies with `npm ci`, runs `npm run build`, and deploys the generated `dist/` directory to GitHub Pages.
 
-### Deployment steps
+### Deployment Steps
 
 1. Push the latest source changes to the repository's `main` branch.
 2. Open the repository on GitHub.
@@ -286,13 +309,13 @@ The workflow installs dependencies with `npm ci`, runs `npm run build`, and depl
 
 The configured public URL is:
 
-[GitHub repository](https://github.com/lifeofthecoders/Sumit_Panchal_QA_Portfolio_Series) · [Live portfolio](https://lifeofthecoders.github.io/Sumit_Panchal_QA_Portfolio_Series/)
+[GitHub Repository](https://github.com/lifeofthecoders/Sumit_Panchal_QA_Portfolio_Series) · [Live Portfolio](https://lifeofthecoders.github.io/Sumit_Panchal_QA_Portfolio_Series/)
 
 If the favicon appears unchanged immediately after deployment, perform a hard refresh (`Ctrl + Shift + R`) or clear the browser's cached site icon. Browser favicon caches can persist independently of the page cache.
 
 ## 🧭 Main Code Reference
 
-| Area | Main file |
+| Area | Main File |
 |---|---|
 | Application composition and project URL state | `src/App.tsx` |
 | Profile, experience, education, skills, and projects | `src/data/portfolio.ts` |
@@ -324,9 +347,11 @@ If the favicon appears unchanged immediately after deployment, perform a hard re
 
 ## 🧑‍💻 Authorship & Ownership
 
-This is **my personal Manual QA Engineer portfolio**, designed and developed by **Sumit Panchal** to present my own professional profile, experience, skills, project case studies, certifications, and resume.
+This is **my personal** <span style="color: #2563EB;"><strong>Senior Quality Analyst | Manual QA Engineer portfolio</strong></span>, designed and developed by **Sumit Panchal** to present my professional profile, 5+ years of experience, software testing expertise, project case studies, certifications, and resume.
 
-The portfolio source code, page composition, custom styling, project navigation, responsive presentation, and project-specific implementation are maintained as my personal portfolio project. Names, logos, trademarks, and product visuals appearing within individual case studies are used to identify the referenced applications and do not imply that I own those third-party products.
+The portfolio source code, page composition, custom styling, project navigation, responsive presentation, and project-specific implementation are maintained as my personal portfolio project. The QA content reflects my professional background, testing approach, and experience represented in the portfolio.
+
+Names, logos, trademarks, and product visuals appearing within individual case studies are used to identify the referenced applications and do not imply that I own those third-party products.
 
 React, TypeScript, Vite, Tailwind CSS, Framer Motion, Lenis, Sharp, and other third-party packages remain the property of their respective authors and are governed by their own licenses. Any third-party media or materials remain subject to the rights of their respective owners.
 
@@ -336,18 +361,35 @@ No other portfolio subject, client identity, or unrelated developer name is pres
 
 The custom portfolio source and design implementation are maintained by **Sumit Panchal**. Unless a separate license is included with a specific asset or dependency, permission is not granted to reproduce or redistribute the custom portfolio implementation as someone else's work. Third-party libraries, fonts, icons, and media remain subject to their respective license terms.
 
-## 📬 Contact
+## 📫 Connect With Me
 
-- **Name:** Sumit Panchal
-- **Role:** Manual QA Engineer | Quality Assurance Analyst
-- **Location:** Ahmedabad, Gujarat, India
-- **Email:** [sumitpanchal5225@gmail.com](mailto:sumitpanchal5225@gmail.com)
-- **LinkedIn:** [Sumit Panchal](https://www.linkedin.com/in/sumit-panchal-b790a8236/)
-- **GitHub:** [lifeofthecoders](https://github.com/lifeofthecoders)
+If you'd like to connect, collaborate, or discuss Quality Assurance and software testing, feel free to reach out.
 
----
+**Sumit Panchal**  
+**Senior Quality Analyst | Manual QA Engineer | Software Testing | 5+ Years Experience**
+
+📍 **Location:** Ahmedabad, Gujarat, India
+
+🌐 **Portfolio:** [https://lifeofthecoders.github.io/Sumit_Panchal_QA_Portfolio_Series/](https://lifeofthecoders.github.io/Sumit_Panchal_QA_Portfolio_Series/)
+
+💻 **GitHub:** [https://github.com/lifeofthecoders/Sumit_Panchal_QA_Portfolio_Series](https://github.com/lifeofthecoders/Sumit_Panchal_QA_Portfolio_Series)
+
+📧 **Email:** sumitpanchal5225@gmail.com
+
+🔗 **LinkedIn:** [linkedin.com/in/sumit-panchal-b790a8236](https://www.linkedin.com/in/sumit-panchal-b790a8236/)
+
+## ⭐ Support
+
+If you found this portfolio useful, please consider giving the repository a ⭐ star. Your support and feedback are greatly appreciated and help encourage continuous improvement.
 
 <div align="center">
+
+**QUALITY IS MY COMMITMENT.  
+RELIABILITY IS MY STANDARD.**
+
+Thank you for visiting my portfolio!
+
+---
 
 **Designed and developed by Sumit Panchal.**
 
@@ -356,3 +398,5 @@ The custom portfolio source and design implementation are maintained by **Sumit 
 © 2026 Sumit Panchal. All rights reserved for the custom portfolio implementation, subject to the notices above.
 
 </div>
+
+---

@@ -6,7 +6,7 @@ import { EASE, SectionHeading, Tilt } from './fx';
 
 export default function About() {
   const highlightedRole = 'Senior Quality Analyst | Manual QA Engineer';
-  const introParts = profile.intro.split(highlightedRole);
+  const introParts = profile.aboutIntro.split(highlightedRole);
 
   const facts = [
     {
@@ -91,7 +91,7 @@ export default function About() {
                 {introParts.slice(1).join(highlightedRole)}
               </>
             ) : (
-              profile.intro
+              profile.aboutIntro
             )}
 
             <span className="ml-0.5 inline-block align-[-0.15em] font-display text-2xl font-semibold leading-none text-[#d9b46a]">

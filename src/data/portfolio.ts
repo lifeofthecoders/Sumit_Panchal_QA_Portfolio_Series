@@ -15,8 +15,9 @@ export const profile = {
   seriesTag: 'THE QA SERIES',
   originalLabel: 'THE SUMIT PANCHAL QUALITY ORIGINAL',
   role: 'Manual QA Engineer | Quality Assurance Analyst',
-  tagline: ['Manual QA Engineer', 'Functional & Regression Testing', 'Test Design & Defect Analysis'],
-  intro: 'Results-driven Senior Quality Analyst | Manual QA Engineer with 5+ years of experience ensuring the quality, reliability, and usability of mobile and web applications. Skilled in Functional, Regression, Smoke, Sanity, Exploratory, Black-Box, and Risk-Based Testing, with expertise in Requirement Analysis, Test Case Design, Test Execution, and Defect Lifecycle Management. Strong understanding of SDLC, STLC, and Agile methodologies, with proven experience collaborating with developers, project managers, and cross-functional teams to identify defects, mitigate risks, and support successful software releases. Focused on delivering high-quality products through structured testing, analytical problem-solving, and continuous quality improvement.',
+  tagline: ['Manual QA Engineer', 'Functional & Regression Testing', 'Exploratory Testing', 'Risk-Based Testing', 'Test Design & Defect Analysis', 'Agile & DevOps Collaboration'],
+  homeIntro: 'Senior Quality Analyst | Manual QA Engineer with 5+ years of experience testing mobile and web applications. Skilled in Functional, Regression, and Exploratory Testing, Test Case Design, and Defect Management, with a focus on product quality and reliable software releases.',
+  aboutIntro: 'Results-driven Senior Quality Analyst | Manual QA Engineer with 5+ years of experience ensuring the quality, reliability, and usability of mobile and web applications. Skilled in Functional, Regression, Smoke, Sanity, Exploratory, Black-Box, and Risk-Based Testing, with expertise in Requirement Analysis, Test Case Design, Test Execution, and Defect Lifecycle Management. Strong understanding of SDLC, STLC, and Agile methodologies, with proven experience collaborating with developers, project managers, and cross-functional teams to identify defects, mitigate risks, and support successful software releases. Focused on delivering high-quality products through structured testing, analytical problem-solving, and continuous quality improvement.',
   location: 'Ahmedabad, Gujarat, India',
   email: 'sumitpanchal5225@gmail.com',
   links: {
@@ -480,10 +481,10 @@ export const introSlides: IntroSlide[] = [
 export type ProfileId = 'sumit' | 'recruiter' | 'qa' | 'creative';
 export type SectionId = 'about' | 'journey' | 'originals' | 'picks' | 'skills' | 'moments' | 'story';
 export const viewerProfiles: { id: ProfileId; name: string; blurb: string; color: string; order: SectionId[] }[] = [
-  { id: 'sumit', name: 'Sumit', blurb: 'The complete QA portfolio', color: '#e5132b', order: ['about', 'journey', 'originals', 'picks', 'skills', 'moments', 'story'] },
-  { id: 'recruiter', name: 'Recruiter', blurb: 'Experience, QA skills & resume first', color: '#4cc9ff', order: ['story', 'moments', 'skills', 'originals', 'about', 'journey', 'picks'] },
-  { id: 'qa', name: 'QA Team', blurb: 'Testing projects, methods & defect workflows', color: '#46e3a8', order: ['originals', 'skills', 'journey', 'moments', 'about', 'picks', 'story'] },
-  { id: 'creative', name: 'Product Team', blurb: 'Product journeys & quality highlights', color: '#ffb547', order: ['journey', 'originals', 'picks', 'moments', 'about', 'skills', 'story'] },
+  { id: 'sumit', name: 'Sumit', blurb: 'The Complete QA Portfolio', color: '#e5132b', order: ['about', 'journey', 'originals', 'picks', 'skills', 'moments', 'story'] },
+  { id: 'recruiter', name: 'Recruiter', blurb: 'Experience, QA Skills & Resume First', color: '#4cc9ff', order: ['story', 'moments', 'skills', 'originals', 'about', 'journey', 'picks'] },
+  { id: 'qa', name: 'QA Team', blurb: 'Testing Projects, Methods & Defect Workflows', color: '#46e3a8', order: ['originals', 'skills', 'journey', 'moments', 'about', 'picks', 'story'] },
+  { id: 'creative', name: 'Product Team', blurb: 'Product Journeys & Quality Highlights', color: '#ffb547', order: ['journey', 'originals', 'picks', 'moments', 'about', 'skills', 'story'] },
 ];
 
 export const sectionMeta: Record<SectionId, { nav: string; card: string; meta: string; palette: Palette }> = {

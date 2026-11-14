@@ -122,7 +122,7 @@ export default function FinalCTA({
         viewport={{ once: true, margin: '-10% 0px' }}
         transition={{ duration: 0.9, ease: EASE, delay: 0.2 }}
       >
-        <p className="font-sans text-2xl font-semibold tracking-[0.2em] text-bone sm:text-3xl">
+        <p className="font-sans text-2xl font-semibold tracking-[0.2em] text-bone sm:text-3xl text-crimson-2">
           {profile.displayName.toUpperCase()}
         </p>
 

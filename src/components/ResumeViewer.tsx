@@ -34,8 +34,8 @@ export default function ResumeSection({
         </motion.div>
 
         <div className="lg:sticky lg:top-28 lg:self-start">
-          <p className="font-serif text-3xl italic leading-tight text-bone">
-            Every episode, on one page.
+          <p className="font-['Allura'] text-3xl italic leading-tight text-bone font-semibold text-crimson-2">
+            Every Episode, On One Page.
           </p>
 
           <p className="mt-3 text-sm leading-relaxed text-mist">
@@ -222,11 +222,11 @@ export function ResumeSheet() {
             STARRING
           </p>
 
-          <h3 className="mt-1 font-display text-[clamp(1.9rem,4.4vw,3.2rem)] leading-[0.9] tracking-wide text-bone">
+          <h3 className="mt-1 font-display text-[clamp(1.9rem,4.4vw,3.2rem)] leading-[0.9] tracking-wide text-bone text-crimson-2">
             {profile.fullName}
           </h3>
 
-          <p className="mt-2 text-xs font-medium tracking-wide text-crimson-2">
+          <p className="mt-2 text-xs font-medium tracking-wide text-mist">
             {profile.role}
           </p>
         </div>
@@ -371,7 +371,7 @@ export function ResumeSheet() {
                   {achievement.title}
                 </span>
 
-                <span className="text-smoke">
+                <span className="font-semibold text-bone text-smoke">
                   {' '}
                   - {achievement.org}
                 </span>
@@ -414,8 +414,8 @@ export function ResumeSheet() {
                       <span className="mt-0.5 block text-[9px] text-smoke">
                         {group.items.length}{' '}
                         {group.items.length === 1
-                          ? 'credential'
-                          : 'credentials'}
+                          ? 'Credential'
+                          : 'Credentials'}
                       </span>
                     </span>
 
