@@ -1,8 +1,12 @@
+
 import { motion } from 'framer-motion';
 import { experience, profile } from '../data/portfolio';
 import { EASE, SectionHeading, Tilt } from './fx';
 
+
 export default function About() {
+  const highlightedRole = 'Senior Quality Analyst | Manual QA Engineer';
+  const introParts = profile.intro.split(highlightedRole);
 
   const facts = [
     {
@@ -49,7 +53,7 @@ export default function About() {
                 sizes="(max-width: 1024px) 90vw, 40vw"
                 alt={profile.portrait.alt}
                 loading="lazy"
-                className="absolute bottom-0 left-1/2 h-[92%] w-auto max-w-none -translate-x-1/2 object-contain object-bottom"
+                className="absolute bottom-0 left-1/2 h-[100%] w-auto max-w-none -translate-x-1/2 object-contain object-bottom"
               />
               <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/90 to-transparent" />
               <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
@@ -64,16 +68,39 @@ export default function About() {
         </motion.div>
 
         <div>
+
+
           <motion.p
-            className="font-serif text-[clamp(1.6rem,3.2vw,2.6rem)] italic leading-[1.15] text-bone"
+            className="font-['Allura'] text-[clamp(1.35rem,1.8vw,1.7rem)] font-normal leading-[1.45] tracking-normal text-[#d9b46a]"
             initial={{ opacity: 0, y: 24, filter: 'blur(8px)' }}
             whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: EASE }}
           >
-            “{profile.intro}”
+
+            <span className="ml-0.5 inline-block align-[-0.15em] font-display text-2xl font-semibold leading-none text-[#d9b46a]">
+              “
+            </span>
+
+            {introParts.length > 1 ? (
+              <>
+                {introParts[0]}
+                <span className="font-['Allura'] font-bold text-crimson-2">
+                  {highlightedRole}
+                </span>
+                {introParts.slice(1).join(highlightedRole)}
+              </>
+            ) : (
+              profile.intro
+            )}
+
+            <span className="ml-0.5 inline-block align-[-0.15em] font-display text-2xl font-semibold leading-none text-[#d9b46a]">
+              ”
+            </span>
+
           </motion.p>
-          <p className="mt-4 text-sm text-mist">- {profile.fullName}</p>
+
+          <p className="mt-4 font-display text-3xl leading-none text-crimson-2">- {profile.fullName}</p>
 
           <motion.dl
             className="mt-10 grid gap-px overflow-hidden rounded-xl bg-white/10 sm:grid-cols-2"

@@ -16,7 +16,7 @@ export const profile = {
   originalLabel: 'THE SUMIT PANCHAL QUALITY ORIGINAL',
   role: 'Manual QA Engineer | Quality Assurance Analyst',
   tagline: ['Manual QA Engineer', 'Functional & Regression Testing', 'Test Design & Defect Analysis'],
-  intro: 'Manual QA Engineer with 5+ years of experience validating web and mobile applications. Focused on understanding requirements, designing structured test scenarios, exercising critical user journeys, identifying reproducible defects, and supporting reliable releases through risk-based testing and careful verification.',
+  intro: 'Results-driven Senior Quality Analyst | Manual QA Engineer with 5+ years of experience ensuring the quality, reliability, and usability of mobile and web applications. Skilled in Functional, Regression, Smoke, Sanity, Exploratory, Black-Box, and Risk-Based Testing, with expertise in Requirement Analysis, Test Case Design, Test Execution, and Defect Lifecycle Management. Strong understanding of SDLC, STLC, and Agile methodologies, with proven experience collaborating with developers, project managers, and cross-functional teams to identify defects, mitigate risks, and support successful software releases. Focused on delivering high-quality products through structured testing, analytical problem-solving, and continuous quality improvement.',
   location: 'Ahmedabad, Gujarat, India',
   email: 'sumitpanchal5225@gmail.com',
   links: {
@@ -29,7 +29,7 @@ export const profile = {
     srcSet: `${asset('assets/portrait-720.webp')} 720w, ${asset('assets/portrait-1100.webp')} 1100w`,
     alt: 'Sumit Panchal wearing a light blue suit and glasses.',
   },
-  interests: ['Software Quality', 'User-Centered Testing', 'Test Strategy & Coverage'],
+  interests: ['Functional & Regression Testing', 'Exploratory Testing', 'Security & Performance Testing', 'Risk-Based Testing', 'Agile & DevOps Collaboration', 'Continuous Quality Improvement'],
 };
 
 export const education = [
