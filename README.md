@@ -42,7 +42,7 @@ The content reflects my experience in functional testing, regression testing, ex
 | Hero section | Professional introduction, QA expertise, primary actions, and resume access |
 | About | QA philosophy, professional background, and quality-driven approach |
 | Experience | 5+ years of Quality Assurance experience and professional responsibilities |
-| Project case studies | Six application showcases with dedicated detail pages |
+| Project case studies | Eight application showcases with dedicated detail pages |
 | Project details | Project overview, platforms, testing coverage, image gallery, QA contributions, and user workflows |
 | QA skills | Manual testing, test design, defect management, web/mobile testing, and quality practices |
 | Achievements | Professional highlights and quality-related contributions |
@@ -106,7 +106,7 @@ My professional experience and portfolio highlight the following areas of softwa
 
 ## 🗂️ Project Case Studies
 
-The portfolio contains six project case studies representing different application domains and user workflows. Each project detail page presents its available overview, supported platforms, testing coverage, visual references, QA contributions, and important application workflows.
+The portfolio contains eight project case studies representing different application domains and user workflows. Each project detail page presents its available overview, supported platforms, testing coverage, visual references, QA contributions, and important application workflows.
 
 | Project | Domain / Application |
 |---|---|
@@ -116,6 +116,20 @@ The portfolio contains six project case studies representing different applicati
 | **Bunny Books** | Photo Book E-Commerce Application |
 | **Health-E** | Digital Health & Medical Records App |
 | **reGive** | Community Sharing & Gift Transaction Application |
+| **ShopZone** | E-Commerce Web Application |
+| **Playwright** | E-Commerce End-to-End Test Automation |
+
+### Recently Added Projects
+
+**ShopZone - E-Commerce Application**
+
+- Live Application: https://shop-zone-ecommerce-demo.vercel.app/
+- Source Code: https://github.com/lifeofthecoders/ShopZone-Ecommerce-Demo
+
+**Playwright - E2E Automation**
+
+- Test Repository: https://github.com/lifeofthecoders/Playwright-E2E-Test-Suite
+- GitHub Actions: https://github.com/lifeofthecoders/Playwright-E2E-Test-Suite/actions
 
 These case studies demonstrate my approach to understanding application requirements, identifying potential risks, validating functional workflows, designing test scenarios, and documenting defects.
 

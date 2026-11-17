@@ -55,8 +55,6 @@ export default function ProjectModal({
   useEffect(() => {
     const previousFocus = document.activeElement as HTMLElement | null;
 
-    closeBtn.current?.focus({ preventScroll: true });
-
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         onClose();
@@ -67,7 +65,10 @@ export default function ProjectModal({
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
-      previousFocus?.focus?.({ preventScroll: true });
+
+      if (previousFocus && previousFocus !== document.body && previousFocus.isConnected) {
+        previousFocus.focus({ preventScroll: true });
+      }
     };
   }, [onClose]);
 
@@ -94,15 +95,8 @@ export default function ProjectModal({
           {/* PROJECT BANNER */}
           <div className="group/banner relative h-[52vh] min-h-[340px] overflow-hidden sm:rounded-t-2xl">
 
-            {/* Clickable banner image */}
-            <a
-              href={project.bannerImage}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Open ${project.title} banner in a new tab`}
-              data-cursor="link"
-              className="group/image absolute inset-0 z-0 block cursor-zoom-in overflow-hidden"
-            >
+            {/* Banner image - hover effects only, not clickable */}
+            <div className="group/image absolute inset-0 z-0 overflow-hidden">
               <img
                 src={project.bannerImage}
                 alt={`${project.title} project banner`}
@@ -111,10 +105,18 @@ export default function ProjectModal({
 
               <div className="pointer-events-none absolute inset-0 bg-crimson/0 transition-colors duration-500 group-hover/image:bg-crimson/10" />
 
-              <span className="pointer-events-none absolute bottom-6 right-6 flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-black/60 text-xl text-white opacity-0 shadow-lg backdrop-blur-md transition-all duration-300 group-hover/image:scale-100 group-hover/image:opacity-100">
+              {/* Open banner image - only the arrow is clickable */}
+              <a
+                href={project.bannerImage}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Open ${project.title} banner in a new tab`}
+                data-cursor="link"
+                className="project-image-open-button absolute bottom-6 right-6 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-black/60 text-xl text-white opacity-0 shadow-lg backdrop-blur-md transition-all duration-300 group-hover/image:scale-100 group-hover/image:opacity-100 focus-visible:scale-100 focus-visible:opacity-100"
+              >
                 ↗
-              </span>
-            </a>
+              </a>
+            </div>
 
             {/* BACK BUTTON */}
             <button
@@ -126,7 +128,7 @@ export default function ProjectModal({
               }}
               data-cursor="link"
               aria-label="Back to all projects"
-              className="absolute left-4 top-4 z-20 flex h-11 items-center justify-center gap-1 rounded-full border border-white/15 bg-black/65 px-4 text-xs font-bold tracking-[0.16em] text-bone shadow-lg backdrop-blur-md transition-all duration-300 hover:scale-105 hover:border-crimson-2 hover:bg-crimson hover:text-white active:scale-95 sm:left-6 sm:top-6"
+              className="project-back-button absolute left-4 top-4 z-20 flex h-11 items-center justify-center gap-1 rounded-full border border-white/15 bg-black/65 px-4 text-xs font-bold tracking-[0.16em] text-bone shadow-lg backdrop-blur-md transition-all duration-300 hover:scale-105 hover:border-crimson-2 hover:bg-crimson hover:text-white active:scale-95 sm:left-6 sm:top-6"
             >
               <span className="mr-1">←</span>
               <span className="hidden sm:inline">BACK</span>
@@ -232,6 +234,29 @@ export default function ProjectModal({
               </div>
             </motion.section>
 
+            {/* PROJECT EXTERNAL LINKS */}
+            {project.externalLinks && project.externalLinks.length > 0 && (
+              <motion.section
+                variants={block}
+                className="mt-6 flex flex-wrap gap-3"
+                aria-label="Project external links"
+              >
+                {project.externalLinks.map((link) => (
+                  <a
+                    key={link.url}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cursor="link"
+                    className="inline-flex min-h-11 items-center gap-2 rounded-md border border-white/20 bg-white/[0.04] px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-crimson-2 transition hover:border-crimson-2 hover:bg-crimson hover:text-white"
+                  >
+                    {link.label}
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                ))}
+              </motion.section>
+            )}
+
             {/* TESTING COVERAGE */}
             <motion.section variants={block} className="mt-10">
               <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">
@@ -262,14 +287,8 @@ export default function ProjectModal({
                     key={image.src}
                     className="group/gallery overflow-hidden rounded-xl bg-ink ring-1 ring-white/10 transition-all duration-500 hover:-translate-y-1 hover:ring-crimson-2/60 hover:shadow-[0_12px_35px_-15px_rgba(229,19,43,0.3)]"
                   >
-                    <a
-                      href={image.src}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`Open full-size image: ${image.caption}`}
-                      data-cursor="link"
-                      className="group/image relative block cursor-zoom-in overflow-hidden"
-                    >
+                    {/* Image - hover effects only, not clickable */}
+                    <div className="group/image relative block overflow-hidden">
                       <div className="relative aspect-video w-full overflow-hidden bg-ink">
                         <img
                           src={image.src}
@@ -281,10 +300,18 @@ export default function ProjectModal({
 
                       <div className="pointer-events-none absolute inset-0 bg-crimson/0 transition-colors duration-500 group-hover/image:bg-crimson/10" />
 
-                      <span className="pointer-events-none absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center rounded-full border border-white/25 bg-black/60 text-base text-white opacity-0 shadow-lg backdrop-blur-md transition-all duration-300 group-hover/image:scale-100 group-hover/image:opacity-100">
+                      {/* Open full-size image - only the arrow is clickable */}
+                      <a
+                        href={image.src}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Open full-size image: ${image.caption}`}
+                        data-cursor="link"
+                        className="project-image-open-button absolute bottom-3 right-3 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-white/25 bg-black/60 text-base text-white opacity-0 shadow-lg backdrop-blur-md transition-all duration-300 group-hover/image:scale-100 group-hover/image:opacity-100 focus-visible:scale-100 focus-visible:opacity-100"
+                      >
                         ↗
-                      </span>
-                    </a>
+                      </a>
+                    </div>
 
                     <figcaption className="p-3 text-xs leading-relaxed text-mist">
                       {image.caption}
@@ -340,10 +367,7 @@ export default function ProjectModal({
             </div>
 
             {/* OTHER QA PROJECTS */}
-            <motion.section
-              variants={block}
-              className="mt-14 border-t border-white/10 pt-8"
-            >
+            <motion.section variants={block} className="mt-14 border-t border-white/10 pt-8">
               <h3 className="mb-4 font-sans text-lg font-semibold text-bone">
                 Explore Other QA Projects
               </h3>

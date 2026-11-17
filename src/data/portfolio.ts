@@ -84,6 +84,7 @@ export type Project = {
   features: string[];
   palette: Palette;
   motif: 'shield' | 'flow' | 'tenants';
+  externalLinks?: { label: string; url: string }[];
 };
 
 const projectAsset = (name: string) => asset(`project/${name}`);
@@ -97,12 +98,12 @@ export const projects: Project[] = [
     overview: 'A real-time taxi booking platform where passengers request rides and the system automatically broadcasts each request to all available drivers within a 5-KM radius. Once a driver accepts the request, it is automatically withdrawn from all other nearby drivers, ensuring a seamless first-acceptance ride allocation process.',
     role: 'Project Manager & Manual QA Engineer',
     platforms: ['Android', 'iOS', 'Web Admin'],
-    image: projectAsset('project-lymuv-qa.jpg'),
+    image: projectAsset('project-lymuv-qa-gallery.jpg'),
     bannerImage: projectAsset('project-lymuv-banner.jpg'),
     gallery: [
       { src: projectAsset('project-lymuv-detail-1.jpg'), alt: 'LYMÜV pickup and route selection screens', caption: 'Pickup and destination selection with ride options' },
       { src: projectAsset('project-lymuv-detail-2.jpg'), alt: 'LYMÜV live trip and payment screens', caption: 'Live tracking, driver details, and payment summary' },
-      { src: projectAsset('project-lymuv-qa-gallery.jpg'), alt: 'LYMÜV ride booking and trip management overview', caption: 'Ride booking and trip-management platform overview' },
+      { src: projectAsset('project-lymuv-detail-3.jpg'), alt: 'LYMÜV ride booking and trip management overview', caption: 'Ride booking and trip-management platform overview' },
     ],
     testingAreas: ['Ride Booking Flow', 'Driver Radius Broadcasting', 'First-Acceptance Allocation', 'Automatic Request Cancellation', 'Live Trip Tracking', 'Payment & Wallet', 'Notifications', 'Reports', 'Admin Panel'],
     build: [
@@ -125,12 +126,12 @@ export const projects: Project[] = [
     overview: 'A React Native professional networking app for discovering and connecting with people, sharing professional profiles, chatting in real time, and managing professional interactions, notifications, privacy settings, and admin moderation.',
     role: 'Project Manager & Manual QA Engineer',
     platforms: ['Android', 'iOS', 'Web Admin'],
-    image: projectAsset('project-dap-me-qa.jpg'),
+    image: projectAsset('project-dap-me-qa-gallery.jpg'),
     bannerImage: projectAsset('project-dap-me-banner.jpg'),
     gallery: [
       { src: projectAsset('project-dap-me-detail-1.jpg'), alt: 'Dap Me discovery and saved-filter screens', caption: 'Professional discovery, location-based search, and saved filters' },
       { src: projectAsset('project-dap-me-detail-2.jpg'), alt: 'Dap Me profile, messaging, and connection screens', caption: 'Professional profiles, messaging, and connection requests' },
-      { src: projectAsset('project-dap-me-qa-gallery.jpg'), alt: 'Dap Me professional networking overview', caption: 'Mobile networking and professional discovery overview' },
+      { src: projectAsset('project-dap-me-detail-3.jpg'), alt: 'Dap Me professional networking overview', caption: 'Mobile networking and professional discovery overview' },
     ],
     testingAreas: ['Registration & Login', 'User Profiles', 'Location-Based Discovery', 'Search & Filters', 'Connections & Networking', 'Chat & Messaging', 'Notifications', 'Subscriptions & Payments', 'Privacy & Account Settings', 'Admin Panel'],
     build: [
@@ -152,12 +153,12 @@ export const projects: Project[] = [
     overview: 'A competitive multiplayer gaming platform offering casual and skill-based games, social engagement, and real-time competition.',
     role: 'Manual QA Engineer',
     platforms: ['Android', 'iOS', 'Web Admin'],
-    image: projectAsset('project-kinzwin-qa.jpg'),
+    image: projectAsset('project-kinzwin-qa-gallery.jpg'),
     bannerImage: projectAsset('project-kinzwin-banner.jpg'),
     gallery: [
       { src: projectAsset('project-kinzwin-detail-1.jpg'), alt: 'Kinzwin multiplayer game room', caption: 'Live game board, player status, and turn flow' },
       { src: projectAsset('project-kinzwin-detail-2.jpg'), alt: 'Kinzwin tournament results and fair-play screens', caption: 'Tournament leaderboard, results, and fair-play checks' },
-      { src: projectAsset('project-kinzwin-qa-gallery.jpg'), alt: 'Kinzwin multiplayer gaming overview', caption: 'Multiplayer gaming and tournament overview' },
+      { src: projectAsset('project-kinzwin-detail-3.jpg'), alt: 'Kinzwin multiplayer gaming overview', caption: 'Multiplayer gaming and tournament overview' },
     ],
     testingAreas: ['Gameplay', 'Scoring', 'Multiplayer Synchronization', 'Chat', 'Leaderboards', 'Fair Play', 'Admin Panel'],
     build: [
@@ -178,12 +179,12 @@ export const projects: Project[] = [
     overview: 'A photo-book e-commerce platform that allows users to turn their personal memories into beautifully designed printed photo books. Users can select and upload photos, create and customize photo albums, arrange pictures using different page layouts, preview their books, and place orders through a seamless checkout and delivery process.',
     role: 'Project Manager & Manual QA Engineer',
     platforms: ['Android', 'iOS', 'Web Admin'],
-    image: projectAsset('project-bunny-books-qa.jpg'),
+    image: projectAsset('project-bunny-books-qa-gallery.jpg'),
     bannerImage: projectAsset('project-bunny-books-banner.jpg'),
     gallery: [
       { src: projectAsset('project-bunny-books-detail-1.jpg'), alt: 'Bunny Books photo-book studio screens', caption: 'Photo upload, page layouts, and album preview' },
       { src: projectAsset('project-bunny-books-detail-2.jpg'), alt: 'Bunny Books checkout and tracking screens', caption: 'Checkout flow and order delivery status' },
-      { src: projectAsset('project-bunny-books-qa-gallery.jpg'), alt: 'Bunny Books photo-book creation overview', caption: 'Photo-book creation and ordering overview' },
+      { src: projectAsset('project-bunny-books-detail-3.jpg'), alt: 'Bunny Books photo-book creation overview', caption: 'Photo-book creation and ordering overview' },
     ],
     testingAreas: ['Photo Selection & Upload', 'Photo Book Creation', 'Page Layout & Customization', 'Design Preview', 'Cart & Checkout', 'Payment Processing', 'Order Management', 'Delivery Tracking', 'Notifications', 'Admin Management'],
     build: [
@@ -207,12 +208,12 @@ export const projects: Project[] = [
     overview: 'A digital health locker that enables users to securely manage their health information and medical records in one place. The platform supports ABHA ID registration, health profile management, medical report storage and sharing, doctor appointment booking, medication reminders, emergency information, pregnancy and paediatric care features, and administrative management.',
     role: 'Manual QA Engineer',
     platforms: ['Android', 'iOS', 'Web Admin'],
-    image: projectAsset('project-health-e-qa.jpg'),
+    image: projectAsset('project-health-e-qa-gallery.jpg'),
     bannerImage: projectAsset('project-health-e-banner.jpg'),
     gallery: [
       { src: projectAsset('project-health-e-detail-1.jpg'), alt: 'Health-E health records and emergency screens', caption: 'Medical reports, health records, and emergency information' },
       { src: projectAsset('project-health-e-detail-2.jpg'), alt: 'Health-E appointments and ABHA screens', caption: 'Appointments, ABHA Health ID, and medication reminders' },
-      { src: projectAsset('project-health-e-qa-gallery.jpg'), alt: 'Health-E digital health records overview', caption: 'Digital health records and appointment workflows' },
+      { src: projectAsset('project-health-e-detail-3.jpg'), alt: 'Health-E digital health records overview', caption: 'Digital health records and appointment workflows' },
     ],
     testingAreas: ['Registration & OTP Verification', 'ABHA ID Generation', 'Profile & Health Information', 'Medical Records & Reports', 'Record Sharing & Management', 'Appointment Scheduling', 'Medication Reminders', 'Emergency Information', 'Pregnancy & Paediatric Care', 'Admin & Role-Based Access'],
     build: [
@@ -235,12 +236,12 @@ export const projects: Project[] = [
     overview: 'A community-sharing platform that enables users to give away unwanted or reusable items and connect with people who need them. Users can publish item listings, browse available items, submit or withdraw requests, manage offeror and requester interactions, schedule pickups, coordinate handovers, and complete gifting transactions through a structured peer-to-peer sharing lifecycle.',
     role: 'Project Manager & Manual QA Engineer',
     platforms: ['Android', 'iOS', 'Web Admin'],
-    image: projectAsset('project-regive-qa.jpg'),
+    image: projectAsset('project-regive-qa-gallery.jpg'),
     bannerImage: projectAsset('project-regive-banner.jpg'),
     gallery: [
       { src: projectAsset('project-regive-detail-1.jpg'), alt: 'reGive item posting and request screens', caption: 'Post item photos and details, set pickup slots, and submit a request' },
       { src: projectAsset('project-regive-detail-2.jpg'), alt: 'reGive promise, handover, pickup, and rating screens', caption: 'Promise acceptance, handover, pickup, conclusion, and ratings' },
-      { src: projectAsset('project-regive-qa-gallery.jpg'), alt: 'reGive community gifting overview', caption: 'Community gifting and handover workflow overview' },
+      { src: projectAsset('project-regive-detail-3.jpg'), alt: 'reGive community gifting overview', caption: 'Community gifting and handover workflow overview' },
     ],
     testingAreas: ['Post & Edit Article', 'Image Upload & Item Details', 'Article Browsing & Requests', 'Request Submission & Withdrawal', 'Promise, Accept & Decline', 'Request Accept & Decline', 'Pickup Scheduling', 'Expiry & Reminder Timing', 'Handover & Pickup Confirmation', 'Transaction Status & Completion', 'Ratings & Reviews', 'Push & In-App Notifications'],
     build: [
@@ -254,6 +255,74 @@ export const projects: Project[] = [
     features: ['Article posting and editing', 'Browsing and requesting available articles', 'Offeror and requester journeys', 'Request and promise lifecycle', 'Pickup scheduling and reminders', 'Handover and transaction completion', 'Ratings and in-app/push notifications'],
     palette: { from: '#071e1b', via: '#126451', to: '#070a09', accent: '#50d9ad' },
     motif: 'tenants',
+  },
+  {
+    id: 'shopzone',
+    title: 'ShopZone - E-Commerce Web Application',
+    genre: 'E-Commerce · Web Application · Functional Testing',
+    logline: 'Functional QA coverage for an e-commerce demonstration application, validating login, product browsing, cart operations, checkout, order confirmation, session handling, and cart persistence.',
+    overview: 'ShopZone is a React and TypeScript e-commerce demonstration application. It supports simulated authentication, product browsing, shopping cart operations, checkout, and order confirmation. It is the application under test for the Playwright end-to-end automation suite.',
+    role: 'Manual QA Engineer',
+    platforms: ['Web', 'Desktop Browser', 'Responsive UI'],
+    image: projectAsset('project-shopzone-qa-gallery.jpg'),
+    bannerImage: projectAsset('project-shopzone-banner.jpg'),
+    gallery: [
+      { src: projectAsset('project-shopzone-detail-1.jpg'), alt: 'ShopZone product listing and shopping cart interface', caption: 'Product browsing, selection, and shopping cart management' },
+      { src: projectAsset('project-shopzone-detail-2.jpg'), alt: 'ShopZone cart and checkout confirmation interface', caption: 'Checkout journey and order confirmation' },
+      { src: projectAsset('project-shopzone-detail-3.jpg'), alt: 'ShopZone e-commerce application visual overview', caption: 'ShopZone application workflows and QA scope' },
+    ],
+    testingAreas: ['Login & Authentication', 'Product Listing', 'Add to Cart', 'Cart Management', 'Checkout Flow', 'Empty Cart Validation', 'Session Expiry', 'Cart Persistence', 'Order Confirmation'],
+    build: [
+      'Validated the login workflow using the application demonstration credentials.',
+      'Tested product browsing and adding products to the shopping cart.',
+      'Verified the successful checkout journey and order confirmation.',
+      'Validated checkout prevention when the shopping cart is empty.',
+      'Simulated session expiry by clearing browser cookies and verified redirection to login.',
+      'Verified that cart contents remain available after re-login.',
+    ],
+    features: ['User login and authentication simulation', 'Product listing and product selection', 'Shopping cart and item management', 'Checkout and order confirmation', 'Session expiry and authentication redirection', 'Cart persistence using localStorage'],
+    palette: { from: '#07182a', via: '#174a72', to: '#07090e', accent: '#4ea7ff' },
+    motif: 'flow',
+    externalLinks: [
+      { label: 'Live Application', url: 'https://shop-zone-ecommerce-demo.vercel.app/' },
+      { label: 'Application Source', url: 'https://github.com/lifeofthecoders/ShopZone-Ecommerce-Demo' },
+    ],
+  },
+  {
+    id: 'playwright-e2e',
+    title: 'Playwright - E-Commerce & E2E Automation',
+    genre: 'Test Automation · TypeScript · CI/CD',
+    logline: 'Browser-based end-to-end automation for ShopZone using Playwright and the Page Object Model. The suite validates successful checkout, empty-cart error handling, session expiry, and cart persistence after re-authentication.',
+    overview: 'A dedicated Playwright automation repository built with TypeScript and the Page Object Model. It tests ShopZone locally and against its deployed Vercel environment. GitHub Actions installs browser dependencies, validates TypeScript, executes the tests, and uploads reports and test-result artifacts.',
+    role: 'QA Automation Engineer',
+    platforms: ['Playwright', 'TypeScript', 'Chromium', 'GitHub Actions'],
+    image: projectAsset('project-playwright-qa-gallery.jpg'),
+    bannerImage: projectAsset('project-playwright-banner.jpg'),
+    gallery: [
+      { src: projectAsset('project-playwright-detail-1.jpg'), alt: 'Playwright terminal output showing three passing end-to-end tests', caption: 'Automated checkout, empty-cart, and session-persistence tests' },
+      { src: projectAsset('project-playwright-detail-2.jpg'), alt: 'Successful GitHub Actions Playwright workflow', caption: 'GitHub Actions workflow and automated CI execution' },
+      { src: projectAsset('project-playwright-detail-3.jpg'), alt: 'Playwright HTML report and CI execution overview', caption: 'Test report, execution results, and CI workflow' },
+    ],
+    testingAreas: ['End-to-End Testing', 'Page Object Model', 'Checkout Automation', 'Empty Cart Validation', 'Session Expiry', 'Cart Persistence', 'TypeScript Validation', 'CI/CD Integration', 'HTML Test Reports'],
+    build: [
+      'Structured browser automation using Playwright and TypeScript.',
+      'Implemented Page Object Model classes to separate page interactions from test logic.',
+      'Automated the successful e-commerce checkout scenario.',
+      'Automated validation for checkout attempts with an empty shopping cart.',
+      'Verified session expiry, authentication redirection, and cart preservation after re-login.',
+      'Executed tests against both local ShopZone and the deployed Vercel application.',
+      'Configured GitHub Actions to run TypeScript checks and Playwright tests automatically.',
+      'Configured the workflow to upload HTML reports and test-result artifacts.',
+    ],
+    features: ['Three automated end-to-end test scenarios', 'Reusable Page Object Model architecture', 'TypeScript static validation', 'Chromium browser execution', 'Local and deployed application testing', 'GitHub Actions continuous integration', 'HTML reports and failure artifacts'],
+    palette: { from: '#1e0a23', via: '#56245f', to: '#08070c', accent: '#c78cff' },
+    motif: 'shield',
+    externalLinks: [
+      { label: 'Automation Repository', url: 'https://github.com/lifeofthecoders/Playwright-E2E-Test-Suite' },
+      { label: 'GitHub Actions', url: 'https://github.com/lifeofthecoders/Playwright-E2E-Test-Suite/actions' },
+      { label: 'Application Under Test', url: 'https://shop-zone-ecommerce-demo.vercel.app/' },
+      { label: 'Live Test Report', url: 'https://lifeofthecoders.github.io/Playwright-E2E-Test-Suite/' },
+    ],
   },
 ];
 
@@ -303,7 +372,10 @@ export const certifications: Certification[] = [
   { issuer: "Cisco Networking Academy • Silver Oak University", name: "CSS Essentials", date: "July 19, 2017", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-modern-css-essentials-certificate.webp') },
   { issuer: "Cisco Networking Academy • Silver Oak University", name: "HTML Essentials", date: "July 17, 2017", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-modern-html-essentials-certificate.webp') },
   { issuer: "C++ Institute • Cisco Networking Academy", name: "CLA: Programming Essentials in C", date: "March 21, 2017", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-c-programming-achievement-certificate.webp') },
-  { issuer: "CampusCrew • Unstop", name: "QuizOff 2026: India's Biggest AI Quiz", date: "July 19, 2026", category: "ACHIEVEMENTS", link: asset('certificates/sumit-panchal-quizoff-2026-certificate-for-sumit-panchal.webp') }
+  { issuer: "CampusCrew • Unstop", name: "QuizOff 2026: India's Biggest AI Quiz", date: "July 19, 2026", category: "ACHIEVEMENTS", link: asset('certificates/sumit-panchal-quizoff-2026-certificate-for-sumit-panchal.webp') },
+  { issuer: "LinkedIn Learning", name: "SQL Essential Training", date: "November 10, 2026", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-linkedIn-learning-sql-essential-training-certificate.webp') },
+  { issuer: "HackerRank", name: "Software Engineer Certification", date: "November 15, 2026", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-software_engineer certificate.webp') },
+  { issuer: "Claude Academy", name: "AI Fluency: Framework and Foundations", date: "November 16, 2026", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-ai-fluency-framework-foundations-course-completion-badge.webp') },
 ];
 
 export type Skill = { name: string; mono: string; note?: string };
@@ -355,13 +427,15 @@ export const seasons: Season[] = [
     ]
   },
   {
-    number: 3, title: 'Products & User Journeys', period: 'Six QA project case studies', synopsis: 'Six individual QA case studies across transportation, professional networking, multiplayer gaming, e-commerce, digital health, and community sharing.', episodes: [
-      { code: 'S03 E01', title: 'LYMÜV · Mobility & Ride Booking', description: 'Manual QA coverage for ride requests, pickup and destination selection, driver assignment, payments, wallet, live tracking, notifications, and admin workflows.', tags: ['LYMÜV', 'Mobile QA', 'Web Admin'], runtime: 'Project Case Study', palette: ocean },
-      { code: 'S03 E02', title: 'Dap Me · Professional Networking', description: 'QA coverage across authentication, professional profiles, discovery, connection requests, real-time messaging, subscriptions, notifications, and admin moderation.', tags: ['Dap Me', 'Mobile QA', 'Web Admin'], runtime: 'Project Case Study', palette: jade },
-      { code: 'S03 E03', title: 'Kinzwin · Multiplayer Gaming', description: 'Manual testing of gameplay, scoring, multiplayer synchronization, chat, leaderboards, fair-play behavior, and administrative controls.', tags: ['Kinzwin', 'Functional Testing', 'Regression'], runtime: 'Project Case Study', palette: violet },
-      { code: 'S03 E04', title: 'Bunny Books · E-Commerce', description: 'Testing photo uploads, album creation, design previews, cart, checkout, payment processing, notifications, order management, and delivery tracking.', tags: ['Bunny Books', 'Mobile QA', 'E-Commerce'], runtime: 'Project Case Study', palette: amber },
-      { code: 'S03 E05', title: 'Health-E · Digital Health', description: 'QA coverage for registration, OTP verification, ABHA generation, medical records, appointments, reminders, health modules, and role-based administration.', tags: ['Health-E', 'Mobile QA', 'Web Admin'], runtime: 'Project Case Study', palette: ocean },
-      { code: 'S03 E06', title: 'reGive · Community Sharing', description: 'End-to-end QA across item posting, requests, promise and acceptance, pickup scheduling, handover, transaction status, ratings, and notifications.', tags: ['reGive', 'End-to-End Testing', 'Mobile QA'], runtime: 'Project Case Study', palette: jade },
+    number: 3, title: 'Products & User Journeys', period: 'Eight QA project case studies', synopsis: 'Eight QA case studies across transportation, professional networking, multiplayer gaming, e-commerce, digital health, community sharing, and browser automation.', episodes: [
+      { code: 'S03 E01', title: 'LYMÜV · Taxi Booking Application', description: 'Manual QA coverage for ride requests, pickup and destination selection, driver assignment, payments, wallet, live tracking, notifications, and admin workflows.', tags: ['LYMÜV', 'Mobile QA', 'Web Admin'], runtime: 'Project Case Study', palette: ocean },
+      { code: 'S03 E02', title: 'Dap Me · Professional Networking Application', description: 'QA coverage across authentication, professional profiles, discovery, connection requests, real-time messaging, subscriptions, notifications, and admin moderation.', tags: ['Dap Me', 'Mobile QA', 'Web Admin'], runtime: 'Project Case Study', palette: jade },
+      { code: 'S03 E03', title: 'Kinzwin · Multiplayer Gaming Platform', description: 'Manual testing of gameplay, scoring, multiplayer synchronization, chat, leaderboards, fair-play behavior, and administrative controls.', tags: ['Kinzwin', 'Functional Testing', 'Regression'], runtime: 'Project Case Study', palette: violet },
+      { code: 'S03 E04', title: 'Bunny Books · Photo Book & E‑Commerce Application', description: 'Testing photo uploads, album creation, design previews, cart, checkout, payment processing, notifications, order management, and delivery tracking.', tags: ['Bunny Books', 'Mobile QA', 'E-Commerce'], runtime: 'Project Case Study', palette: amber },
+      { code: 'S03 E05', title: 'Health-E · Digital Health & Medical Records App', description: 'QA coverage for registration, OTP verification, ABHA generation, medical records, appointments, reminders, health modules, and role-based administration.', tags: ['Health-E', 'Mobile QA', 'Web Admin'], runtime: 'Project Case Study', palette: ocean },
+      { code: 'S03 E06', title: 'reGive · Community Sharing & Gift Transaction Application', description: 'End-to-end QA across item posting, requests, promise and acceptance, pickup scheduling, handover, transaction status, ratings, and notifications.', tags: ['reGive', 'End-to-End Testing', 'Mobile QA'], runtime: 'Project Case Study', palette: jade },
+      { code: 'S03 E07', title: 'ShopZone · E-Commerce Web Application', description: 'Functional QA coverage for product browsing, cart management, simulated authentication, checkout, order confirmation, session expiry, and cart persistence.', tags: ['ShopZone', 'E-Commerce', 'Functional Testing'], runtime: 'Project Case Study', palette: ocean },
+      { code: 'S03 E08', title: 'Playwright · E-Commerce & E2E Automation', description: 'TypeScript browser automation using the Page Object Model, checkout validation, empty-cart handling, session expiry, and GitHub Actions CI.', tags: ['Playwright', 'TypeScript', 'GitHub Actions'], runtime: 'Automation Case Study', palette: violet },
     ]
   },
   {
@@ -449,12 +523,13 @@ export const introSlides: IntroSlide[] = [
   },
   {
     kicker: 'Projects',
-    title: 'Six QA Case Studies',
+    title: 'Eight QA Case Studies',
     lines: [
       'LYMÜV · Dap Me · Kinzwin · Bunny Books',
       'Health-E · reGive',
+      'ShopZone · Playwright',
     ],
-    chips: ['Mobile', 'Web', 'Admin'],
+    chips: ['Mobile', 'Web', 'Admin', 'Automation'],
   },
   {
     kicker: 'Certified',

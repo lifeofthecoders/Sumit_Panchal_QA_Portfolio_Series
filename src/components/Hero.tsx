@@ -77,9 +77,17 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
         className="absolute inset-x-0 top-12 z-[2] flex h-[64svh] items-end justify-center sm:h-[70svh] lg:bottom-0 lg:left-auto lg:right-[3vw] lg:top-20 lg:h-auto lg:w-[54vw] xl:right-[6vw] xl:w-[48vw]"
         style={{ y: imgY, scale: imgScale, opacity: fade }}
       >
-        
+        {/* <motion.div
+          className="relative h-full w-full lg:h-[86vh]"
+          style={{ rotateY: imgRotY, rotateX: imgRotX, x: imgShiftX, transformPerspective: 1200 }}
+          initial={{ clipPath: 'inset(100% -30% -10% -30%)', opacity: 0 }}
+          animate={{ clipPath: 'inset(-30% -30% -10% -30%)', opacity: 1 }}
+          transition={{ duration: 1.6, ease: EASE, delay: 0.1 }}
+        > */}
+
+
         <motion.div
-          className="relative h-full w-full lg:h-[120vh]"
+          className="relative h-full w-full lg:h-[112vh]"
           style={{ rotateY: imgRotY, rotateX: imgRotX, x: imgShiftX, transformPerspective: 1200 }}
           initial={{ y: 110, clipPath: 'inset(100% -30% -10% -30%)', opacity: 0 }}
           animate={{ y: 0, clipPath: 'inset(-30% -30% -10% -30%)', opacity: 1 }}

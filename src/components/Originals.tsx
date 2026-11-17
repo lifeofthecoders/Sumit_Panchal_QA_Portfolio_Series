@@ -23,7 +23,7 @@ function Intro() {
       </p>
       <RevealText as="h2" text="QA PROJECTS" className="font-display text-[clamp(3.5rem,9vw,8rem)] leading-[0.85] text-bone" />
       <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-mist">
-        Six QA case studies across transportation, professional networking, gaming, e-commerce, digital health, and community sharing. Open any title to explore the testing scope, workflows, and QA contributions.
+        Eight QA case studies across transportation, professional networking, gaming, e-commerce, digital health, community sharing, and browser automation. Open any title to explore the testing scope, workflows, and QA contributions.
       </p>
       <p className="mt-6 hidden text-xs tracking-[0.24em] text-smoke lg:block">SCROLL TO BROWSE →</p>
     </div>

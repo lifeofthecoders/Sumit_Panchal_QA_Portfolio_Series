@@ -172,12 +172,29 @@ export default function PlayIntro({ onClose }: { onClose: () => void }) {
               )}
             </motion.div>
           )}
-          {phase === 'end' && (
+          {/* {phase === 'end' && (
             <motion.div key="end" initial={{ opacity: 0, letterSpacing: '0.6em' }} animate={{ opacity: 1, letterSpacing: '0.2em' }} transition={{ duration: 1.2, ease: EASE }}>
               <p className="font-display text-5xl text-bone sm:text-7xl">NOW STREAMING</p>
-              <p className="mt-3 text-xs font-semibold tracking-[0.4em] text-mist">{profile.displayName.toUpperCase()}</p>
+              <p className="mt-3 text-xs font-bold tracking-[0.4em] text-mist">{profile.displayName.toUpperCase()}</p>
+            </motion.div>
+          )} */}
+
+          {phase === 'end' && (
+            <motion.div
+              key="end"
+              initial={{ opacity: 0, scale: 0.85, y: 35, letterSpacing: '0.6em' }}
+              animate={{ opacity: 1, scale: 1, y: 0, letterSpacing: '0.2em' }}
+              transition={{ duration: 3.5, ease: EASE }}
+            >
+              <p className="font-display text-6xl text-bone sm:text-8xl lg:text-9xl">
+                NOW STREAMING
+              </p>
+              <p className="mt-5 text-sm font-bold tracking-[0.5em] text-crimson-2 sm:text-base lg:text-lg">
+                {profile.displayName.toUpperCase()}
+              </p>
             </motion.div>
           )}
+
         </AnimatePresence>
       </div>
 

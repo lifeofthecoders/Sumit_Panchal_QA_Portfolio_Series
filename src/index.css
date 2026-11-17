@@ -153,3 +153,35 @@ a:focus-visible {
     display: none;
   }
 }
+
+/* Back button: consistent rounded keyboard focus */
+.project-back-button {
+  border-radius: 9999px !important;
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.project-back-button:focus,
+.project-back-button:focus-visible {
+  border-radius: 9999px !important;
+  outline: none !important;
+  outline-offset: 0 !important;
+}
+
+.project-back-button:focus-visible {
+  box-shadow: 0 0 0 2px rgba(255, 61, 90, 0.45) !important;
+}
+
+/* Keep banner and gallery image arrow buttons circular on keyboard focus */
+.project-image-open-button,
+.project-image-open-button:focus,
+.project-image-open-button:focus-visible {
+  border-radius: 9999px !important;
+  outline: none !important;
+  outline-offset: 0 !important;
+}
+
+.project-image-open-button:focus-visible {
+  box-shadow: 0 0 0 2px rgba(255, 61, 90, 0.8),
+    0 0 12px rgba(255, 61, 90, 0.35) !important;
+}
