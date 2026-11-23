@@ -4,7 +4,7 @@ import { certifications, profile, projects, type ProfileId } from '../data/portf
 import { useFinePointer } from '../hooks/useMedia';
 import { useSmoothScroll } from '../hooks/smoothScroll';
 import { EASE, Magnetic, Particles } from './fx';
-import { SeriesMark } from './Poster';
+// import { SeriesMark } from './Poster';
 
 const container = { hidden: {}, show: { transition: { staggerChildren: 0.09, delayChildren: 0.25 } } };
 const item = {
@@ -127,8 +127,23 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
         initial="hidden"
         animate="show"
       >
+        <motion.div variants={item} className="mb-7 flex items-center">
+          <div className="inline-flex items-center gap-3 py-1.5">
+            <span aria-hidden="true" className="availability-radar relative flex h-11 w-11 shrink-0 items-center justify-center">
+              <span className="availability-radar__wave availability-radar__wave--one" />
+              <span className="availability-radar__wave availability-radar__wave--two" />
+              <span className="availability-radar__wave availability-radar__wave--three" />
+              <span className="availability-radar__core-ring" />
+              <span className="availability-radar__core" />
+            </span>
+            <span className="text-[9px] font-semibold uppercase tracking-[0.19em] text-emerald-100/85 sm:text-[10px] sm:tracking-[0.22em]">
+              Open to Quality Assurance Opportunities
+            </span>
+          </div>
+        </motion.div>
+
         <motion.div variants={item} className="mb-3 text-lg">
-          <SeriesMark />
+          {/* <SeriesMark /> */}
         </motion.div>
         <motion.h1 variants={item} className="font-display leading-[0.82] tracking-[0.02em] text-bone" style={{ fontSize: 'clamp(4rem, 12vw, 11rem)' }}>
           <span className="shimmer-text">{profile.firstName}</span>

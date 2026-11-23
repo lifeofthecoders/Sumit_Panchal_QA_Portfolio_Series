@@ -164,16 +164,17 @@ export default function OpeningSequence({
               ease: SMOOTH_EASE,
             }}
           >
+
             <motion.p
-              className="whitespace-nowrap text-center font-sans text-[24px] font-bold text-crimson-2 [text-shadow:0_2px_20px_rgba(229,19,43,0.2)] sm:text-[32px] md:text-[40px]"
+              className="whitespace-nowrap text-center font-['Allura',cursive] text-[34px] font-normal normal-case tracking-normal text-crimson-2 [text-shadow:0_2px_20px_rgba(229,19,43,0.2)] sm:text-[42px] md:text-[50px]"
               initial={{
-                letterSpacing: '3px',
+                letterSpacing: '0.02em',
                 opacity: 0,
                 y: 30,
                 filter: 'blur(10px)',
               }}
               animate={{
-                letterSpacing: '8px',
+                letterSpacing: '0.08em',
                 opacity: 1,
                 y: 0,
                 filter: 'blur(0px)',
@@ -186,6 +187,7 @@ export default function OpeningSequence({
             >
               {profile.originalLabel}
             </motion.p>
+
           </motion.div>
         )}
       </AnimatePresence>
@@ -354,13 +356,48 @@ export default function OpeningSequence({
       </div>
 
       {/* Skip intro */}
-      <button
+      {/* <button
         type="button"
         onClick={onDone}
         className="absolute right-4 top-[6vh] z-40 inline-flex h-10 items-center justify-center rounded-full border border-white/20 px-5 font-sans text-[11px] font-semibold tracking-[0.2em] text-mist transition hover:border-white/60 hover:text-bone sm:right-6 md:right-8"
       >
         SKIP INTRO
-      </button>
+      </button> */}
+
+      {/* Skip intro - appears after all opening animations */}
+      <AnimatePresence>
+        {beat >= 6 && (
+          <motion.button
+            key="skip-intro"
+            type="button"
+            onClick={onDone}
+            initial={{
+              opacity: 0,
+              y: -12,
+              filter: 'blur(6px)',
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              filter: 'blur(0px)',
+            }}
+            exit={{
+              opacity: 0,
+              y: -8,
+              filter: 'blur(4px)',
+            }}
+            transition={{
+              duration: 0.8,
+              delay: reduced ? 0 : 2.5,
+              ease: SMOOTH_EASE,
+            }}
+            className="absolute right-4 top-[6vh] z-40 inline-flex h-10 items-center justify-center rounded-full border border-white/20 px-5 font-sans text-[11px] font-semibold tracking-[0.2em] text-mist transition-colors duration-300 hover:border-white/60 hover:text-bone sm:right-6 md:right-8"
+          >
+            SKIP INTRO
+          </motion.button>
+        )}
+      </AnimatePresence>
+
     </motion.div>
   );
 }

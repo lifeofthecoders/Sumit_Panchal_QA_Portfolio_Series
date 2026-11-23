@@ -53,15 +53,14 @@ export function ProfileAvatar({
 
   return (
     <span
-      className={`${avatarFrame} font-display leading-none text-bone ${
-        id === 'qa'
+      className={`${avatarFrame} font-display leading-none text-bone ${id === 'qa'
           ? size === 'sm'
             ? 'text-sm tracking-tight'
             : 'text-2xl tracking-tight'
           : size === 'sm'
             ? 'text-lg'
             : 'text-3xl'
-      }`}
+        }`}
       aria-hidden="true"
     >
       {glyph[id]}
@@ -141,7 +140,7 @@ export default function ProfileSelector({
                 )}
               </span>
 
-              <span className="font-sans text-sm font-medium text-mist transition group-hover:text-bone sm:text-base">
+              <span className="font-sans text-sm font-medium uppercase text-mist transition group-hover:text-bone sm:text-base">
                 {toTitleCase(p.name)}
               </span>
 
@@ -154,7 +153,9 @@ export default function ProfileSelector({
       </motion.ul>
 
       <p className="relative mt-12 max-w-md text-center text-xs leading-relaxed text-smoke">
-        Every Profile Explores The Same QA Story Of {profile.displayName} - It Only Changes What Plays First.
+        Every Profile Explores The Same QA Story Of {profile.displayName}
+        <br />
+        It Only Changes What Plays First.
       </p>
     </motion.div>
   );

@@ -185,3 +185,102 @@ a:focus-visible {
   box-shadow: 0 0 0 2px rgba(255, 61, 90, 0.8),
     0 0 12px rgba(255, 61, 90, 0.35) !important;
 }
+/* Footer refinements matched to the companion Sumit Panchal portfolio */
+.qa-series-wordmark{display:inline-block;transition:color .3s ease,letter-spacing .35s ease,transform .35s ease}
+.qa-series-wordmark:hover{letter-spacing:.28em;transform:translateX(3px)}
+.qa-series-registered{display:inline-block;position:relative;top:-14px;margin-left:2px;font-family:var(--font-sans);font-size:22px;font-weight:800;color:var(--color-crimson-2);vertical-align:baseline}
+.footer-series-role{max-width:380px;font-size:10px;line-height:1.8;letter-spacing:.12em}
+.footer-series-motto,.footer-series-tagline{display:inline-block;transform-origin:left center;transition:color .3s ease,transform .35s cubic-bezier(.2,.8,.2,1),letter-spacing .35s ease}
+.footer-series-motto:hover,.footer-series-tagline:hover{color:var(--color-crimson-2)!important;transform:translateX(4px) scale(1.035);letter-spacing:.035em}
+.footer-series-kicker{font-family:var(--font-display);font-size:30px;line-height:1.1;font-weight:800;letter-spacing:.08em;margin:18px 0 20px;transform-origin:right center;transition:color .3s ease,transform .35s cubic-bezier(.2,.8,.2,1),letter-spacing .35s ease}
+.footer-series-kicker:hover{color:var(--color-crimson-2);transform:translateX(-5px) scale(1.16);letter-spacing:.34em}
+.footer-series-copy{max-width:470px;font-size:11px;line-height:1.9;color:var(--color-mist);text-align:right}
+.footer-series-social{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;transition:color .28s ease,transform .28s ease,filter .28s ease}
+.footer-series-social:hover{transform:translateY(-3px) scale(1.14);filter:drop-shadow(0 4px 8px currentColor)}
+.footer-series-backtop:hover{transform:translateY(-2px);color:var(--color-crimson-2)}
+.footer-role-line { width: max-content; max-width: none; white-space: nowrap; color: rgba(244,241,236,.62); font-size: 8px; line-height: 1.8; letter-spacing: .12em; font-weight: 600;}
+@media(max-width:767px){.footer-series-role{max-width:100%;font-size:9px}.footer-series-kicker{transform-origin:center}.footer-series-kicker:hover{transform:translateY(-2px) scale(1.1)}.footer-series-copy{text-align:center;margin-inline:auto}}
+@media(prefers-reduced-motion:reduce){.qa-series-wordmark,.footer-series-motto,.footer-series-tagline,.footer-series-kicker,.footer-series-social,.footer-series-backtop{transition:none}}
+
+
+/* Subtle radar-style pulse for the hero availability indicator */
+@keyframes radar-pulse {
+  0% {
+    transform: scale(0.65);
+    opacity: 0.8;
+  }
+  75%, 100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+
+/* Reference-matched continuous radar pulse for availability status */
+.availability-radar { isolation: isolate; }
+.availability-radar__wave {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  border: 1px solid rgba(110, 231, 183, 0.72);
+  border-radius: 9999px;
+  transform: translate(-50%, -50%) scale(0.55);
+  opacity: 0;
+  pointer-events: none;
+  animation: availability-radar-wave 2.4s cubic-bezier(0.16, 0.7, 0.3, 1) infinite;
+}
+.availability-radar__wave--one { animation-delay: 0s; }
+.availability-radar__wave--two { animation-delay: 0.8s; }
+.availability-radar__wave--three { animation-delay: 1.6s; }
+.availability-radar__core-ring {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(110, 231, 183, 0.52);
+  border-radius: 9999px;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.13), inset 0 0 8px rgba(16, 185, 129, 0.08);
+}
+.availability-radar__core {
+  position: relative;
+  z-index: 1;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: #6ee7b7;
+  box-shadow: 0 0 6px rgba(110, 231, 183, 1), 0 0 15px rgba(16, 185, 129, 0.78), 0 0 24px rgba(16, 185, 129, 0.28);
+}
+@keyframes availability-radar-wave {
+  0% { transform: translate(-50%, -50%) scale(0.55); opacity: 0; }
+  12% { opacity: 0.72; }
+  78%, 100% { transform: translate(-50%, -50%) scale(3.55); opacity: 0; }
+}
+
+/* Larger red location pulse; the pin remains perfectly still */
+.location-radar { isolation: isolate; }
+.location-radar__wave {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 15px;
+  height: 15px;
+  border: 1px solid rgba(255, 61, 90, 0.72);
+  border-radius: 9999px;
+  transform: translate(-50%, -50%) scale(0.5);
+  opacity: 0;
+  pointer-events: none;
+  animation: location-radar-wave 2.4s cubic-bezier(0.16, 0.7, 0.3, 1) infinite;
+}
+.location-radar__wave--one { animation-delay: 0s; }
+.location-radar__wave--two { animation-delay: 0.8s; }
+.location-radar__wave--three { animation-delay: 1.6s; }
+@keyframes location-radar-wave {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+  12% { opacity: 0.68; }
+  78%, 100% { transform: translate(-50%, -50%) scale(3.15); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .availability-radar__wave,
+  .location-radar__wave { animation: none; opacity: 0; }
+}

@@ -13,7 +13,7 @@ export const profile = {
   displayName: 'Sumit Panchal',
   firstName: 'SUMIT PANCHAL',
   seriesTag: 'THE QA SERIES',
-  originalLabel: 'THE SUMIT PANCHAL QUALITY ORIGINAL',
+  originalLabel: 'The Sumit Panchal Quality Original',
   role: 'Manual QA Engineer | Quality Assurance Analyst',
   tagline: ['Manual QA Engineer', 'Functional & Regression Testing', 'Exploratory Testing', 'Risk-Based Testing', 'Test Design & Defect Analysis', 'Agile & DevOps Collaboration'],
   homeIntro: 'Senior Quality Analyst | Manual QA Engineer with 5+ years of experience testing mobile and web applications. Skilled in Functional, Regression, and Exploratory Testing, Test Case Design, and Defect Management, with a focus on product quality and reliable software releases.',
@@ -556,10 +556,10 @@ export const introSlides: IntroSlide[] = [
 export type ProfileId = 'sumit' | 'recruiter' | 'qa' | 'creative';
 export type SectionId = 'about' | 'journey' | 'originals' | 'picks' | 'skills' | 'moments' | 'story';
 export const viewerProfiles: { id: ProfileId; name: string; blurb: string; color: string; order: SectionId[] }[] = [
-  { id: 'sumit', name: 'Sumit', blurb: 'The Complete QA Portfolio', color: '#e5132b', order: ['about', 'journey', 'originals', 'picks', 'skills', 'moments', 'story'] },
-  { id: 'recruiter', name: 'Recruiter', blurb: 'Experience, QA Skills & Resume First', color: '#4cc9ff', order: ['story', 'moments', 'skills', 'originals', 'about', 'journey', 'picks'] },
-  { id: 'qa', name: 'QA Team', blurb: 'Testing Projects, Methods & Defect Workflows', color: '#46e3a8', order: ['originals', 'skills', 'journey', 'moments', 'about', 'picks', 'story'] },
-  { id: 'creative', name: 'Product Team', blurb: 'Product Journeys & Quality Highlights', color: '#ffb547', order: ['journey', 'originals', 'picks', 'moments', 'about', 'skills', 'story'] },
+  { id: 'sumit', name: 'SUMIT PANCHAL', blurb: 'The Complete QA Portfolio', color: '#e5132b', order: ['about', 'journey', 'originals', 'picks', 'skills', 'moments', 'story'] },
+  { id: 'recruiter', name: 'RECRUITER', blurb: 'Experience, QA Skills & Resume First', color: '#4cc9ff', order: ['story', 'moments', 'skills', 'originals', 'about', 'journey', 'picks'] },
+  { id: 'qa', name: 'QA TEAM', blurb: 'Testing Projects, Methods & Defect Workflows', color: '#46e3a8', order: ['originals', 'skills', 'journey', 'moments', 'about', 'picks', 'story'] },
+  { id: 'creative', name: 'PRODUCT TEAM', blurb: 'Product Journeys & Quality Highlights', color: '#ffb547', order: ['journey', 'originals', 'picks', 'moments', 'about', 'skills', 'story'] },
 ];
 
 export const sectionMeta: Record<SectionId, { nav: string; card: string; meta: string; palette: Palette }> = {

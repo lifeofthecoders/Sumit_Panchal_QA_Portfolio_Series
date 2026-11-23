@@ -193,60 +193,68 @@ export default function FinalCTA({
 
       {/* Professional footer - normal document flow, no overlapping */}
       <footer className="relative z-10 mt-24 w-screen max-w-[1900px] self-center border-t border-white/10 gutter pt-8 text-left">
-        <div className="grid gap-9 md:grid-cols-[1fr_1.2fr_1fr] md:items-center">
+        <div className="grid w-full grid-cols-1 gap-9 md:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)_minmax(0,1fr)] md:items-center">
 
           {/* Left: Brand and copyright */}
-          <div className="flex flex-col items-center gap-4 text-center md:items-start md:text-left">
+          <div className="flex min-w-0 flex-col items-center gap-4 text-center md:items-start md:text-left">
             <SeriesMark />
 
             <div className="w-full max-w-[340px] space-y-2 text-[10px] leading-[1.8] tracking-[0.06em] text-smoke">
 
               {/* Professional role */}
-              <p className="max-w-[310px] font-medium leading-relaxed text-bone/75">
-                Quality Assurance Analyst
-                <span className="mx-1.5 text-crimson-2">·</span>
-                Manual QA Engineer
-                <span className="mx-1.5 text-crimson-2">·</span>
-                Software Testing
+              <p className="footer-role-line">
+                QUALITY ASSURANCE ANALYST · MANUAL QA ENGINEER · SOFTWARE TESTING
               </p>
 
               {/* Personal quote */}
-              <p className="pt-1 font-serif text-xs italic tracking-wide text-bone/65">
-                "Quality is a Team Effort."
-              </p>
+              <div className="flex flex-col items-start gap-0">
+                <div className="mb-3 w-75 border-t border-white/10" />
 
-              {/* Professional tagline */}
-              <p className="text-[10px] text-smoke">
-                Building Confidence Through Testing.
-              </p>
-
-              {/* Copyright */}
-              <div className="pt-2">
-                <div className="mb-3 w-60 border-t border-white/10" />
-
-                <p className="font-medium tracking-[0.08em] text-bone/65">
-                  © {new Date().getFullYear()} {profile.displayName}
+                <p className="block w-fit pt-[5px] font-['Allura',cursive] font-semibold text-[20px] tracking-[0.04em] text-[rgba(244,241,236,0.72)] transition-all duration-300 ease-out origin-left hover:translate-x-1 hover:scale-[1.035] hover:tracking-[0.035em] hover:text-crimson-2">
+                  “Quality is a Team Effort.
                 </p>
-
-                <p className="mt-0.5 text-smoke/80">
-                  All rights reserved.
+                {/* Professional tagline */}
+                <p className="block w-fit font-['Allura',cursive] font-semibold text-[20px] tracking-[0.04em] text-[rgba(244,241,236,0.72)] transition-all duration-300 ease-out origin-left hover:translate-x-1 hover:scale-[1.035] hover:tracking-[0.035em] hover:text-crimson-2">
+                  Building Confidence Through Testing.”
                 </p>
               </div>
 
-              {/* Developer credit */}
-              <p className="pt-1 text-[9px] tracking-[0.1em] text-smoke/70">
-                Designed & Developed by{' '}
-                <span className="font-semibold text-bone/80">
-                  Sumit Panchal
-                </span>
-              </p>
+              {/* Copyright + Developer Credit */}
+              <div className="w-full self-start pt-2 text-left">
+
+                <div className="mb-3 w-75 border-t border-white/10" />
+
+                <div className="flex flex-wrap items-center justify-start gap-x-3 gap-y-1 text-left text-[9px] font-medium tracking-[0.08em]">
+
+                  <p className="text-bone/65">
+                    © {new Date().getFullYear()} {profile.displayName}
+                  </p>
+
+                  <span className="text-bone/30">·</span>
+
+                  <p className="text-smoke/80">
+                    ALL RIGHTS RESERVED.
+                  </p>
+
+                  {/* <span className="text-bone/30">·</span> */}
+
+                  <p className="text-smoke/70">
+                    DESIGNED &amp; DEVELOPED BY{' '}
+                    <span className="font-semibold text-bone/80">
+                      SUMIT PANCHAL
+                    </span>
+                  </p>
+
+                </div>
+
+              </div>
 
             </div>
           </div>
 
           {/* Center: Contact and social links */}
-          <div className="flex flex-col items-center text-center">
-            <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.3em] text-smoke">
+          <div className="flex min-w-0 w-full flex-col items-center justify-self-center text-center">
+            <p className="mb-3 text-[12px] font-bold uppercase tracking-[0.3em] text-white">
               Connect With Me
             </p>
 
@@ -270,10 +278,10 @@ export default function FinalCTA({
                   whileHover={{ scale: 1.2, y: -3 }}
                   whileTap={{ scale: 0.94 }}
                   transition={{ duration: 0.2 }}
-                  className={`text-[#b8b8bd] transition-colors duration-300 ${social.hover}`}
+                  className={`footer-series-social text-[#b8b8bd] transition-colors duration-300 ${social.hover}`}
                 >
                   <svg
-                    className="h-[19px] w-[19px]"
+                    className="h-[30px] w-[30px]"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     aria-hidden="true"
@@ -300,16 +308,22 @@ export default function FinalCTA({
           </div>
 
           {/* Right: Professional quality statement */}
-          <div className="flex flex-col items-center gap-4 text-center md:items-end md:text-right">
-            <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-crimson-2">
+          <div className="flex min-w-0 w-full flex-col items-center gap-4 text-center md:items-end md:text-right">
+            <p
+              className="footer-series-kicker inline-block w-max max-w-full whitespace-nowrap origin-right font-display text-[30px] font-bold uppercase tracking-[0.12em] text-bone transition-[transform,color] duration-[350ms] ease-out hover:-translate-x-[5px] hover:scale-[1.08] hover:text-crimson-2"
+            >
               Quality Commitment
             </p>
 
-            <p className="w-full max-w-[360px] text-xs leading-[1.9] text-mist text-center md:text-right">
-              Quality is built through attention to detail,
-              <br className="hidden sm:block" />
-              thoughtful testing, and continuous improvement.
-            </p>
+            <motion.p
+              whileHover={{ x: -4, scale: 1.035, letterSpacing: '0.035em' }}
+              transition={{ duration: 0.35, ease: EASE }}
+              className="footer-series-copy w-full max-w-[360px] text-xs leading-[1.9] text-mist text-center md:text-right"
+            >
+              Quality is built through attention to detail, thoughtful testing,
+              <br />
+              and continuous improvement.
+            </motion.p>
 
             <div className="flex flex-wrap justify-center gap-2 md:justify-end">
               {[
@@ -330,9 +344,20 @@ export default function FinalCTA({
               href={profile.links.github}
               target="_blank"
               rel="noreferrer"
-              className="mt-1 text-[11px] font-medium tracking-[0.08em] text-bone/70 underline decoration-white/25 underline-offset-4 transition-colors duration-300 hover:text-crimson-2"
+              className="mt-1 text-[11px] font-bold tracking-[0.08em] text-bone/70 underline decoration-white/25 underline-offset-4 transition-colors duration-300 hover:text-crimson-2"
             >
-              Explore My GitHub ↗
+              EXPLORE MY GITHUB ↗
+            </a>
+
+            <a
+              href="#top"
+              onClick={(event) => {
+                event.preventDefault();
+                scrollTo('#top', { offset: 0 });
+              }}
+              className="footer-series-backtop mt-2 text-[11px] font-bold tracking-[0.08em] text-bone/70 underline decoration-white/25 underline-offset-4 transition-colors duration-300 hover:text-crimson-2"
+            >
+              BACK TO TOP ↑
             </a>
           </div>
         </div>

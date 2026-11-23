@@ -27,7 +27,6 @@ export default function About() {
     {
       k: 'Based in',
       v: profile.location,
-      s: 'Ahmedabad, Gujarat, India',
     },
   ];
 
@@ -116,8 +115,21 @@ export default function About() {
                 variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } } }}
               >
                 <dt className="text-[10px] font-bold uppercase tracking-[0.28em] text-smoke">{f.k}</dt>
-                <dd className="mt-2 text-base font-semibold text-bone">{f.v}</dd>
-                <dd className="mt-0.5 text-xs text-mist">{f.s}</dd>
+                <dd className="mt-2 flex items-center gap-2 text-base font-semibold text-bone">
+                  {f.k === 'Based in' && (
+                    <span aria-hidden="true" className="location-radar relative flex h-12 w-12 shrink-0 items-center justify-center text-crimson-2">
+                      <span className="location-radar__wave location-radar__wave--one" />
+                      <span className="location-radar__wave location-radar__wave--two" />
+                      <span className="location-radar__wave location-radar__wave--three" />
+                      <svg className="relative z-[1] h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" />
+                        <circle cx="12" cy="10" r="2.5" />
+                      </svg>
+                    </span>
+                  )}
+                  {f.v}
+                </dd>
+                {f.s && <dd className="mt-0.5 text-xs text-mist">{f.s}</dd>}
               </motion.div>
             ))}
           </motion.dl>

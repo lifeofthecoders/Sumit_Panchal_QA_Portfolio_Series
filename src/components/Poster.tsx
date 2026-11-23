@@ -1,6 +1,9 @@
 
 import type { ReactNode } from 'react';
+import { motion } from 'framer-motion';
 import type { Palette, Project } from '../data/portfolio';
+
+const EASE = [0.2, 0.8, 0.2, 1] as const;
 
 export function PosterBackdrop({
   palette,
@@ -340,29 +343,45 @@ export function ProjectListingArt({
   );
 }
 
-/**
- * SP quality branding mark.
+
+/*
+  SP quality branding mark.
  */
 export function SeriesMark({ className = '' }: { className?: string }) {
   return (
-    <span className={`inline-flex items-center gap-1.5 ${className}`}>
-      <svg
-        viewBox="0 0 24 32"
-        className="h-[1.1em] w-auto"
+    <span
+      className={`relative inline-block shrink-0 whitespace-nowrap ${className}`}
+    >
+      {/* Invisible width reservation */}
+      <span
         aria-hidden="true"
+        className="invisible inline-flex whitespace-nowrap font-display text-[30px] font-bold tracking-[0.125em]"
       >
-        <path
-          d="M18 6c-1.8-1.8-4-2.6-6.5-2.6C7.6 3.4 5 5.6 5 9c0 7.6 14 4.6 14 11.6 0 3-2.8 5-6.4 5-3 0-5.4-1.2-7.2-3"
-          fill="none"
-          stroke="#e5132b"
-          strokeWidth="4"
-          strokeLinecap="round"
-        />
-      </svg>
-
-      <span className="font-sans text-[0.62em] font-bold tracking-[0.36em] text-mist">
-        QA SERIES
+        SUMIT PANCHAL
+        <span className="ml-[3px] text-[13.5px]">®</span>
       </span>
+
+      {/* SUMIT PANCHAL® Wordmark */}
+      <motion.a
+        href="#top"
+        aria-label="Back to portfolio top"
+        whileHover={{
+          x: -1,
+          scale: 1.01,
+          letterSpacing: '0.125em',
+        }}
+        transition={{
+          duration: 0.35,
+          ease: EASE,
+        }}
+        style={{ transformOrigin: 'left center' }}
+        className="absolute left-0 top-0 inline-flex w-max shrink-0 items-center whitespace-nowrap font-display text-[30px] font-bold tracking-[0.12em] text-bone transition-colors duration-300 hover:text-crimson-2"
+      >
+        SUMIT PANCHAL
+        <span className="qa-series-registered ml-[3px] inline-block shrink-0 whitespace-nowrap text-[13.5px]">
+          ®
+        </span>
+      </motion.a>
     </span>
   );
 }
