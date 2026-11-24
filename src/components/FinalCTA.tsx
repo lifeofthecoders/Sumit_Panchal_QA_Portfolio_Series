@@ -201,11 +201,22 @@ export default function FinalCTA({
               <SeriesMark />
             </div>
 
-            <div className="w-full max-w-[340px] space-y-2 text-[10px] leading-[1.8] tracking-[0.06em] text-smoke">
+            <div className="flex w-full max-w-[340px] flex-col gap-4 text-[10px] leading-[1.8] tracking-[0.06em] text-smoke">
 
               {/* Professional role */}
               <p className="footer-role-line">
-                QUALITY ASSURANCE ANALYST · MANUAL QA ENGINEER · SOFTWARE TESTING
+                <motion.span
+                  whileHover={{
+                    x: 4,
+                    scale: 1.035,
+                    color: "var(--color-crimson-2)",
+                  }}
+                  transition={{ duration: 0.35, ease: EASE }}
+                  style={{ transformOrigin: "left center" }}
+                  className="inline-block font-bold"
+                >
+                  QUALITY ASSURANCE ANALYST · MANUAL QA ENGINEER · SOFTWARE TESTING
+                </motion.span>
               </p>
 
               {/* Personal quote */}
@@ -222,27 +233,31 @@ export default function FinalCTA({
               </div>
 
               {/* Copyright + Developer Credit */}
-              <div className="w-full self-start pt-2 text-left">
+              <div className="w-full self-start text-left">
 
                 <div className="mb-3 w-75 border-t border-white/10" />
 
                 <div className="flex flex-wrap items-center justify-start gap-x-3 gap-y-1 text-left text-[9px] font-medium tracking-[0.08em]">
 
+                  {/* Copyright */}
                   <p className="text-bone/65">
-                    © {new Date().getFullYear()} {profile.displayName}
+                    © {new Date().getFullYear()}{" "}
+                    <span className="font-bold text-crimson-2 transition-colors duration-300 hover:text-blue-400">
+                      {profile.displayName.toUpperCase()}
+                    </span>
                   </p>
 
                   <span className="text-bone/30">·</span>
 
+                  {/* All Rights Reserved */}
                   <p className="text-smoke/80">
                     ALL RIGHTS RESERVED.
                   </p>
 
-                  {/* <span className="text-bone/30">·</span> */}
-
+                  {/* Developer Credit */}
                   <p className="text-smoke/70">
-                    DESIGNED &amp; DEVELOPED BY{' '}
-                    <span className="font-semibold text-bone/80">
+                    DESIGNED &amp; DEVELOPED BY{" "}
+                    <span className="font-bold text-crimson-2 transition-colors duration-300 hover:text-blue-400">
                       SUMIT PANCHAL
                     </span>
                   </p>
@@ -252,6 +267,33 @@ export default function FinalCTA({
               </div>
 
             </div>
+
+            {/* Left-side Divider + Quick Links */}
+            <div className="flex w-full max-w-[340px] flex-col items-start gap-4 text-left">
+
+              {/* Decorative divider */}
+              <div className="w-75 border-t border-white/10" />
+
+              {/* LinkedIn */}
+              <a
+                href={profile.links.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[11px] font-bold tracking-[0.08em] text-crimson-2 underline decoration-white/25 underline-offset-4 transition-colors duration-300 hover:text-blue-400 hover:decoration-blue-400"
+              >
+                VIEW MY LINKEDIN ↗
+              </a>
+
+              {/* Email */}
+              <a
+                href={`mailto:${profile.email}`}
+                className="text-[11px] font-bold tracking-[0.08em] text-crimson-2 underline decoration-white/25 underline-offset-4 transition-colors duration-300 hover:text-blue-400 hover:decoration-blue-400"
+              >
+                LET'S CONNECT ↗
+              </a>
+
+            </div>
+
           </div>
 
           {/* Center: Contact and social links */}
@@ -320,36 +362,66 @@ export default function FinalCTA({
               </p>
             </div>
 
-            <motion.p
-              whileHover={{ x: -4, scale: 1.035, letterSpacing: '0.035em' }}
-              transition={{ duration: 0.35, ease: EASE }}
-              className="footer-series-copy w-full max-w-[360px] text-xs leading-[1.9] text-mist text-center md:text-right"
-            >
-              Quality is built through attention to detail, thoughtful testing,
-              <br />
-              and continuous improvement.
-            </motion.p>
+            {/* Professional Quality Expertise */}
+            <p className="footer-role-line w-full text-right">
+              <motion.span
+                whileHover={{
+                  x: -4,
+                  scale: 1.035,
+                  color: "var(--color-crimson-2)",
+                }}
+                transition={{ duration: 0.35, ease: EASE }}
+                style={{ transformOrigin: "right center" }}
+                className="inline-block font-bold"
+              >
+                RELIABLE SOFTWARE · DEFECT PREVENTION · REGRESSION TESTING
+              </motion.span>
+            </p>
 
-            <div className="flex flex-wrap justify-center gap-2 md:justify-end">
-              {[
-                'Reliable Software',
-                'Defect Prevention',
-                'Regression Testing',
-              ].map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-white/15 px-3 py-2 text-[9px] font-medium tracking-wide text-bone/75 transition-colors duration-300 hover:border-crimson/60 hover:text-bone"
-                >
-                  {item}
-                </span>
-              ))}
+            {/* Quality Commitment quote — fixed layout, independent hover animation */}
+            <div className="flex w-full max-w-[380px] flex-col items-end gap-0 text-[10px] leading-[1.8]">
+
+              {/* Top decorative line */}
+              <div className="mb-3 w-75 border-t border-white/10" />
+
+              {/* First line */}
+              <motion.p
+                whileHover={{
+                  x: -4,
+                  scale: 1.035,
+                  color: "var(--color-crimson-2)",
+                }}
+                transition={{ duration: 0.35, ease: EASE }}
+                style={{ transformOrigin: "right center" }}
+                className="block w-full whitespace-nowrap pt-[5px] text-right font-['Allura',cursive] text-[20px] font-bold tracking-[0.04em] text-[rgba(244,241,236,0.72)]"
+              >
+                Quality is built through attention to detail,
+              </motion.p>
+
+              {/* Second line */}
+              <motion.p
+                whileHover={{
+                  x: -4,
+                  scale: 1.035,
+                  color: "var(--color-crimson-2)",
+                }}
+                transition={{ duration: 0.35, ease: EASE }}
+                style={{ transformOrigin: "right center" }}
+                className="block w-full whitespace-nowrap text-right font-['Allura',cursive] text-[20px] font-bold tracking-[0.04em] text-[rgba(244,241,236,0.72)]"
+              >
+                thoughtful testing, and continuous improvement.
+              </motion.p>
+
+              {/* Bottom decorative line */}
+              <div className="mt-3 w-75 border-t border-white/10" />
+
             </div>
 
             <a
               href={profile.links.github}
               target="_blank"
               rel="noreferrer"
-              className="mt-1 text-[11px] font-bold tracking-[0.08em] text-bone/70 underline decoration-white/25 underline-offset-4 transition-colors duration-300 hover:text-crimson-2"
+              className="text-[11px] font-bold tracking-[0.08em] text-crimson-2 underline decoration-white/25 underline-offset-4 transition-colors duration-300 hover:text-blue-400 hover:decoration-blue-400"
             >
               EXPLORE MY GITHUB ↗
             </a>
@@ -360,7 +432,7 @@ export default function FinalCTA({
                 event.preventDefault();
                 scrollTo('#top', { offset: 0 });
               }}
-              className="footer-series-backtop mt-2 text-[11px] font-bold tracking-[0.08em] text-bone/70 underline decoration-white/25 underline-offset-4 transition-colors duration-300 hover:text-crimson-2"
+              className="text-[11px] font-bold tracking-[0.08em] text-crimson-2 underline decoration-white/25 underline-offset-4 transition-colors duration-300 hover:text-blue-400 hover:decoration-blue-400"
             >
               BACK TO TOP ↑
             </a>

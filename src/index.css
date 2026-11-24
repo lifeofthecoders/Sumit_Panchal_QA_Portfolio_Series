@@ -299,7 +299,6 @@ a:focus-visible {
     letter-spacing:.12em!important;
   }
 }
-.footer-series-copy{max-width:470px;font-size:11px;line-height:1.9;color:var(--color-mist);text-align:right}
 .footer-series-social{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;transition:color .28s ease,transform .28s ease,filter .28s ease}
 .footer-series-social:hover{transform:translateY(-3px) scale(1.14);filter:drop-shadow(0 4px 8px currentColor)}
 .footer-series-backtop:hover{transform:translateY(-2px);color:var(--color-crimson-2)}
