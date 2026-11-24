@@ -65,7 +65,7 @@ export default function Navbar({ order, profileId, onSwitch }: { order: SectionI
         }`}
       >
         <div className="flex items-center gap-8 lg:gap-10">
-          <button type="button" onClick={() => go('top')} className="text-[22px]" aria-label="Back to top">
+          <button type="button" onClick={() => go('top')} className="navbar-brand-block shrink-0 pr-8 text-left" aria-label="Back to top">
             <SeriesMark />
           </button>
           <nav className="hidden items-center gap-6 lg:flex" aria-label="Sections">

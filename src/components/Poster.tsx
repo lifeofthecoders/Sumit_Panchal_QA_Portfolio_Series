@@ -1,9 +1,6 @@
 
 import type { ReactNode } from 'react';
-import { motion } from 'framer-motion';
 import type { Palette, Project } from '../data/portfolio';
-
-const EASE = [0.2, 0.8, 0.2, 1] as const;
 
 export function PosterBackdrop({
   palette,
@@ -362,26 +359,16 @@ export function SeriesMark({ className = '' }: { className?: string }) {
       </span>
 
       {/* SUMIT PANCHAL® Wordmark */}
-      <motion.a
+      <a
         href="#top"
         aria-label="Back to portfolio top"
-        whileHover={{
-          x: -1,
-          scale: 1.01,
-          letterSpacing: '0.125em',
-        }}
-        transition={{
-          duration: 0.35,
-          ease: EASE,
-        }}
-        style={{ transformOrigin: 'left center' }}
-        className="absolute left-0 top-0 inline-flex w-max shrink-0 items-center whitespace-nowrap font-display text-[30px] font-bold tracking-[0.12em] text-bone transition-colors duration-300 hover:text-crimson-2"
+        className="footer-logo qa-series-wordmark absolute left-0 top-0 inline-flex w-max shrink-0 items-center whitespace-nowrap font-display text-[30px] font-bold tracking-[0.12em] text-bone"
       >
         SUMIT PANCHAL
         <span className="qa-series-registered ml-[3px] inline-block shrink-0 whitespace-nowrap text-[13.5px]">
           ®
         </span>
-      </motion.a>
+      </a>
     </span>
   );
 }

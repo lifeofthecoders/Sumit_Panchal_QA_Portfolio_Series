@@ -197,7 +197,9 @@ export default function FinalCTA({
 
           {/* Left: Brand and copyright */}
           <div className="flex min-w-0 flex-col items-center gap-4 text-center md:items-start md:text-left">
-            <SeriesMark />
+            <div className="footer-brand-block relative z-10 min-w-0 w-max max-w-full overflow-visible">
+              <SeriesMark />
+            </div>
 
             <div className="w-full max-w-[340px] space-y-2 text-[10px] leading-[1.8] tracking-[0.06em] text-smoke">
 
@@ -260,7 +262,7 @@ export default function FinalCTA({
 
             <a
               href={`mailto:${profile.email}`}
-              className="text-xs font-medium tracking-[0.08em] text-crimson-2 underline decoration-white/20 underline-offset-4 transition-colors duration-300 hover:text-blue-400 hover:decoration-blue-400"
+              className="text-[15px] font-bold tracking-[0.08em] text-crimson-2 underline decoration-crimson-2 decoration-2 underline-offset-4 transition-colors duration-300 hover:text-blue-400 hover:decoration-blue-400"
             >
               {profile.email}
             </a>
@@ -309,11 +311,14 @@ export default function FinalCTA({
 
           {/* Right: Professional quality statement */}
           <div className="flex min-w-0 w-full flex-col items-center gap-4 text-center md:items-end md:text-right">
-            <p
-              className="footer-series-kicker inline-block w-max max-w-full whitespace-nowrap origin-right font-display text-[30px] font-bold uppercase tracking-[0.12em] text-bone transition-[transform,color] duration-[350ms] ease-out hover:-translate-x-[5px] hover:scale-[1.08] hover:text-crimson-2"
-            >
-              Quality Commitment
-            </p>
+            <div className="footer-series-kicker-frame" aria-label="Quality Commitment">
+              <p
+                tabIndex={0}
+                className="footer-series-kicker font-display font-bold uppercase text-bone"
+              >
+                Quality Commitment
+              </p>
+            </div>
 
             <motion.p
               whileHover={{ x: -4, scale: 1.035, letterSpacing: '0.035em' }}

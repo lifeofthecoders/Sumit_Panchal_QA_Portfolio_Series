@@ -185,22 +185,127 @@ a:focus-visible {
   box-shadow: 0 0 0 2px rgba(255, 61, 90, 0.8),
     0 0 12px rgba(255, 61, 90, 0.35) !important;
 }
+/* Navbar SUMIT PANCHAL® wordmark: mirror the footer hover without moving navigation links. */
+.navbar-brand-block{position:relative;display:inline-flex;align-items:center;min-width:0;overflow:visible}
+/* Reserve the maximum hover lettering width before interaction, so nav items never reflow. */
+.navbar-brand-block > span{flex:none;overflow:visible}
+.navbar-brand-block > span > span:first-child{letter-spacing:.34em}
+.navbar-brand-block .footer-logo{
+  display:inline-flex;
+  width:max-content;
+  max-width:none;
+  white-space:nowrap;
+  flex-shrink:0;
+  transform-origin:left center;
+  transition:
+    color .3s ease,
+    transform .35s cubic-bezier(.2,.8,.2,1),
+    letter-spacing .35s ease;
+}
+.navbar-brand-block:hover .footer-logo,
+.navbar-brand-block:focus-visible .footer-logo,
+.navbar-brand-block .footer-logo:hover,
+.navbar-brand-block .footer-logo:focus-visible{
+  color:var(--color-crimson-2)!important;
+  transform:translateX(0) scale(1.16);
+  letter-spacing:.34em;
+}
+.navbar-brand-block .footer-logo span{display:inline-block;white-space:nowrap;transition:color .3s ease}
+.navbar-brand-block:hover .footer-logo span,
+.navbar-brand-block:focus-visible .footer-logo span,
+.navbar-brand-block .footer-logo:hover span,
+.navbar-brand-block .footer-logo:focus-visible span{color:var(--color-crimson-2)!important}
+.navbar-brand-block:focus-visible{outline:2px solid rgba(229,19,43,.7);outline-offset:4px;border-radius:2px}
+@media(max-width:1023px){.navbar-brand-block{padding-right:1.5rem}}
+@media(prefers-reduced-motion:reduce){.navbar-brand-block .footer-logo,.navbar-brand-block .footer-logo span{transition:none!important}}
+
 /* Footer refinements matched to the companion Sumit Panchal portfolio */
-.qa-series-wordmark{display:inline-block;transition:color .3s ease,letter-spacing .35s ease,transform .35s ease}
-.qa-series-wordmark:hover{letter-spacing:.28em;transform:translateX(3px)}
+/* Footer SUMIT PANCHAL® wordmark: animate only to the right without reflowing the footer. */
+.footer-brand-block{min-width:0;overflow:visible}
+.footer-brand-block .footer-logo{
+  display:inline-block;
+  width:max-content;
+  max-width:none;
+  white-space:nowrap;
+  flex-shrink:0;
+  transform-origin:left center;
+  transition:
+    color .3s ease,
+    transform .35s cubic-bezier(.2,.8,.2,1),
+    letter-spacing .35s ease;
+}
+.footer-brand-block .footer-logo:hover,
+.footer-brand-block .footer-logo:focus-visible{
+  color:var(--color-crimson-2)!important;
+  transform:translateX(0) scale(1.16);
+  letter-spacing:.34em;
+}
+.footer-brand-block .footer-logo span{display:inline-block;white-space:nowrap;transition:color .3s ease}
+.footer-brand-block .footer-logo:hover span,
+.footer-brand-block .footer-logo:focus-visible span{color:var(--color-crimson-2)!important}
 .qa-series-registered{display:inline-block;position:relative;top:-14px;margin-left:2px;font-family:var(--font-sans);font-size:22px;font-weight:800;color:var(--color-crimson-2);vertical-align:baseline}
 .footer-series-role{max-width:380px;font-size:10px;line-height:1.8;letter-spacing:.12em}
 .footer-series-motto,.footer-series-tagline{display:inline-block;transform-origin:left center;transition:color .3s ease,transform .35s cubic-bezier(.2,.8,.2,1),letter-spacing .35s ease}
 .footer-series-motto:hover,.footer-series-tagline:hover{color:var(--color-crimson-2)!important;transform:translateX(4px) scale(1.035);letter-spacing:.035em}
-.footer-series-kicker{font-family:var(--font-display);font-size:30px;line-height:1.1;font-weight:800;letter-spacing:.08em;margin:18px 0 20px;transform-origin:right center;transition:color .3s ease,transform .35s cubic-bezier(.2,.8,.2,1),letter-spacing .35s ease}
-.footer-series-kicker:hover{color:var(--color-crimson-2);transform:translateX(-5px) scale(1.16);letter-spacing:.34em}
+/*
+ * Quality Commitment: the full-width frame never changes size.
+ * Its right edge stays fixed while the wordmark expands only to the left.
+ * Keeping the text nowrap and max-content prevents a second line or clipping.
+ */
+.footer-series-kicker-frame{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  width:100%;
+  min-width:0;
+  margin:18px 0 20px;
+  overflow:visible;
+}
+.footer-series-kicker{
+  display:inline-block;
+  flex:0 0 auto;
+  width:max-content;
+  max-width:none;
+  margin:0;
+  white-space:nowrap;
+  font-size:clamp(18px,1.75vw,24px);
+  line-height:1;
+  letter-spacing:.12em;
+  text-align:right;
+  transform:translateX(0) scale(1);
+  transform-origin:right center;
+  transition:
+    color .3s ease,
+    transform .35s cubic-bezier(.2,.8,.2,1),
+    letter-spacing .35s ease;
+}
+.footer-series-kicker:hover,
+.footer-series-kicker:focus-visible{
+  color:var(--color-crimson-2)!important;
+  transform:translateX(0) scale(1.16);
+  letter-spacing:.34em;
+}
+.footer-series-kicker:focus-visible{outline:2px solid rgba(229,19,43,.65);outline-offset:5px}
+.footer-series-kicker:focus:not(:focus-visible){outline:none}
+@media(max-width:767px){
+  .footer-series-kicker{font-size:clamp(18px,5.6vw,22px)}
+}
+@media(prefers-reduced-motion:reduce){
+  .footer-series-kicker,
+  .footer-series-kicker:hover,
+  .footer-series-kicker:focus-visible{
+    transition:none!important;
+    transform:none!important;
+    letter-spacing:.12em!important;
+  }
+}
 .footer-series-copy{max-width:470px;font-size:11px;line-height:1.9;color:var(--color-mist);text-align:right}
 .footer-series-social{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;transition:color .28s ease,transform .28s ease,filter .28s ease}
 .footer-series-social:hover{transform:translateY(-3px) scale(1.14);filter:drop-shadow(0 4px 8px currentColor)}
 .footer-series-backtop:hover{transform:translateY(-2px);color:var(--color-crimson-2)}
 .footer-role-line { width: max-content; max-width: none; white-space: nowrap; color: rgba(244,241,236,.62); font-size: 8px; line-height: 1.8; letter-spacing: .12em; font-weight: 600;}
-@media(max-width:767px){.footer-series-role{max-width:100%;font-size:9px}.footer-series-kicker{transform-origin:center}.footer-series-kicker:hover{transform:translateY(-2px) scale(1.1)}.footer-series-copy{text-align:center;margin-inline:auto}}
-@media(prefers-reduced-motion:reduce){.qa-series-wordmark,.footer-series-motto,.footer-series-tagline,.footer-series-kicker,.footer-series-social,.footer-series-backtop{transition:none}}
+@media(max-width:767px){.footer-series-role{max-width:100%;font-size:9px}.footer-series-copy{text-align:center;margin-inline:auto}}
+@media(prefers-reduced-motion:reduce){.footer-brand-block .footer-logo,.footer-brand-block .footer-logo span,.qa-series-wordmark,.footer-series-motto,.footer-series-tagline,.footer-series-kicker-frame,.footer-series-kicker,.footer-series-social,.footer-series-backtop{transition:none}}
 
 
 /* Subtle radar-style pulse for the hero availability indicator */
