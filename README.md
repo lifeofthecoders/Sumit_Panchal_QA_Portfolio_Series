@@ -365,6 +365,14 @@ This is **my personal** <span style="color: #2563EB;"><strong>Senior Quality Ana
 
 The portfolio source code, page composition, custom styling, project navigation, responsive presentation, and project-specific implementation are maintained as my personal portfolio project. The QA content reflects my professional background, testing approach, and experience represented in the portfolio.
 
+The repository commit author/contributor identity is configured as:
+
+- **Author Name:** Sam Wilson
+- **Author Email:** lifeofthecoders@gmail.com
+- **GitHub:** [lifeofthecoders](https://github.com/lifeofthecoders)
+
+The portfolio profile and professional content identify **Sumit Panchal** as the portfolio owner. The Git author identity is used for repository commit attribution and does not change the portfolio profile owner.
+
 Names, logos, trademarks, and product visuals appearing within individual case studies are used to identify the referenced applications and do not imply that I own those third-party products.
 
 React, TypeScript, Vite, Tailwind CSS, Framer Motion, Lenis, Sharp, and other third-party packages remain the property of their respective authors and are governed by their own licenses. Any third-party media or materials remain subject to the rights of their respective owners.
