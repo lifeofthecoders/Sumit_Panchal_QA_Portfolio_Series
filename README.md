@@ -1,25 +1,26 @@
+
 ---
-<div align="center">
+
+ <div align="center">
 
 # SUMIT PANCHAL | SENIOR QUALITY ANALYST - The QA Series
+
 ### A cinematic portfolio showcasing 5+ years of software quality assurance experience, testing expertise, and real-world project case studies.
+
 [![Portfolio](https://img.shields.io/badge/Portfolio-The%20QA%20Series-e5132b?style=for-the-badge&logo=github&logoColor=white)](https://lifeofthecoders.github.io/Sumit_Panchal_QA_Portfolio_Series/)
-
 [![React](https://img.shields.io/badge/React-18-20232a?style=flat-square&logo=react)](https://react.dev/)
-
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-
 [![Vite](https://img.shields.io/badge/Vite-6-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vite.dev/)
-
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 
 **Designed, developed, and maintained by <span style="color: #2563EB;"><strong>Sumit Panchal</strong></span>.**
 
-[Overview](#-overview) · [Seasons](#the-seven-seasons) · [Features](#-portfolio-highlights) · [QA Focus](#-manual-qa-focus) · [Technology](#-technology-stack) · [Setup](#-getting-started) · [Structure](#-project-structure) · [Deployment](#-deployment) · [Ownership](#-authorship--ownership)
+[Overview](#-overview) · [Features](#-portfolio-highlights) · [QA Focus](#-manual-qa-focus) · [Technology](#-technology-stack) · [Setup](#-getting-started) · [Structure](#-project-structure) · [Deployment](#-deployment) · [Ownership](#-authorship--ownership)
 
 </div>
 
 ---
+
 ## 🎯 Overview
 **The QA Series** is my personal portfolio as a **Senior Quality Analyst | Manual QA Engineer with 5+ years of experience** in software quality assurance and testing. It showcases my professional journey, testing expertise, quality assurance practices, project case studies, certifications, and resume through a cinematic and interactive web experience.
 
