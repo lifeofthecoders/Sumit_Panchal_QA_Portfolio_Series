@@ -81,7 +81,7 @@ export default function ProjectModal({
       aria-labelledby={`title-${project.id}-modal`}
     >
       {/* STANDALONE PROJECT DETAILS PAGE */}
-      <div className="relative mx-auto min-h-screen max-w-5xl bg-ink-2 shadow-2xl">
+      <div className="relative min-h-screen w-full bg-ink-2 shadow-2xl">
         <motion.div
           className="relative"
           initial={{ opacity: 0, y: 15 }}
@@ -93,7 +93,7 @@ export default function ProjectModal({
           }}
         >
           {/* PROJECT BANNER */}
-          <div className="group/banner relative h-[52vh] min-h-[340px] overflow-hidden sm:rounded-t-2xl">
+          <div className="group/banner relative h-[52vh] min-h-[340px] overflow-hidden">
 
             {/* Banner image - hover effects only, not clickable */}
             <div className="group/image absolute inset-0 z-0 overflow-hidden">

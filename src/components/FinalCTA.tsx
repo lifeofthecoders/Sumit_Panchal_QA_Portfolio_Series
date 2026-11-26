@@ -378,7 +378,7 @@ export default function FinalCTA({
               </motion.span>
             </p>
 
-            {/* Quality Commitment quote — fixed layout, independent hover animation */}
+            {/* Quality Commitment quote - fixed layout, independent hover animation */}
             <div className="flex w-full max-w-[380px] flex-col items-end gap-0 text-[10px] leading-[1.8]">
 
               {/* Top decorative line */}

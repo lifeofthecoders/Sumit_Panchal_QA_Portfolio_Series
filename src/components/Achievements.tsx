@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
-import { achievements, certifications } from '../data/portfolio';
+import { achievements, certifications, certificationIssuerLine } from '../data/portfolio';
 import { EASE, SectionHeading, Tilt } from './fx';
 import { RailButtons } from './Rail';
 
@@ -17,7 +17,6 @@ function Laurel({ side }: { side: 'l' | 'r' }) {
 
 export default function Achievements() {
   const rail = useRef<HTMLDivElement>(null);
-  const issuers = Array.from(new Set(certifications.map((c) => c.issuer)));
 
   return (
     <>
@@ -65,11 +64,13 @@ export default function Achievements() {
 
       {/* certifications rail */}
       <div className="mt-16">
-        <div className="gutter mb-2 flex flex-wrap items-end justify-between gap-2">
+        <div className="gutter mb-3 flex flex-col items-start gap-2">
           <h3 className="font-sans text-lg font-semibold text-bone sm:text-2xl">
             Certified <span className="text-mist">· {certifications.length} credentials</span>
           </h3>
-          <p className="text-xs text-smoke">{issuers.join(' · ')}</p>
+          <p className="max-w-full text-[11px] leading-relaxed text-smoke">
+            {certificationIssuerLine}
+          </p>
         </div>
         <div className="group/rail relative">
           <div ref={rail} className="rail flex snap-x gap-3 overflow-x-auto px-[var(--gutter)] py-5 scroll-px-[var(--gutter)]">

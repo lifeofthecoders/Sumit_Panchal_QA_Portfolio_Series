@@ -19,11 +19,21 @@ function formatTag(tag: string) {
     .join(' ');
 }
 
-export default function EpisodeCard({ episode, index }: { episode: Episode; index: number }) {
+export default function EpisodeCard({ episode, index, onOpen }: { episode: Episode; index: number; onOpen?: () => void }) {
   const [season, ep] = episode.code.split(' ');
   return (
     <motion.article
-      className="w-[80vw] shrink-0 snap-start sm:w-[52vw] md:w-[38vw] lg:w-[30vw] xl:w-[26vw]"
+      role={onOpen ? 'button' : undefined}
+      tabIndex={onOpen ? 0 : undefined}
+      aria-label={onOpen ? `Open details for ${episode.title}` : undefined}
+      onClick={onOpen}
+      onKeyDown={onOpen ? (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          onOpen();
+        }
+      } : undefined}
+      className={`w-[80vw] shrink-0 snap-start sm:w-[52vw] md:w-[38vw] lg:w-[30vw] xl:w-[26vw] ${onOpen ? 'cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crimson-2 focus-visible:ring-offset-4 focus-visible:ring-offset-ink' : ''}`}
       initial={{ opacity: 0, y: 30, rotateY: -8 }}
       animate={{ opacity: 1, y: 0, rotateY: 0 }}
       transition={{ duration: 0.7, delay: index * 0.1, ease: EASE }}

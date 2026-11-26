@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-label="Career visual placeholder">
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#172236"/><stop offset=".55" stop-color="#26121d"/><stop offset="1" stop-color="#090b10"/></linearGradient>
+    <pattern id="lines" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M0 21H42M21 0V42" stroke="#fff" stroke-opacity=".06" fill="none"/></pattern>
+  </defs>
+  <rect width="1200" height="760" fill="url(#panel)"/><rect width="1200" height="760" fill="url(#lines)"/>
+  <g fill="none" stroke="#ff5269" stroke-opacity=".7" stroke-width="3"><rect x="90" y="100" width="1020" height="560" rx="24"/><path d="M170 250h860M170 320h540M170 390h760M170 460h620"/></g>
+  <g fill="#f4f1ec" fill-opacity=".9" font-family="Arial,sans-serif"><text x="170" y="205" font-size="26" letter-spacing="8">WORK SAMPLE / COMPANY VISUAL</text><text x="170" y="570" font-size="48" font-weight="700">IMAGE PLACEHOLDER</text><text x="170" y="615" font-size="20" fill-opacity=".55" letter-spacing="3">REPLACE career.visualImage IN src/data/portfolio.ts</text></g>
+  <circle cx="930" cy="530" r="80" fill="#e5132b" fill-opacity=".15"/><circle cx="930" cy="530" r="48" fill="none" stroke="#ff5269" stroke-opacity=".6" stroke-width="2"/>
+</svg>

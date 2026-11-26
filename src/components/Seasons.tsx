@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { seasons } from '../data/portfolio';
+import { qaJourneyFlow, qaJourneyPhilosophy, seasons } from '../data/portfolio';
 import { EASE, SectionHeading } from './fx';
 import EpisodeCard from './EpisodeCard';
 import { RailButtons } from './Rail';
@@ -15,10 +15,10 @@ export default function Seasons() {
       <SectionHeading
         kicker={`${seasons.length} Seasons`}
         title="My Journey"
-        aside={<p className="max-w-xs text-sm text-mist">Every stage of the resume, told as a season - select one to see its episodes.</p>}
+        aside={<p className="max-w-xs text-sm text-mist">Every stage of the resume, told as a season. Select one to explore its episodes.</p>}
       />
 
-      {/* season selector */}
+      {/* Season selector */}
       <div className="rail gutter mb-8 flex gap-2 overflow-x-auto" role="tablist" aria-label="Seasons">
         {seasons.map((s, i) => (
           <button
@@ -58,16 +58,82 @@ export default function Seasons() {
           </div>
           <p className="gutter max-w-3xl text-[15px] leading-relaxed text-bone/75">{season.synopsis}</p>
 
+          {season.number === 2 && <QAJourneyIntro />}
+
+          {/* Every season, including S02, uses the same episode-card rail design. */}
           <div className="group/rail relative">
             <div ref={rail} className="rail flex snap-x snap-mandatory gap-4 overflow-x-auto px-[var(--gutter)] py-8 scroll-px-[var(--gutter)] [perspective:1200px]">
-              {season.episodes.map((e, i) => (
-                <EpisodeCard key={e.code} episode={e} index={i} />
+              {season.episodes.map((episode, index) => (
+                <EpisodeCard key={episode.code} episode={episode} index={index} />
               ))}
             </div>
             <RailButtons rail={rail} />
           </div>
+
+          {season.number === 2 && <QAJourneySummary />}
         </motion.div>
       </AnimatePresence>
     </>
+  );
+}
+
+function QAJourneyIntro() {
+  const journeyIntro = 'My approach to Quality Assurance goes beyond simply identifying defects. I believe quality starts with understanding business requirements, continues through structured testing and validation, and ultimately results in delivering reliable, user-focused software.';
+  const journeyApproach = 'As a Manual Quality Assurance Engineer, I follow a systematic testing lifecycle that combines analytical thinking, risk-based testing, functional validation, defect management, and test automation to improve product quality at every stage.';
+
+  return (
+    <motion.div
+      className="gutter mt-8 max-w-4xl"
+      initial={{ opacity: 0, y: 22, filter: 'blur(7px)' }}
+      whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+      viewport={{ once: true, margin: '-8% 0px' }}
+      transition={{ duration: 0.75, ease: EASE }}
+    >
+      <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.3em] text-crimson-2">My QA Journey</p>
+      <h4 className="font-display text-2xl leading-tight tracking-wide text-bone sm:text-3xl">
+        From Requirements to Release <span className="text-mist">: Engineering Quality at Every Step</span>
+      </h4>
+      <p className="mt-4 text-sm leading-relaxed text-bone/75 sm:text-[15px]">{journeyIntro}</p>
+      <p className="mt-3 text-sm leading-relaxed text-mist sm:text-[15px]">{journeyApproach}</p>
+      <p className="mt-6 text-[10px] font-semibold uppercase tracking-[0.22em] text-smoke">The QA Lifecycle · 08 Stages · Continuous Validation</p>
+    </motion.div>
+  );
+}
+
+function QAJourneySummary() {
+  return (
+    <div className="gutter mt-4 grid gap-4 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+      <motion.article
+        className="rounded-xl border border-white/10 bg-[linear-gradient(135deg,rgba(229,19,43,0.09),rgba(255,255,255,0.02))] p-6 sm:p-7"
+        initial={{ opacity: 0, x: -18 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, ease: EASE }}
+      >
+        <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-crimson-2">Principle behind the process</p>
+        <h4 className="mt-2 font-display text-2xl text-bone">My Quality Philosophy</h4>
+        <p className="mt-3 text-sm leading-relaxed text-mist">{qaJourneyPhilosophy}</p>
+      </motion.article>
+
+      <motion.article
+        className="rounded-xl border border-white/10 bg-white/[0.025] p-6 sm:p-7"
+        initial={{ opacity: 0, x: 18 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, ease: EASE }}
+      >
+        <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-crimson-2">End-to-end perspective</p>
+        <h4 className="mt-2 font-display text-2xl text-bone">From Understanding to Delivery</h4>
+        <div className="mt-5 flex flex-wrap items-center gap-2">
+          {qaJourneyFlow.map((step, index) => (
+            <span key={step} className="inline-flex items-center gap-2">
+              <span className="rounded-md border border-white/10 bg-black/20 px-2.5 py-1.5 text-[10px] font-semibold tracking-wide text-bone">{step}</span>
+              {index < qaJourneyFlow.length - 1 && <span aria-hidden="true" className="text-crimson-2">→</span>}
+            </span>
+          ))}
+        </div>
+        <p className="mt-4 text-xs leading-relaxed text-smoke">Every stage contributes to one goal: building software that works as expected, performs reliably, and delivers a better user experience.</p>
+      </motion.article>
+    </div>
   );
 }

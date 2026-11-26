@@ -15,6 +15,8 @@ import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import {
   viewerProfiles,
   projects,
+  experience,
+  type CareerExperienceItem,
   type ProfileId,
   type Project,
   type SectionId,
@@ -35,6 +37,7 @@ import ContinueWatching from './components/ContinueWatching';
 import Scene from './components/Scene';
 import About from './components/About';
 import Seasons from './components/Seasons';
+import CareerExperience from './components/CareerExperience';
 import Originals from './components/Originals';
 import TopPicks from './components/TopPicks';
 import Skills from './components/Skills';
@@ -46,6 +49,7 @@ import { EASE } from './components/fx';
 // Load overlays only when required.
 const PlayIntro = lazy(() => import('./components/PlayIntro'));
 const ProjectModal = lazy(() => import('./components/ProjectModal'));
+const CareerModal = lazy(() => import('./components/CareerModal'));
 const ResumeModal = lazy(() => import('./components/ResumeModal'));
 
 type Stage = 'opening' | 'profiles' | 'home';
@@ -74,6 +78,16 @@ function readProjectFromUrl(): Project | null {
     : null;
 }
 
+function readCareerFromUrl(): CareerExperienceItem | null {
+  const params = new URLSearchParams(window.location.search);
+  if (params.has('project')) return null;
+  const careerId = params.get('career');
+
+  return careerId
+    ? experience.find((item) => item.id === careerId) ?? null
+    : null;
+}
+
 export default function App() {
   return (
     <SmoothScrollProvider>
@@ -88,7 +102,7 @@ function Series() {
   // Always show the signature opening on a fresh portfolio visit.
   // A direct project URL still opens its requested project immediately.
   const [stage, setStage] = useState<Stage>(
-    readProjectFromUrl() ? 'home' : 'opening',
+    readProjectFromUrl() || readCareerFromUrl() ? 'home' : 'opening',
   );
 
   const [profileId, setProfileId] = useState<ProfileId>(
@@ -100,14 +114,18 @@ function Series() {
   const [project, setProject] = useState<Project | null>(
     () => readProjectFromUrl(),
   );
+  const [career, setCareer] = useState<CareerExperienceItem | null>(
+    () => readCareerFromUrl(),
+  );
 
   const [resumeOpen, setResumeOpen] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
 
   const { scrollTo, lock, unlock } = useSmoothScroll();
 
-  // Indicates that the home page must return to QA Projects.
+  // Restore the originating section after a standalone detail page closes.
   const returnToProjectsRef = useRef(false);
+  const returnToCareerRef = useRef(false);
 
   const order = viewerProfiles.find(
     (profile) => profile.id === profileId,
@@ -174,6 +192,7 @@ function Series() {
     (nextProject: Project) => {
       const url = new URL(window.location.href);
 
+      url.searchParams.delete('career');
       url.searchParams.set('project', nextProject.id);
 
       window.history.pushState(
@@ -183,13 +202,34 @@ function Series() {
       );
 
       returnToProjectsRef.current = false;
+      returnToCareerRef.current = false;
 
       scrollTo(0, {
         offset: 0,
         immediate: true,
       });
 
+      setCareer(null);
       setProject(nextProject);
+    },
+    [scrollTo],
+  );
+
+  // OPEN CAREER ROLE:
+  // Career records use the same standalone detail-page routing as project cases.
+  const openCareer = useCallback(
+    (nextCareer: CareerExperienceItem) => {
+      const url = new URL(window.location.href);
+      url.searchParams.delete('project');
+      url.searchParams.set('career', nextCareer.id);
+
+      window.history.pushState({ careerId: nextCareer.id }, '', url);
+      returnToProjectsRef.current = false;
+      returnToCareerRef.current = false;
+
+      scrollTo(0, { offset: 0, immediate: true });
+      setProject(null);
+      setCareer(nextCareer);
     },
     [scrollTo],
   );
@@ -201,6 +241,7 @@ function Series() {
     (nextProject: Project) => {
       const url = new URL(window.location.href);
 
+      url.searchParams.delete('career');
       url.searchParams.set('project', nextProject.id);
 
       window.history.pushState(
@@ -213,12 +254,14 @@ function Series() {
       );
 
       returnToProjectsRef.current = false;
+      returnToCareerRef.current = false;
 
       scrollTo(0, {
         offset: 0,
         immediate: true,
       });
 
+      setCareer(null);
       setProject(nextProject);
     },
     [scrollTo],
@@ -246,33 +289,41 @@ function Series() {
     setProject(null);
   }, []);
 
-  // RETURN TO QA PROJECTS:
-  // useLayoutEffect runs after the home page has been restored.
-  useLayoutEffect(() => {
-    if (
-      stage !== 'home' ||
-      project !== null ||
-      !returnToProjectsRef.current
-    ) {
-      return;
-    }
+  const closeCareer = useCallback(() => {
+    const url = new URL(window.location.href);
+    url.searchParams.delete('career');
 
+    window.history.replaceState(
+      { careerId: null, returnToCareer: true },
+      '',
+      url,
+    );
+
+    returnToCareerRef.current = true;
+    setCareer(null);
+  }, []);
+
+  // Return to the section that launched the standalone detail page.
+  useLayoutEffect(() => {
+    if (stage !== 'home' || project !== null || career !== null) return;
+
+    const targetId = returnToCareerRef.current
+      ? 'career'
+      : returnToProjectsRef.current
+        ? 'originals'
+        : null;
+
+    if (!targetId) return;
+
+    returnToCareerRef.current = false;
     returnToProjectsRef.current = false;
 
     let firstFrame = 0;
     let secondFrame = 0;
-
     firstFrame = window.requestAnimationFrame(() => {
       secondFrame = window.requestAnimationFrame(() => {
-        const projectsSection =
-          document.getElementById('originals');
-
-        if (!projectsSection) return;
-
-        scrollTo(projectsSection, {
-          offset: 0,
-          immediate: true,
-        });
+        const target = document.getElementById(targetId);
+        if (target) scrollTo(target, { offset: 0, immediate: true });
       });
     });
 
@@ -280,38 +331,37 @@ function Series() {
       window.cancelAnimationFrame(firstFrame);
       window.cancelAnimationFrame(secondFrame);
     };
-  }, [stage, project, scrollTo]);
+  }, [stage, project, career, scrollTo]);
 
   // BROWSER BACK / FORWARD:
   useEffect(() => {
-    const syncProjectRoute = () => {
+    const syncDetailRoute = () => {
       const nextProject = readProjectFromUrl();
+      const nextCareer = nextProject ? null : readCareerFromUrl();
 
       if (nextProject) {
         returnToProjectsRef.current = false;
-
-        scrollTo(0, {
-          offset: 0,
-          immediate: true,
-        });
-
+        returnToCareerRef.current = false;
+        scrollTo(0, { offset: 0, immediate: true });
+        setCareer(null);
         setProject(nextProject);
-      } else {
-        returnToProjectsRef.current = true;
-
+      } else if (nextCareer) {
+        returnToProjectsRef.current = false;
+        returnToCareerRef.current = false;
+        scrollTo(0, { offset: 0, immediate: true });
         setProject(null);
+        setCareer(nextCareer);
+      } else {
+        if (career) returnToCareerRef.current = true;
+        else if (project) returnToProjectsRef.current = true;
+        setProject(null);
+        setCareer(null);
       }
     };
 
-    window.addEventListener('popstate', syncProjectRoute);
-
-    return () => {
-      window.removeEventListener(
-        'popstate',
-        syncProjectRoute,
-      );
-    };
-  }, [scrollTo]);
+    window.addEventListener('popstate', syncDetailRoute);
+    return () => window.removeEventListener('popstate', syncDetailRoute);
+  }, [scrollTo, career, project]);
 
   const closeResume = useCallback(() => {
     setResumeOpen(false);
@@ -321,6 +371,7 @@ function Series() {
   const sections: Record<SectionId, ReactNode> = {
     about: <About />,
     journey: <Seasons />,
+    career: <CareerExperience onOpen={openCareer} />,
     originals: <Originals onOpen={openProject} />,
     picks: <TopPicks />,
     skills: <Skills />,
@@ -354,7 +405,7 @@ function Series() {
       </AnimatePresence>
 
       {/* MAIN PORTFOLIO */}
-      {stage === 'home' && !project && (
+      {stage === 'home' && !project && !career && (
         <motion.div
           initial={{
             opacity: 0,
@@ -425,6 +476,14 @@ function Series() {
             project={project}
             onClose={closeProject}
             onSwitch={switchProject}
+          />
+        )}
+
+        {career && (
+          <CareerModal
+            key={career.id}
+            career={career}
+            onClose={closeCareer}
           />
         )}
 

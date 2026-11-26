@@ -163,6 +163,7 @@ function H({ children }: { children: string }) {
 const certificationCategoryTitles: Record<string, string> = {
   'QUALITY ASSURANCE': 'Software Quality & Testing',
   'TECHNICAL SKILLS': 'Technical & Professional Learning',
+  'BUSINESS ANALYSIS': 'Business Analysis & Product Thinking',
   ACHIEVEMENTS: 'Additional Achievements',
 };
 
@@ -187,6 +188,7 @@ export function ResumeSheet() {
   const categoryOrder = [
     'QUALITY ASSURANCE',
     'TECHNICAL SKILLS',
+    'BUSINESS ANALYSIS',
     'ACHIEVEMENTS',
   ];
 
@@ -288,10 +290,14 @@ export function ResumeSheet() {
           ))}
 
           {/* Work experience */}
-          <H>Work Experience</H>
+          <H>Work Experience & Industrial Training</H>
 
           {experience.map((item) => (
-            <div key={item.company}>
+            <div key={item.company} className="mb-5 last:mb-0">
+              <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.16em] text-crimson-2">
+                {item.kind}
+              </p>
+
               <div className="flex flex-wrap justify-between gap-x-3">
                 <p className="text-sm font-semibold text-bone">
                   {item.company} - {item.role}
@@ -299,6 +305,8 @@ export function ResumeSheet() {
 
                 <p className="text-xs text-smoke">{item.period}</p>
               </div>
+
+              <p className="mt-1 text-[10px] leading-relaxed text-smoke">{item.place}</p>
 
               <ul className="mt-2 space-y-1.5">
                 {item.points.map((point) => (

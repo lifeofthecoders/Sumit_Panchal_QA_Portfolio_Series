@@ -38,7 +38,7 @@ export const education = [
     school: 'Silver Oak University',
     place: 'Ahmedabad, Gujarat',
     degree: 'Bachelor of Engineering - Electronics & Communication Engineering',
-    period: '2014 - 2018',
+    period: '2014 - 2017',
     score: 'CGPA 7.48',
   },
   {
@@ -50,20 +50,106 @@ export const education = [
   },
 ];
 
-export const experience = [
+export type CareerExperienceItem = {
+  id: string;
+  company: string;
+  role: string;
+  place: string;
+  period: string;
+  kind: string;
+  summary: string;
+  companyDetails: string;
+  points: string[];
+  highlights: string[];
+  tools: string[];
+  bannerImage: string;
+  visualImage: string;
+  palette: Palette;
+  website?: string;
+};
+
+const careerPlaceholderBanner = asset('assets/career-placeholder-banner.svg');
+const careerPlaceholderVisual = asset('assets/career-placeholder-visual.svg');
+
+export const experience: CareerExperienceItem[] = [
   {
+    id: 'echo-innovate-it',
     company: 'Echo Innovate IT',
     role: 'Quality Assurance Analyst',
-    place: 'Manual QA · Web & Mobile Applications',
+    place: 'Web & Mobile Application QA',
     period: 'June 2021 - Present',
+    kind: 'Professional Experience',
+    summary: 'Quality assurance across web and mobile applications, validating product functionality, usability, compatibility, and release-critical workflows.',
+    companyDetails: 'Current professional role focused on structured manual testing, requirement validation, defect management, and regression coverage for web and mobile applications.',
     points: [
-      'Tested web and mobile application functionality, usability, and cross-platform compatibility.',
-      'Created and maintained test plans, test cases, test scenarios, and test data based on requirement analysis.',
-      'Clarified requirements and translated business expectations into practical validation coverage.',
-      'Tracked and documented defects in Jira, including clear reproduction steps, severity, priority, and verification notes.',
-      'Maintained test documentation, test data, and traceability using Microsoft Excel.',
-      'Performed risk-based testing, retesting, regression testing, and release-focused validation.',
+      'Tested web and mobile applications across multiple platforms, validating functionality, usability, and compatibility.',
+      'Created and executed test plans, test cases, and test scenarios to verify expected behavior and business requirements.',
+      'Collaborated with cross-functional teams to clarify requirements, report defects, and provide actionable feedback for product improvement.',
+      'Used Jira for defect tracking and Excel for test documentation, test data organization, and traceability.',
+      'Investigated reported issues, prioritized testing by risk, and performed retesting and regression testing after fixes.',
     ],
+    highlights: [
+      'Supported product quality across web and mobile platforms through structured functional and compatibility testing.',
+      'Maintained test plans, scenarios, test cases, and supporting documentation for clear validation coverage.',
+      'Contributed to defect resolution through reproducible reporting, cross-functional collaboration, retesting, and regression validation.',
+      'Applied risk-based prioritization to focus testing on important application behavior and business workflows.',
+    ],
+    tools: ['Manual Testing', 'Functional Testing', 'Regression Testing', 'Jira', 'Microsoft Excel', 'Test Documentation', 'Risk-Based Testing', 'Web & Mobile QA'],
+    bannerImage: careerPlaceholderBanner,
+    visualImage: careerPlaceholderVisual,
+    palette: { from: '#04121f', via: '#0f4c6e', to: '#05080d', accent: '#4cc9ff' },
+  },
+  {
+    id: 'makein-technologies',
+    company: 'Makein Technologies',
+    role: 'QA Trainee · Industrial Training',
+    place: 'Ahmedabad, Gujarat 380015',
+    period: 'January 2021 - May 2021 · 5 months',
+    kind: 'Industrial Training',
+    summary: 'Practical training in manual and automation software testing, with test design, defect reporting, and hands-on validation of live websites.',
+    companyDetails: 'Industrial QA training completed in Ahmedabad, combining manual testing fundamentals with introductory browser automation and defect-tracking tools.',
+    points: [
+      'Prepared test cases and bug reports for live websites as part of manual and automation testing activities.',
+      'Participated in functional, integration, system, regression, black-box, and usability testing of live websites.',
+      'Prepared manual test cases in Excel and documented bugs in Word and Excel formats.',
+      'Used bug-tracking and project-collaboration tools including Mantis, Redmine, and Trello.',
+    ],
+    highlights: [
+      'Built practical experience in manual testing and automation testing activities for live websites.',
+      'Prepared structured test cases and clear bug reports using Excel and Word.',
+      'Worked across functional, integration, system, regression, black-box, and usability testing activities.',
+      'Gained hands-on exposure to Selenium IDE, Selenium WebDriver with TestNG, Mantis, Redmine, Trello, and BrowserStack.',
+    ],
+    tools: ['Manual Software Testing', 'Selenium IDE', 'Selenium WebDriver', 'TestNG', 'Mantis', 'Redmine', 'Trello', 'BrowserStack', 'Excel'],
+    bannerImage: careerPlaceholderBanner,
+    visualImage: careerPlaceholderVisual,
+    palette: { from: '#03150f', via: '#0d5a40', to: '#050a08', accent: '#46e3a8' },
+    website: 'https://makeintechnologies.com',
+  },
+  {
+    id: 'niharika-softweb-solutions',
+    company: 'Niharika Softweb Solutions Pvt. Ltd.',
+    role: 'Application Support Engineer',
+    place: 'Government-related project · New Sachivalaya, Gandhinagar',
+    period: 'December 2018 – December 2020',
+    kind: 'Previous Experience',
+    summary: 'Application support and website data operations for a government-related project, with an emphasis on accurate records and practical user assistance.',
+    companyDetails: 'Application support role associated with day-to-day website and data operations at New Sachivalaya, Gandhinagar.',
+    points: [
+      'Managed website content and online data for a government-related project, including entering, updating, and maintaining information on the website.',
+      'Provided application support to users at New Sachivalaya, Gandhinagar, helping maintain smooth day-to-day website and data operations.',
+      'Assisted users with maintaining and updating their online records and resolving routine data-related issues.',
+      'Entered and uploaded data to the website, checking entries for completeness and accuracy before and after updates.',
+    ],
+    highlights: [
+      'Maintained website content and online data with attention to completeness and accuracy.',
+      'Supported users with routine website, online-record, and data-related issues.',
+      'Helped maintain continuity in day-to-day application and website operations for the project.',
+    ],
+    tools: ['Application Support', 'Website Content Management', 'Online Data Management', 'User Assistance', 'Data Accuracy', 'Record Maintenance'],
+    bannerImage: careerPlaceholderBanner,
+    visualImage: careerPlaceholderVisual,
+    palette: { from: '#1c1003', via: '#6b3c06', to: '#0a0806', accent: '#ffb547' },
   },
 ];
 
@@ -344,39 +430,57 @@ export const achievements: Achievement[] = [
 ];
 
 export type Certification = { issuer: string; name: string; link: string; date: string; category: string };
+
+/** Credentials are deliberately ordered around the portfolio's Manual QA profile. */
 export const certifications: Certification[] = [
-  { issuer: "LearnTube.ai", name: "Quality Analyst Assessment Certificate", date: "October 23, 2026", category: "QUALITY ASSURANCE", link: asset('certificates/sumit-panchal-quality-analyst-assessment-certificate.webp') },
-  { issuer: "LearnTube.ai", name: "Automation Testing Assessment Certificate", date: "October 29, 2026", category: "QUALITY ASSURANCE", link: asset('certificates/sumit-panchal-automation-testing-sumit-certificate.webp') },
-  { issuer: "LearnTube.ai", name: "API Integration", date: "October 23, 2026", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-api-integration-certificate-of-completion.webp') },
-  { issuer: "LearnTube.ai", name: "Component Testing", date: "October 23, 2026", category: "QUALITY ASSURANCE", link: asset('certificates/sumit-panchal-component-testing-certificate.webp') },
-  { issuer: "LearnTube.ai", name: "Frontend Debugging", date: "October 23, 2026", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-frontend-debugging-certificate.webp') },
-  { issuer: "ISTQB / iSQI", name: "ISTQB Certified Tester – Testing with Generative AI (v1.1)", date: "October 08, 2026", category: "QUALITY ASSURANCE", link: asset('certificates/sumit-panchal-istqb-generative-ai-certificate.webp') },
-  { issuer: "ISTQB • Indian Testing Board", name: "ISTQB Automation Test Engineer", date: "October 1, 2026", category: "QUALITY ASSURANCE", link: asset('certificates/sumit-panchal-certificate-of-profession-istqb-automation-test-engineer.webp') },
-  { issuer: "ISTQB • Indian Testing Board", name: "ISTQB CTFL Certificate of Profession", date: "September 1, 2026", category: "QUALITY ASSURANCE", link: asset('certificates/sumit-panchal-istqb-ctfl-certificate-of-profession.webp') },
-  { issuer: "ISTQB • Indian Testing Board", name: "Foundation Level Certificate in Software Testing", date: "August 1, 2026", category: "QUALITY ASSURANCE", link: asset('certificates/sumit-panchal-certificate-of-foundation-level-of-software-testing-profession.webp') },
-  { issuer: "ISTQB • Sri Lanka Software Testing Board", name: "ISTQB Certified Tester – Foundation Level (Core)", date: "October 21, 2026", category: "QUALITY ASSURANCE", link: asset('certificates/sumit-panchal-istqb-foundation-level-certificate.webp') },
-  { issuer: "ISTQB • Sri Lanka Software Testing Board", name: "ISTQB Certified Tester – Foundation Level Agile Tester", date: "October 15, 2026", category: "QUALITY ASSURANCE", link: asset('certificates/sumit-panchal-istqb-foundation-level-agile-tester-certificate.webp') },
-  { issuer: "LinkedIn Learning", name: "Software Testing: Exploratory Testing", date: "August 22, 2020", category: "QUALITY ASSURANCE", link: asset('certificates/sumit-panchal-linkedin-learning-certificate-of-completion.webp') },
-  { issuer: "Deloitte • Forage", name: "Quality Assurance Job Simulation", date: "July 22, 2026", category: "QUALITY ASSURANCE", link: asset('certificates/sumit-panchal-deloitte-quality-assurance-certificate.webp') },
-  { issuer: "Tata • Forage", name: "Quality Assurance Job Simulation", date: "July 17, 2026", category: "QUALITY ASSURANCE", link: asset('certificates/sumit-panchal-tata-forage-certificate-of-completion.webp') },
-  { issuer: "LearnTube.ai", name: "Business Analyst Assessment Certificate", date: "February 13, 2025", category: "QUALITY ASSURANCE", link: asset('certificates/sumit-panchal-business-analyst-assessment-certificate.webp') },
-  { issuer: "Microsoft", name: "GitHub Foundations", date: "October 21, 2026", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-microsoft-github-foundations-certificate.webp') },
-  { issuer: "Oracle University", name: "Oracle Certified Foundations Associate – Java", date: "May 8, 2025", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-oracle-certified-foundations-associate-certificate.webp') },
-  { issuer: "Oracle University", name: "Oracle Data Platform 2025 Certified Foundations Associate", date: "September 29, 2025", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-oracle-foundations-associate-oracle-dataplatform-certificate.webp') },
-  { issuer: "LinkedIn Learning", name: "React Essential Training", date: "October 11, 2025", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-react-essential-training-certificate.webp') },
-  { issuer: "LinkedIn Learning", name: "Learning Python", date: "October 11, 2025", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-linkedin-learning-python-certificates.webp') },
-  { issuer: "LinkedIn Learning", name: "Processing Text with Python Essential Training", date: "October 11, 2025", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-linkedin-learning-python-essential-certificate.webp') },
-  { issuer: "Cisco Networking Academy • JS Institute", name: "Introduction to Data Science", date: "February 21, 2025", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-cisco-networking-academy-certificate.webp') },
-  { issuer: "Cisco Networking Academy • Silver Oak University", name: "JavaScript Essentials 1", date: "August 23, 2017", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-javascript-essentials-certificate-1.webp') },
-  { issuer: "Cisco Networking Academy • Silver Oak University", name: "JavaScript Essentials 2", date: "August 23, 2017", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-javascript-essentials-certificate-2.webp') },
-  { issuer: "Cisco Networking Academy • Silver Oak University", name: "CSS Essentials", date: "July 19, 2017", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-modern-css-essentials-certificate.webp') },
-  { issuer: "Cisco Networking Academy • Silver Oak University", name: "HTML Essentials", date: "July 17, 2017", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-modern-html-essentials-certificate.webp') },
-  { issuer: "C++ Institute • Cisco Networking Academy", name: "CLA: Programming Essentials in C", date: "March 21, 2017", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-c-programming-achievement-certificate.webp') },
-  { issuer: "CampusCrew • Unstop", name: "QuizOff 2026: India's Biggest AI Quiz", date: "July 19, 2026", category: "ACHIEVEMENTS", link: asset('certificates/sumit-panchal-quizoff-2026-certificate-for-sumit-panchal.webp') },
-  { issuer: "LinkedIn Learning", name: "SQL Essential Training", date: "November 10, 2026", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-linkedIn-learning-sql-essential-training-certificate.webp') },
-  { issuer: "HackerRank", name: "Software Engineer Certification", date: "November 15, 2026", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-software_engineer certificate.webp') },
-  { issuer: "Claude Academy", name: "AI Fluency: Framework and Foundations", date: "November 16, 2026", category: "TECHNICAL SKILLS", link: asset('certificates/sumit-panchal-ai-fluency-framework-foundations-course-completion-badge.webp') },
+  // Manual QA, quality analyst practice, and applied testing credentials.
+  { issuer: 'LearnTube.ai', name: 'Quality Analyst Assessment Certificate', date: 'October 23, 2026', category: 'QUALITY ASSURANCE', link: asset('certificates/sumit-panchal-quality-analyst-assessment-certificate.webp') },
+  { issuer: 'LinkedIn Learning', name: 'Software Testing: Exploratory Testing', date: 'August 22, 2020', category: 'QUALITY ASSURANCE', link: asset('certificates/sumit-panchal-linkedin-learning-certificate-of-completion.webp') },
+  { issuer: 'Deloitte • Forage', name: 'Quality Assurance Job Simulation', date: 'July 22, 2026', category: 'QUALITY ASSURANCE', link: asset('certificates/sumit-panchal-deloitte-quality-assurance-certificate.webp') },
+  { issuer: 'Tata • Forage', name: 'Quality Assurance Job Simulation', date: 'July 17, 2026', category: 'QUALITY ASSURANCE', link: asset('certificates/sumit-panchal-tata-forage-certificate-of-completion.webp') },
+
+  // Automation, component, performance, and API-oriented testing.
+  { issuer: 'LearnTube.ai', name: 'Automation Testing Assessment Certificate', date: 'October 29, 2026', category: 'QUALITY ASSURANCE', link: asset('certificates/sumit-panchal-automation-testing-sumit-certificate.webp') },
+  { issuer: 'LearnTube.ai', name: 'Component Testing', date: 'October 23, 2026', category: 'QUALITY ASSURANCE', link: asset('certificates/sumit-panchal-component-testing-certificate.webp') },
+  { issuer: 'BlazeMeter', name: 'Apache JMeter™ Pro', date: 'September 11, 2025', category: 'QUALITY ASSURANCE', link: asset('certificates/sumit-panchal-blazemeter-apache-jmeter-completion-certificate.png') },
+  { issuer: 'LearnTube.ai', name: 'API Integration', date: 'October 23, 2026', category: 'QUALITY ASSURANCE', link: asset('certificates/sumit-panchal-api-integration-certificate-of-completion.webp') },
+  { issuer: 'LearnTube.ai', name: 'Frontend Debugging', date: 'October 23, 2026', category: 'TECHNICAL SKILLS', link: asset('certificates/sumit-panchal-frontend-debugging-certificate.webp') },
+
+  // ISTQB / iSQI credentials, grouped after the applied testing certificates.
+  { issuer: 'ISTQB • Indian Testing Board', name: 'ISTQB CTFL Certificate of Profession', date: 'September 1, 2026', category: 'QUALITY ASSURANCE', link: asset('certificates/sumit-panchal-istqb-ctfl-certificate-of-profession.webp') },
+  { issuer: 'ISTQB • Indian Testing Board', name: 'Foundation Level Certificate in Software Testing', date: 'August 1, 2026', category: 'QUALITY ASSURANCE', link: asset('certificates/sumit-panchal-certificate-of-foundation-level-of-software-testing-profession.webp') },
+  { issuer: 'ISTQB • Indian Testing Board', name: 'ISTQB Automation Test Engineer', date: 'October 1, 2026', category: 'QUALITY ASSURANCE', link: asset('certificates/sumit-panchal-certificate-of-profession-istqb-automation-test-engineer.webp') },
+  { issuer: 'ISTQB • Sri Lanka Software Testing Board', name: 'ISTQB Certified Tester – Foundation Level (Core)', date: 'October 21, 2026', category: 'QUALITY ASSURANCE', link: asset('certificates/sumit-panchal-istqb-foundation-level-certificate.webp') },
+  { issuer: 'ISTQB • Sri Lanka Software Testing Board', name: 'ISTQB Certified Tester – Foundation Level Agile Tester', date: 'October 15, 2026', category: 'QUALITY ASSURANCE', link: asset('certificates/sumit-panchal-istqb-foundation-level-agile-tester-certificate.webp') },
+  { issuer: 'ISTQB / iSQI', name: 'ISTQB Certified Tester – Testing with Generative AI (v1.1)', date: 'October 08, 2026', category: 'QUALITY ASSURANCE', link: asset('certificates/sumit-panchal-istqb-generative-ai-certificate.webp') },
+
+  // Technical and broader professional learning.
+  { issuer: 'Google', name: 'Google AI Essentials Specialization', date: 'June 9, 2026', category: 'TECHNICAL SKILLS', link: asset('certificates/sumit-panchal-google-ai-essentials-certificate-layout.png') },
+  { issuer: 'Microsoft', name: 'GitHub Foundations', date: 'October 21, 2026', category: 'TECHNICAL SKILLS', link: asset('certificates/sumit-panchal-microsoft-github-foundations-certificate.webp') },
+  { issuer: 'HackerRank', name: 'Software Engineer Certification', date: 'November 15, 2026', category: 'TECHNICAL SKILLS', link: asset('certificates/sumit-panchal-software_engineer certificate.webp') },
+  { issuer: 'Oracle University', name: 'Oracle Certified Foundations Associate – Java', date: 'May 8, 2025', category: 'TECHNICAL SKILLS', link: asset('certificates/sumit-panchal-oracle-certified-foundations-associate-certificate.webp') },
+  { issuer: 'Oracle University', name: 'Oracle Data Platform 2025 Certified Foundations Associate', date: 'September 29, 2025', category: 'TECHNICAL SKILLS', link: asset('certificates/sumit-panchal-oracle-foundations-associate-oracle-dataplatform-certificate.webp') },
+  { issuer: 'LinkedIn Learning', name: 'React Essential Training', date: 'October 11, 2025', category: 'TECHNICAL SKILLS', link: asset('certificates/sumit-panchal-react-essential-training-certificate.webp') },
+  { issuer: 'LinkedIn Learning', name: 'Learning Python', date: 'October 11, 2025', category: 'TECHNICAL SKILLS', link: asset('certificates/sumit-panchal-linkedin-learning-python-certificates.webp') },
+  { issuer: 'LinkedIn Learning', name: 'Processing Text with Python Essential Training', date: 'October 11, 2025', category: 'TECHNICAL SKILLS', link: asset('certificates/sumit-panchal-linkedin-learning-python-essential-certificate.webp') },
+  { issuer: 'LinkedIn Learning', name: 'SQL Essential Training', date: 'November 10, 2026', category: 'TECHNICAL SKILLS', link: asset('certificates/sumit-panchal-linkedIn-learning-sql-essential-training-certificate.webp') },
+  { issuer: 'Cisco Networking Academy • JS Institute', name: 'Introduction to Data Science', date: 'February 21, 2025', category: 'TECHNICAL SKILLS', link: asset('certificates/sumit-panchal-cisco-networking-academy-certificate.webp') },
+  { issuer: 'Cisco Networking Academy • Silver Oak University', name: 'JavaScript Essentials 1', date: 'August 23, 2017', category: 'TECHNICAL SKILLS', link: asset('certificates/sumit-panchal-javascript-essentials-certificate-1.webp') },
+  { issuer: 'Cisco Networking Academy • Silver Oak University', name: 'JavaScript Essentials 2', date: 'August 23, 2017', category: 'TECHNICAL SKILLS', link: asset('certificates/sumit-panchal-javascript-essentials-certificate-2.webp') },
+  { issuer: 'Cisco Networking Academy • Silver Oak University', name: 'CSS Essentials', date: 'July 19, 2017', category: 'TECHNICAL SKILLS', link: asset('certificates/sumit-panchal-modern-css-essentials-certificate.webp') },
+  { issuer: 'Cisco Networking Academy • Silver Oak University', name: 'HTML Essentials', date: 'July 17, 2017', category: 'TECHNICAL SKILLS', link: asset('certificates/sumit-panchal-modern-html-essentials-certificate.webp') },
+  { issuer: 'C++ Institute • Cisco Networking Academy', name: 'CLA: Programming Essentials in C', date: 'March 21, 2017', category: 'TECHNICAL SKILLS', link: asset('certificates/sumit-panchal-c-programming-achievement-certificate.webp') },
+  { issuer: 'Claude Academy', name: 'AI Fluency: Framework and Foundations', date: 'November 16, 2026', category: 'TECHNICAL SKILLS', link: asset('certificates/sumit-panchal-ai-fluency-framework-foundations-course-completion-badge.webp') },
+
+  // Business analysis credentials remain grouped after QA and technical learning.
+  { issuer: 'Simplilearn SkillUp', name: 'Business Analysis Basics', date: 'May 13, 2026', category: 'BUSINESS ANALYSIS', link: asset('certificates/sumit-panchal-business-analysis-basics-certificate.png') },
+  { issuer: 'LearnTube.ai', name: 'Business Analyst Assessment Certificate', date: 'February 13, 2025', category: 'BUSINESS ANALYSIS', link: asset('certificates/sumit-panchal-business-analyst-assessment-certificate.webp') },
+
+  // Additional extracurricular recognition.
+  { issuer: 'CampusCrew • Unstop', name: "QuizOff 2026: India's Biggest AI Quiz", date: 'July 19, 2026', category: 'ACHIEVEMENTS', link: asset('certificates/sumit-panchal-quizoff-2026-certificate-for-sumit-panchal.webp') },
 ];
+
+export const certificationIssuerLine = 'Google · Simplilearn SkillUp · BlazeMeter · LearnTube.ai · ISTQB / iSQI · ISTQB • Indian Testing Board · ISTQB • Sri Lanka Software Testing Board · LinkedIn Learning · Deloitte • Forage · Tata • Forage · Microsoft · Oracle University · Cisco Networking Academy • JS Institute · Cisco Networking Academy • Silver Oak University · C++ Institute • Cisco Networking Academy · CampusCrew • Unstop · HackerRank · Claude Academy';
 
 export type Skill = { name: string; mono: string; note?: string };
 export type SkillCategory = { id: string; title: string; subtitle: string; skills: Skill[] };
@@ -387,7 +491,7 @@ export const skillCategories: SkillCategory[] = [
   { id: 'defect-management', title: 'Defect Management', subtitle: 'Clear, actionable defect lifecycle', skills: skills(['Bug Reporting', 'Defect Lifecycle', 'Severity & Priority', 'Defect Reproduction', 'Retesting & Verification', 'Root Cause Analysis']) },
   { id: 'web-mobile-qa', title: 'Web & Mobile QA', subtitle: 'Product behavior across platforms', skills: skills(['UI Validation', 'Cross-Browser Testing', 'Cross-Platform Testing', 'Responsive Testing', 'Usability Testing', 'Accessibility Testing', 'Compatibility Testing', 'API Testing Concepts', 'Mobile App Testing']) },
   { id: 'qa-methodologies', title: 'QA Methodologies', subtitle: 'Quality throughout delivery', skills: skills(['SDLC', 'STLC', 'Agile / Scrum', 'Risk-Based Testing', 'Positive & Negative Testing', 'Boundary Testing', 'Release Validation']) },
-  { id: 'qa-tools', title: 'QA Tools & Technical Exposure', subtitle: 'Testing, investigation, and collaboration', skills: skills(['Jira', 'Microsoft Excel', 'Browser DevTools', 'Postman', 'Git & GitHub', 'BrowserStack', 'Selenium WebDriver', 'Java', 'TestNG', 'Maven', 'REST Assured', 'Jenkins']) },
+  { id: 'qa-tools', title: 'QA Tools & Technical Exposure', subtitle: 'Testing, investigation, and collaboration', skills: skills(['Jira', 'Microsoft Excel', 'Browser DevTools', 'Postman', 'Git & GitHub', 'BrowserStack', 'Selenium IDE', 'Selenium WebDriver', 'TestNG', 'Mantis', 'Redmine', 'Trello', 'Java', 'Maven', 'REST Assured', 'Jenkins']) },
 ];
 
 export const skillEvidence: Record<string, string[]> = {
@@ -401,64 +505,173 @@ export const skillEvidence: Record<string, string[]> = {
   'API Testing Concepts': ['Postman', 'API Integration credential'],
   'Jira': ['Defect tracking and lifecycle management'],
   'Microsoft Excel': ['Test data', 'Test documentation and traceability'],
-  'Selenium WebDriver': ['Automation testing learning'],
-  'TestNG': ['Automation testing learning'],
+  'Selenium WebDriver': ['Makein Technologies · QA training'],
+  'TestNG': ['Makein Technologies · QA training'],
+  'Selenium IDE': ['Makein Technologies · QA training'],
+  'Mantis': ['Makein Technologies · QA training'],
+  'Redmine': ['Makein Technologies · QA training'],
+  'Trello': ['Makein Technologies · QA training'],
+  'BrowserStack': ['Makein Technologies · QA training'],
 };
 
-export type Episode = { code: string; title: string; description: string; tags: string[]; runtime: string; palette: Palette };
-export type Season = { number: number; title: string; period: string; synopsis: string; episodes: Episode[] };
 const crimson: Palette = { from: '#24060b', via: '#6e0d1d', to: '#09070a', accent: '#ff3d5a' };
 const amber: Palette = { from: '#1c1003', via: '#6b3c06', to: '#0a0806', accent: '#ffb547' };
 const ocean: Palette = { from: '#04121f', via: '#0f4c6e', to: '#05080d', accent: '#4cc9ff' };
 const violet: Palette = { from: '#120822', via: '#3d1a6e', to: '#07060c', accent: '#b98bff' };
 const jade: Palette = { from: '#03150f', via: '#0d5a40', to: '#050a08', accent: '#46e3a8' };
+
+export type Episode = { code: string; title: string; description: string; tags: string[]; runtime: string; palette: Palette };
+export type QAJourneyStage = { number: string; title: string; points: string[]; tags: string[]; palette: Palette };
+export const qaJourneyStages: QAJourneyStage[] = [
+  {
+    number: '01', title: 'Requirement Analysis & Understanding', palette: ocean, tags: ['Requirements', 'Acceptance Criteria', 'Risk Identification'],
+    points: [
+      'Analyze business requirements, functional specifications, and user stories.',
+      'Understand acceptance criteria, business rules, and user expectations.',
+      'Identify requirement gaps, ambiguities, and potential risks.',
+      'Collaborate with stakeholders to clarify expected behavior.',
+    ],
+  },
+  {
+    number: '02', title: 'Test Planning & Strategy', palette: crimson, tags: ['Test Strategy', 'Scope', 'Risk-Based Testing'],
+    points: [
+      'Define testing objectives, scope, and approach.',
+      'Identify testing types, dependencies, and priorities.',
+      'Estimate testing effort and execution timelines.',
+      'Establish a risk-based testing strategy.',
+    ],
+  },
+  {
+    number: '03', title: 'Test Scenario & Test Case Design', palette: jade, tags: ['Test Cases', 'Test Data', 'RTM'],
+    points: [
+      'Prepare detailed test scenarios and test cases.',
+      'Cover positive, negative, and boundary-value conditions.',
+      'Apply equivalence partitioning and boundary value analysis.',
+      'Prepare test data and maintain a Requirement Traceability Matrix (RTM).',
+    ],
+  },
+  {
+    number: '04', title: 'Environment & Test Readiness', palette: violet, tags: ['Test Environment', 'Readiness', 'Smoke Testing'],
+    points: [
+      'Verify application builds and test-environment availability.',
+      'Validate configurations, access permissions, and test accounts.',
+      'Prepare and verify test data.',
+      'Perform initial smoke testing to confirm build stability.',
+    ],
+  },
+  {
+    number: '05', title: 'Functional Testing & Execution', palette: ocean, tags: ['Functional QA', 'Execution', 'Regression'],
+    points: [
+      'Execute functional, integration, and end-to-end test cases.',
+      'Validate UI elements, navigation, forms, and business workflows.',
+      'Perform regression, exploratory, and negative testing.',
+      'Verify application behavior against expected results.',
+    ],
+  },
+  {
+    number: '06', title: 'Defect Reporting & Management', palette: crimson, tags: ['Defect Lifecycle', 'Jira', 'Retesting'],
+    points: [
+      'Identify and document defects with reproducible steps.',
+      'Capture screenshots, videos, and supporting evidence.',
+      'Assign appropriate severity and priority.',
+      'Collaborate with developers to track and resolve issues.',
+      'Perform retesting and regression validation.',
+    ],
+  },
+  {
+    number: '07', title: 'Automation & Regression Testing', palette: jade, tags: ['Playwright', 'E2E Automation', 'CI'],
+    points: [
+      'Identify repetitive and business-critical scenarios for automation.',
+      'Develop and execute end-to-end tests using Playwright.',
+      'Validate critical workflows, including e-commerce checkout journeys.',
+      'Analyze execution reports and investigate failures.',
+      'Maintain reusable and reliable automated test coverage.',
+    ],
+  },
+  {
+    number: '08', title: 'Final Validation & Release Readiness', palette: violet, tags: ['Release Readiness', 'Test Summary', 'Quality Insights'],
+    points: [
+      'Execute final regression and sanity testing.',
+      'Validate critical functionality and resolved defects.',
+      'Review test coverage, execution status, and outstanding risks.',
+      'Prepare test summary reports.',
+      'Provide quality insights and release-readiness recommendations.',
+    ],
+  },
+];
+
+export const qaJourneyPhilosophy = 'Quality is a continuous responsibility, not a final checkpoint. I focus on preventing defects early, identifying risks before they impact users, validating real-world scenarios, and continuously improving testing practices.';
+export const qaJourneyFlow = ['Understand', 'Plan', 'Design', 'Prepare', 'Execute', 'Investigate', 'Optimize', 'Deliver'];
+
+
+/** Career milestones use the same episode-card component as the other seasons. */
+export const careerEpisodes: Episode[] = experience.map((item, index) => ({
+  code: `S03 E${String(index + 1).padStart(2, '0')}`,
+  title: `${item.company} · ${item.role}`,
+  description: item.summary,
+  tags: index === 0
+    ? ['Professional Experience', 'Web & Mobile QA', 'Regression Testing']
+    : index === 1
+      ? ['Industrial Training', 'Selenium', 'Manual & Automation QA']
+      : ['Previous Experience', 'Application Support', 'Data Accuracy'],
+  runtime: item.period,
+  palette: item.palette,
+}));
+
+export type Season = { number: number; title: string; period: string; synopsis: string; episodes: Episode[] };
 export const seasons: Season[] = [
   {
-    number: 1, title: 'The Engineering Foundation', period: '2011 – 2018', synopsis: 'Academic foundation in Electronics & Communication Engineering.', episodes: [
+    number: 1, title: 'The Engineering Foundation', period: '2011 – 2017', synopsis: 'Academic foundation in Electronics & Communication Engineering.', episodes: [
       { code: 'S01 E01', title: 'The Diploma', description: 'Diploma of Engineering in Electronics & Communication Engineering at Atul Polytechnic.', tags: ['Diploma', 'Electronics & Communication', 'CPI 7.74'], runtime: '2011 – 2014', palette: amber },
-      { code: 'S01 E02', title: 'The Degree', description: 'Bachelor of Engineering in Electronics & Communication Engineering at Silver Oak University.', tags: ['B.E.', 'Electronics & Communication', 'CGPA 7.48'], runtime: '2014 – 2018', palette: violet },
+      { code: 'S01 E02', title: 'The Degree', description: 'Bachelor of Engineering in Electronics & Communication Engineering at Silver Oak University.', tags: ['B.E.', 'Electronics & Communication', 'CGPA 7.48'], runtime: '2014 – 2017', palette: violet },
     ]
   },
   {
-    number: 2, title: 'The QA Journey', period: 'June 2021 - Present', synopsis: 'Quality assurance work focused on web and mobile functionality, requirements, test design, defect analysis, and release validation.', episodes: [
-      { code: 'S02 E01', title: 'Understanding the Product', description: 'Analyzing requirements and clarifying expected behavior before defining test coverage.', tags: ['Requirement Analysis', 'Business Workflows'], runtime: 'QA Practice', palette: ocean },
-      { code: 'S02 E02', title: 'Testing with Intent', description: 'Preparing test plans, scenarios, cases, test data, and risk-based validation across application workflows.', tags: ['Test Design', 'Functional QA', 'Risk-Based Testing'], runtime: 'QA Practice', palette: crimson },
-      { code: 'S02 E03', title: 'From Defect to Confidence', description: 'Documenting defects in Jira, reproducing issues, verifying fixes, and performing regression testing.', tags: ['Jira', 'Defect Lifecycle', 'Regression'], runtime: 'QA Practice', palette: jade },
+    number: 2, title: 'The QA Journey', period: 'Eight lifecycle episodes', synopsis: 'A structured approach to engineering quality, from understanding business needs and planning coverage to validating releases and improving the user experience.', episodes: qaJourneyStages.map((stage) => ({
+      code: `S02 E${stage.number}`,
+      title: stage.title,
+      description: stage.points.join(' '),
+      tags: stage.tags,
+      runtime: `QA Lifecycle · ${stage.number}`,
+      palette: stage.palette,
+    }))
+  },
+  {
+    number: 3, title: 'Career Experience & Training', period: '2018 – Present', synopsis: 'A career progression from application support and focused industrial QA training to professional quality assurance across web and mobile applications.', episodes: careerEpisodes,
+  },
+  {
+    number: 4, title: 'Products & User Journeys', period: 'Eight QA project case studies', synopsis: 'Eight QA case studies across transportation, professional networking, multiplayer gaming, e-commerce, digital health, community sharing, and browser automation.', episodes: [
+      { code: 'S04 E01', title: 'LYMÜV · Taxi Booking Application', description: 'Manual QA coverage for ride requests, pickup and destination selection, driver assignment, payments, wallet, live tracking, notifications, and admin workflows.', tags: ['LYMÜV', 'Mobile QA', 'Web Admin'], runtime: 'Project Case Study', palette: ocean },
+      { code: 'S04 E02', title: 'Dap Me · Professional Networking Application', description: 'QA coverage across authentication, professional profiles, discovery, connection requests, real-time messaging, subscriptions, notifications, and admin moderation.', tags: ['Dap Me', 'Mobile QA', 'Web Admin'], runtime: 'Project Case Study', palette: jade },
+      { code: 'S04 E03', title: 'Kinzwin · Multiplayer Gaming Platform', description: 'Manual testing of gameplay, scoring, multiplayer synchronization, chat, leaderboards, fair-play behavior, and administrative controls.', tags: ['Kinzwin', 'Functional Testing', 'Regression'], runtime: 'Project Case Study', palette: violet },
+      { code: 'S04 E04', title: 'Bunny Books · Photo Book & E‑Commerce Application', description: 'Testing photo uploads, album creation, design previews, cart, checkout, payment processing, notifications, order management, and delivery tracking.', tags: ['Bunny Books', 'Mobile QA', 'E-Commerce'], runtime: 'Project Case Study', palette: amber },
+      { code: 'S04 E05', title: 'Health-E · Digital Health & Medical Records App', description: 'QA coverage for registration, OTP verification, ABHA generation, medical records, appointments, reminders, health modules, and role-based administration.', tags: ['Health-E', 'Mobile QA', 'Web Admin'], runtime: 'Project Case Study', palette: ocean },
+      { code: 'S04 E06', title: 'reGive · Community Sharing & Gift Transaction Application', description: 'End-to-end QA across item posting, requests, promise and acceptance, pickup scheduling, handover, transaction status, ratings, and notifications.', tags: ['reGive', 'End-to-End Testing', 'Mobile QA'], runtime: 'Project Case Study', palette: jade },
+      { code: 'S04 E07', title: 'ShopZone · E-Commerce Web Application', description: 'Functional QA coverage for product browsing, cart management, simulated authentication, checkout, order confirmation, session expiry, and cart persistence.', tags: ['ShopZone', 'E-Commerce', 'Functional Testing'], runtime: 'Project Case Study', palette: ocean },
+      { code: 'S04 E08', title: 'Playwright · E-Commerce & E2E Automation', description: 'TypeScript browser automation using the Page Object Model, checkout validation, empty-cart handling, session expiry, and GitHub Actions CI.', tags: ['Playwright', 'TypeScript', 'GitHub Actions'], runtime: 'Automation Case Study', palette: violet },
     ]
   },
   {
-    number: 3, title: 'Products & User Journeys', period: 'Eight QA project case studies', synopsis: 'Eight QA case studies across transportation, professional networking, multiplayer gaming, e-commerce, digital health, community sharing, and browser automation.', episodes: [
-      { code: 'S03 E01', title: 'LYMÜV · Taxi Booking Application', description: 'Manual QA coverage for ride requests, pickup and destination selection, driver assignment, payments, wallet, live tracking, notifications, and admin workflows.', tags: ['LYMÜV', 'Mobile QA', 'Web Admin'], runtime: 'Project Case Study', palette: ocean },
-      { code: 'S03 E02', title: 'Dap Me · Professional Networking Application', description: 'QA coverage across authentication, professional profiles, discovery, connection requests, real-time messaging, subscriptions, notifications, and admin moderation.', tags: ['Dap Me', 'Mobile QA', 'Web Admin'], runtime: 'Project Case Study', palette: jade },
-      { code: 'S03 E03', title: 'Kinzwin · Multiplayer Gaming Platform', description: 'Manual testing of gameplay, scoring, multiplayer synchronization, chat, leaderboards, fair-play behavior, and administrative controls.', tags: ['Kinzwin', 'Functional Testing', 'Regression'], runtime: 'Project Case Study', palette: violet },
-      { code: 'S03 E04', title: 'Bunny Books · Photo Book & E‑Commerce Application', description: 'Testing photo uploads, album creation, design previews, cart, checkout, payment processing, notifications, order management, and delivery tracking.', tags: ['Bunny Books', 'Mobile QA', 'E-Commerce'], runtime: 'Project Case Study', palette: amber },
-      { code: 'S03 E05', title: 'Health-E · Digital Health & Medical Records App', description: 'QA coverage for registration, OTP verification, ABHA generation, medical records, appointments, reminders, health modules, and role-based administration.', tags: ['Health-E', 'Mobile QA', 'Web Admin'], runtime: 'Project Case Study', palette: ocean },
-      { code: 'S03 E06', title: 'reGive · Community Sharing & Gift Transaction Application', description: 'End-to-end QA across item posting, requests, promise and acceptance, pickup scheduling, handover, transaction status, ratings, and notifications.', tags: ['reGive', 'End-to-End Testing', 'Mobile QA'], runtime: 'Project Case Study', palette: jade },
-      { code: 'S03 E07', title: 'ShopZone · E-Commerce Web Application', description: 'Functional QA coverage for product browsing, cart management, simulated authentication, checkout, order confirmation, session expiry, and cart persistence.', tags: ['ShopZone', 'E-Commerce', 'Functional Testing'], runtime: 'Project Case Study', palette: ocean },
-      { code: 'S03 E08', title: 'Playwright · E-Commerce & E2E Automation', description: 'TypeScript browser automation using the Page Object Model, checkout validation, empty-cart handling, session expiry, and GitHub Actions CI.', tags: ['Playwright', 'TypeScript', 'GitHub Actions'], runtime: 'Automation Case Study', palette: violet },
+    number: 5, title: 'The QA Toolkit', period: 'Methods & Tools', synopsis: 'The processes, documentation, and tools used to plan, execute, and communicate testing.', episodes: [
+      { code: 'S05 E01', title: 'The Test Plan', description: 'Requirement analysis, test planning, test scenarios, test cases, test data, and traceability.', tags: ['Test Design', 'RTM', 'Documentation'], runtime: 'Core Practice', palette: violet },
+      { code: 'S05 E02', title: 'The Verification Loop', description: 'Functional, regression, smoke, sanity, exploratory, retesting, and UAT validation.', tags: ['Manual Testing', 'UAT', 'Release Validation'], runtime: 'Core Practice', palette: crimson },
+      { code: 'S05 E03', title: 'The Toolset', description: 'Jira, Excel, browser developer tools, Postman, Git/GitHub, and additional automation-testing exposure.', tags: ['Jira', 'Excel', 'Postman', 'DevTools'], runtime: 'QA Toolkit', palette: ocean },
     ]
   },
   {
-    number: 4, title: 'The QA Toolkit', period: 'Methods & Tools', synopsis: 'The processes, documentation, and tools used to plan, execute, and communicate testing.', episodes: [
-      { code: 'S04 E01', title: 'The Test Plan', description: 'Requirement analysis, test planning, test scenarios, test cases, test data, and traceability.', tags: ['Test Design', 'RTM', 'Documentation'], runtime: 'Core Practice', palette: violet },
-      { code: 'S04 E02', title: 'The Verification Loop', description: 'Functional, regression, smoke, sanity, exploratory, retesting, and UAT validation.', tags: ['Manual Testing', 'UAT', 'Release Validation'], runtime: 'Core Practice', palette: crimson },
-      { code: 'S04 E03', title: 'The Toolset', description: 'Jira, Excel, browser developer tools, Postman, Git/GitHub, and additional automation-testing exposure.', tags: ['Jira', 'Excel', 'Postman', 'DevTools'], runtime: 'QA Toolkit', palette: ocean },
+    number: 6, title: 'Learning & Credentials', period: 'Professional Development', synopsis: 'A structured view of manual testing, software-testing credentials, technical learning, professional development, and achievements.', episodes: [
+      { code: 'S06 E01', title: 'Manual Testing', description: 'Continuous development of practical manual QA capabilities across functional, regression, smoke, sanity, exploratory, retesting, and end-to-end validation.', tags: ['Manual Testing', 'Test Execution', 'Risk-Based Testing'], runtime: 'QA Practice', palette: jade },
+      { code: 'S06 E02', title: 'Software Testing', description: 'Software-testing credentials and QA assessments, including ISTQB learning and LearnTube.ai assessment achievements.', tags: ['ISTQB', 'LearnTube.ai', 'Software Testing'], runtime: 'Certifications & Assessments', palette: ocean },
+      { code: 'S06 E03', title: 'Technical Learning', description: 'Technical learning across API integration, component testing, debugging, GitHub, Java, Python, web technologies, and data.', tags: ['API Integration', 'Java', 'Technical Learning'], runtime: 'Technical Development', palette: violet },
+      { code: 'S06 E04', title: 'Professional Learning', description: 'Ongoing development in Agile methodologies, SDLC, STLC, collaboration, documentation, communication, and quality-focused delivery.', tags: ['Agile Methodologies', 'SDLC & STLC', 'Continuous Learning'], runtime: 'Professional Development', palette: amber },
+      { code: 'S06 E05', title: 'Achievements & Growth', description: 'Highlights of risk-based test coverage, impact-based regression, proactive exploratory testing, structured QA coordination, and continued professional growth.', tags: ['QA Achievements', 'Quality Improvement', 'Professional Growth'], runtime: 'Career Highlights', palette: crimson },
     ]
   },
   {
-    number: 5, title: 'Learning & Credentials', period: 'Professional Development', synopsis: 'A structured view of manual testing, software-testing credentials, technical learning, professional development, and achievements.', episodes: [
-      { code: 'S05 E01', title: 'Manual Testing', description: 'Continuous development of practical manual QA capabilities across functional, regression, smoke, sanity, exploratory, retesting, and end-to-end validation.', tags: ['Manual Testing', 'Test Execution', 'Risk-Based Testing'], runtime: 'QA Practice', palette: jade },
-      { code: 'S05 E02', title: 'Software Testing', description: 'Software-testing credentials and QA assessments, including ISTQB learning and LearnTube.ai assessment achievements.', tags: ['ISTQB', 'LearnTube.ai', 'Software Testing'], runtime: 'Certifications & Assessments', palette: ocean },
-      { code: 'S05 E03', title: 'Technical Learning', description: 'Technical learning across API integration, component testing, debugging, GitHub, Java, Python, web technologies, and data.', tags: ['API Integration', 'Java', 'Technical Learning'], runtime: 'Technical Development', palette: violet },
-      { code: 'S05 E04', title: 'Professional Learning', description: 'Ongoing development in Agile methodologies, SDLC, STLC, collaboration, documentation, communication, and quality-focused delivery.', tags: ['Agile Methodologies', 'SDLC & STLC', 'Continuous Learning'], runtime: 'Professional Development', palette: amber },
-      { code: 'S05 E05', title: 'Achievements & Growth', description: 'Highlights of risk-based test coverage, impact-based regression, proactive exploratory testing, structured QA coordination, and continued professional growth.', tags: ['QA Achievements', 'Quality Improvement', 'Professional Growth'], runtime: 'Career Highlights', palette: crimson },
-    ]
-  },
-  {
-    number: 6, title: 'What’s Next?', period: 'Future Focus', synopsis: 'The next stage of continuous learning: strengthening API testing, expanding automation skills, and growing toward broader quality engineering practices.', episodes: [
-      { code: 'S06 E01', title: 'Strengthen API Testing', description: 'Build deeper practical experience in API validation, request and response analysis, and reliable service-level testing.', tags: ['API Testing', 'Postman', 'Service Validation'], runtime: 'Next Learning Goal', palette: ocean },
-      { code: 'S06 E02', title: 'Expand Automation Skills', description: 'Continue developing automation-testing skills through Selenium WebDriver, Java, TestNG, and Maven.', tags: ['Selenium', 'Java', 'TestNG', 'Maven'], runtime: 'Next Learning Goal', palette: violet },
-      { code: 'S06 E03', title: 'Grow Quality Engineering', description: 'Explore CI/CD, performance and security testing while continuously improving test coverage and release confidence.', tags: ['CI/CD', 'Performance Testing', 'Security Testing', 'Quality Engineering'], runtime: 'Long-Term Direction', palette: jade },
+    number: 7, title: 'What’s Next?', period: 'Future Focus', synopsis: 'The next stage of continuous learning: strengthening API testing, expanding automation skills, and growing toward broader quality engineering practices.', episodes: [
+      { code: 'S07 E01', title: 'Strengthen API Testing', description: 'Build deeper practical experience in API validation, request and response analysis, and reliable service-level testing.', tags: ['API Testing', 'Postman', 'Service Validation'], runtime: 'Next Learning Goal', palette: ocean },
+      { code: 'S07 E02', title: 'Expand Automation Skills', description: 'Continue developing automation-testing skills through Selenium WebDriver, Java, TestNG, and Maven.', tags: ['Selenium', 'Java', 'TestNG', 'Maven'], runtime: 'Next Learning Goal', palette: violet },
+      { code: 'S07 E03', title: 'Grow Quality Engineering', description: 'Explore CI/CD, performance and security testing while continuously improving test coverage and release confidence.', tags: ['CI/CD', 'Performance Testing', 'Security Testing', 'Quality Engineering'], runtime: 'Long-Term Direction', palette: jade },
     ]
   },
 ];
@@ -532,6 +745,17 @@ export const introSlides: IntroSlide[] = [
     chips: ['Mobile', 'Web', 'Admin', 'Automation'],
   },
   {
+    kicker: 'Career Timeline',
+    title: 'Career Experience & Training',
+    lines: [
+      'Echo Innovate IT · Quality Assurance Analyst · June 2021 – Present',
+      'Makein Technologies · QA Trainee & Industrial Training · January–May 2021',
+      'Niharika Softweb Solutions Pvt. Ltd. · Application Support Engineer',
+      'December 2018 – December 2020',
+    ],
+    chips: ['Web & Mobile QA', 'Manual Testing', 'Selenium & TestNG', 'Application Support'],
+  },
+  {
     kicker: 'Certified',
     title: `${certifications.length} Credentials`,
     lines: [
@@ -554,17 +778,18 @@ export const introSlides: IntroSlide[] = [
 ];
 
 export type ProfileId = 'sumit' | 'recruiter' | 'qa' | 'creative';
-export type SectionId = 'about' | 'journey' | 'originals' | 'picks' | 'skills' | 'moments' | 'story';
+export type SectionId = 'about' | 'journey' | 'career' | 'originals' | 'picks' | 'skills' | 'moments' | 'story';
 export const viewerProfiles: { id: ProfileId; name: string; blurb: string; color: string; order: SectionId[] }[] = [
-  { id: 'sumit', name: 'SUMIT PANCHAL', blurb: 'The Complete QA Portfolio', color: '#e5132b', order: ['about', 'journey', 'originals', 'picks', 'skills', 'moments', 'story'] },
-  { id: 'recruiter', name: 'RECRUITER', blurb: 'Experience, QA Skills & Resume First', color: '#4cc9ff', order: ['story', 'moments', 'skills', 'originals', 'about', 'journey', 'picks'] },
-  { id: 'qa', name: 'QA TEAM', blurb: 'Testing Projects, Methods & Defect Workflows', color: '#46e3a8', order: ['originals', 'skills', 'journey', 'moments', 'about', 'picks', 'story'] },
-  { id: 'creative', name: 'PRODUCT TEAM', blurb: 'Product Journeys & Quality Highlights', color: '#ffb547', order: ['journey', 'originals', 'picks', 'moments', 'about', 'skills', 'story'] },
+  { id: 'sumit', name: 'SUMIT PANCHAL', blurb: 'The Complete QA Portfolio', color: '#e5132b', order: ['about', 'journey', 'career', 'originals', 'picks', 'skills', 'moments', 'story'] },
+  { id: 'recruiter', name: 'RECRUITER', blurb: 'Experience, QA Skills & Resume First', color: '#4cc9ff', order: ['story', 'career', 'moments', 'skills', 'originals', 'about', 'journey', 'picks'] },
+  { id: 'qa', name: 'QA TEAM', blurb: 'Testing Projects, Methods & Defect Workflows', color: '#46e3a8', order: ['originals', 'career', 'skills', 'journey', 'moments', 'about', 'picks', 'story'] },
+  { id: 'creative', name: 'PRODUCT TEAM', blurb: 'Product Journeys & Quality Highlights', color: '#ffb547', order: ['journey', 'career', 'originals', 'picks', 'moments', 'about', 'skills', 'story'] },
 ];
 
 export const sectionMeta: Record<SectionId, { nav: string; card: string; meta: string; palette: Palette }> = {
   about: { nav: 'About', card: 'About Me', meta: 'Profile • Education & experience', palette: violet },
   journey: { nav: 'Journey', card: 'QA Journey', meta: `${seasons.length} Seasons • ${seasons.reduce((n, s) => n + s.episodes.length, 0)} Episodes`, palette: amber },
+  career: { nav: 'Career', card: 'Career Experience', meta: `${careerEpisodes.length} Professional Milestones`, palette: jade },
   originals: { nav: 'Projects', card: 'QA Projects', meta: `${projects.length} Project Case Studies`, palette: crimson },
   picks: { nav: 'QA Focus', card: 'QA Focus Areas', meta: '10 Testing Priorities', palette: jade },
   skills: { nav: 'Skills', card: 'QA Skills', meta: `${skillCategories.length} Skill Categories`, palette: ocean },
