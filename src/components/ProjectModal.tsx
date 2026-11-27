@@ -93,17 +93,16 @@ export default function ProjectModal({
           }}
         >
           {/* PROJECT BANNER */}
-          <div className="group/banner relative h-[52vh] min-h-[340px] overflow-hidden">
-
-            {/* Banner image - hover effects only, not clickable */}
-            <div className="group/image absolute inset-0 z-0 overflow-hidden">
+          <div className="group/banner relative w-full overflow-hidden bg-[#08090c]">
+            {/* Preserve the complete source banner. The image scales proportionally instead of being cropped by a fixed-height cover box. */}
+            <div className="group/image relative mx-auto w-full overflow-hidden">
               <img
                 src={project.bannerImage}
                 alt={`${project.title} project banner`}
-                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover/image:scale-[1.05]"
+                className="block h-auto w-full max-w-none object-contain object-center transition-[filter] duration-700 ease-out group-hover/image:brightness-105"
               />
 
-              <div className="pointer-events-none absolute inset-0 bg-crimson/0 transition-colors duration-500 group-hover/image:bg-crimson/10" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
 
               {/* Open banner image - only the arrow is clickable */}
               <a
@@ -112,7 +111,7 @@ export default function ProjectModal({
                 rel="noopener noreferrer"
                 aria-label={`Open ${project.title} banner in a new tab`}
                 data-cursor="link"
-                className="project-image-open-button absolute bottom-6 right-6 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-black/60 text-xl text-white opacity-0 shadow-lg backdrop-blur-md transition-all duration-300 group-hover/image:scale-100 group-hover/image:opacity-100 focus-visible:scale-100 focus-visible:opacity-100"
+                className="project-image-open-button absolute bottom-5 right-5 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-black/60 text-xl text-white opacity-0 shadow-lg backdrop-blur-md transition-all duration-300 group-hover/image:scale-100 group-hover/image:opacity-100 focus-visible:scale-100 focus-visible:opacity-100"
               >
                 ↗
               </a>
@@ -358,7 +357,7 @@ export default function ProjectModal({
                       key={feature}
                       className="flex items-start gap-3 text-sm text-bone/85"
                     >
-                      <span className="text-crimson-2">✓</span>
+                      <span className="font-bold text-[#46e3a8]">✓</span>
                       {feature}
                     </li>
                   ))}

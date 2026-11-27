@@ -1,13 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 760" role="img" aria-label="Career banner placeholder">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 645" role="img" aria-label="Career banner placeholder">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#08121f"/><stop offset=".48" stop-color="#27101a"/><stop offset="1" stop-color="#07080d"/></linearGradient>
     <radialGradient id="glow" cx=".78" cy=".35" r=".65"><stop stop-color="#e5132b" stop-opacity=".35"/><stop offset="1" stop-color="#e5132b" stop-opacity="0"/></radialGradient>
     <pattern id="grid" width="54" height="54" patternUnits="userSpaceOnUse"><path d="M54 0H0V54" fill="none" stroke="#fff" stroke-opacity=".07" stroke-width="1"/></pattern>
   </defs>
-  <rect width="1920" height="760" fill="url(#bg)"/><rect width="1920" height="760" fill="url(#glow)"/><rect width="1920" height="760" fill="url(#grid)"/>
+  <rect width="1920" height="645" fill="url(#bg)"/><rect width="1920" height="645" fill="url(#glow)"/><rect width="1920" height="645" fill="url(#grid)"/>
   <g fill="none" stroke="#ff5269" stroke-opacity=".38"><path d="M1120 90h560v130h160M1040 170h420v90h380M1170 590h500v-120h270" stroke-width="2"/><circle cx="1680" cy="220" r="7" fill="#ff5269"/><circle cx="1460" cy="260" r="5" fill="#ff5269"/><circle cx="1670" cy="470" r="6" fill="#ff5269"/></g>
-  <g transform="translate(145 145)"><rect width="245" height="245" rx="34" fill="#fff" fill-opacity=".06" stroke="#fff" stroke-opacity=".22"/><text x="122" y="165" text-anchor="middle" font-family="Arial,sans-serif" font-size="150" font-weight="800" fill="#f4f1ec">SP</text></g>
-  <text x="145" y="510" font-family="Arial,sans-serif" font-size="25" letter-spacing="9" fill="#ff5269">CAREER EXPERIENCE</text>
-  <text x="145" y="590" font-family="Arial,sans-serif" font-size="52" font-weight="700" letter-spacing="2" fill="#f4f1ec">COMPANY / ROLE BANNER PLACEHOLDER</text>
-  <text x="145" y="650" font-family="Arial,sans-serif" font-size="22" letter-spacing="4" fill="#a7a4ad">REPLACE career.bannerImage IN src/data/portfolio.ts</text>
+  <g transform="translate(145 145)">
+    <rect width="245" height="245" rx="0" fill="#160d12" fill-opacity=".72" stroke="#d99a28" stroke-width="4"/>
+    <text x="122.5" y="157" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="108" font-weight="800" letter-spacing="-5" fill="#f6b23d">SP</text>
+  </g>
 </svg>

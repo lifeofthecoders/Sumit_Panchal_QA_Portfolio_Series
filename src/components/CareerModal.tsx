@@ -58,17 +58,19 @@ export default function CareerModal({ career, onClose }: CareerModalProps) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 30, transition: { duration: 0.3 } }}
         >
-          {/* Replace bannerImage in portfolio.ts when the final company visual is ready. */}
-          <div className="group/banner relative h-[46vh] min-h-[300px] overflow-hidden sm:h-[52vh]">
-            <div className="group/image absolute inset-0 z-0 overflow-hidden">
+          {/* Company-specific full-width detail banner from the latest supplied ZIP (1920 × 645). */}
+          <div className="group/banner relative w-full overflow-hidden bg-[#08090c]">
+            <div className="group/image relative w-full overflow-hidden">
               <img
-                src={career.bannerImage}
-                alt={`${career.company} career banner placeholder`}
-                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover/image:scale-[1.04]"
+                src={career.detailBannerImage}
+                alt={`${career.company} career banner`}
+                width={1920}
+                height={645}
+                className="block h-auto max-h-none w-full object-contain object-center transition-[filter] duration-700 ease-out group-hover/image:brightness-105"
               />
               <div className="pointer-events-none absolute inset-0 bg-crimson/0 transition-colors duration-500 group-hover/image:bg-crimson/10" />
               <a
-                href={career.bannerImage}
+                href={career.detailBannerImage}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Open ${career.company} banner image`}
@@ -159,15 +161,28 @@ export default function CareerModal({ career, onClose }: CareerModalProps) {
                   </a>
                 )}
               </div>
-              <div className="group/image relative min-h-[220px] overflow-hidden rounded-lg ring-1 ring-white/10">
-                {/* Replace visualImage in portfolio.ts with a company, office, or work sample image. */}
+              <figure className="group/image relative aspect-[1920/645] w-full self-start overflow-hidden rounded-lg bg-transparent ring-1 ring-white/10">
+                {/* Exact banner ratio removes the empty black frame while keeping the complete image visible. */}
                 <img
                   src={career.visualImage}
-                  alt={`${career.company} visual placeholder`}
+                  alt={`${career.company} company and work environment`}
                   loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover/image:scale-[1.04]"
+                  width={1920}
+                  height={645}
+                  className="absolute inset-0 block h-full w-full object-contain object-center transition-[filter] duration-700 group-hover/image:brightness-105"
                 />
-              </div>
+                <a
+                  href={career.visualImage}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Open ${career.company} image in a new tab`}
+                  title="Open image in new tab"
+                  data-cursor="link"
+                  className="absolute right-3 top-3 z-10 grid h-10 w-10 place-items-center rounded-full border border-white/25 bg-black/75 text-xl text-white shadow-lg backdrop-blur-md transition-all duration-300 hover:scale-105 hover:border-crimson-2 hover:bg-crimson"
+                >
+                  ↗
+                </a>
+              </figure>
             </motion.section>
 
             {/* Responsibilities */}

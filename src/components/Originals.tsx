@@ -55,12 +55,14 @@ function PinnedOriginals({ onOpen }: { onOpen: (p: Project) => void }) {
   useLayoutEffect(() => {
     const measure = () => {
       if (!track.current) return;
-      const d = Math.max(0, track.current.scrollWidth - window.innerWidth);
+      const viewportWidth = wrap.current?.clientWidth ?? document.documentElement.clientWidth;
+      const d = Math.max(0, track.current.scrollWidth - viewportWidth);
       setDist(d);
       distMV.set(d);
     };
     measure();
     const ro = new ResizeObserver(measure);
+    if (wrap.current) ro.observe(wrap.current);
     if (track.current) ro.observe(track.current);
     window.addEventListener('resize', measure);
     return () => {
@@ -103,7 +105,7 @@ function RailOriginals({ onOpen }: { onOpen: (p: Project) => void }) {
         <Intro />
       </div>
       <motion.div
-        className="rail gutter flex snap-x snap-mandatory gap-4 overflow-x-auto pb-6"
+        className="rail gutter flex snap-x snap-mandatory gap-4 overflow-x-auto pb-6 pr-16"
         initial={{ opacity: 0, x: 60 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}

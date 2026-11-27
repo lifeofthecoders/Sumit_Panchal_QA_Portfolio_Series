@@ -24,7 +24,7 @@ export default function ProjectCard({
 
   return (
     <motion.article
-      className="w-[84vw] shrink-0 snap-start sm:w-[62vw] lg:w-[46vw] xl:w-[42vw]"
+      className="w-[min(88vw,560px)] shrink-0 snap-start"
       initial={{ opacity: 0, y: 40, filter: 'blur(10px)' }}
       whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
       viewport={{ once: true, margin: '0px -10% 0px 0px' }}

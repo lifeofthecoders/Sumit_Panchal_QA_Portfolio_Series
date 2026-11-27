@@ -388,3 +388,40 @@ a:focus-visible {
   .availability-radar__wave,
   .location-radar__wave { animation: none; opacity: 0; }
 }
+
+
+/* Mobile viewport safeguards: keep the cinematic layout inside narrow phone screens. */
+@media (max-width: 640px) {
+  :root {
+    --gutter: clamp(14px, 4vw, 20px);
+  }
+
+  html,
+  body,
+  #root {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  body {
+    overflow-x: clip;
+  }
+
+  img,
+  video,
+  iframe {
+    max-width: 100%;
+  }
+
+  button,
+  a,
+  [role="button"] {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  .rail {
+    max-width: 100%;
+    scroll-padding-inline: var(--gutter);
+  }
+}

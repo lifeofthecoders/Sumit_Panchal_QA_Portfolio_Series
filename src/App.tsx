@@ -443,7 +443,7 @@ function Series() {
                 key={id}
                 id={id}
                 className={
-                  id === 'originals'
+                  id === 'originals' || id === 'career'
                     ? '!py-0 sm:!py-0'
                     : ''
                 }

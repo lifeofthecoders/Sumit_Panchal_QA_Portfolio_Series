@@ -63,13 +63,14 @@ export type CareerExperienceItem = {
   highlights: string[];
   tools: string[];
   bannerImage: string;
+  detailBannerImage: string;
   visualImage: string;
   palette: Palette;
   website?: string;
 };
 
 const careerPlaceholderBanner = asset('assets/career-placeholder-banner.svg');
-const careerPlaceholderVisual = asset('assets/career-placeholder-visual.svg');
+const careerImage = (name: string) => asset(`experience & taining/${name}`);
 
 export const experience: CareerExperienceItem[] = [
   {
@@ -80,7 +81,7 @@ export const experience: CareerExperienceItem[] = [
     period: 'June 2021 - Present',
     kind: 'Professional Experience',
     summary: 'Quality assurance across web and mobile applications, validating product functionality, usability, compatibility, and release-critical workflows.',
-    companyDetails: 'Current professional role focused on structured manual testing, requirement validation, defect management, and regression coverage for web and mobile applications.',
+    companyDetails: 'Echo Innovate IT is a global technology partner that helps startups and established businesses turn ideas into digital products. Its teams work across mobile applications, web platforms, custom software, and AI-powered solutions, supporting projects from early strategy and UI/UX design through engineering, launch, and ongoing improvement. The company describes a collaborative delivery approach built around transparent communication, experienced specialists, and long-term client partnerships. Its work spans areas such as healthcare, fintech, e-commerce, logistics, education, real estate, and media.',
     points: [
       'Tested web and mobile applications across multiple platforms, validating functionality, usability, and compatibility.',
       'Created and executed test plans, test cases, and test scenarios to verify expected behavior and business requirements.',
@@ -96,7 +97,9 @@ export const experience: CareerExperienceItem[] = [
     ],
     tools: ['Manual Testing', 'Functional Testing', 'Regression Testing', 'Jira', 'Microsoft Excel', 'Test Documentation', 'Risk-Based Testing', 'Web & Mobile QA'],
     bannerImage: careerPlaceholderBanner,
-    visualImage: careerPlaceholderVisual,
+    detailBannerImage: careerImage('echo-innovateit-banner-1920x645.jpg'),
+    visualImage: careerImage('echo-global-team-banner-1920x645.jpg'),
+    website: 'https://www.echoinnovateit.com/',
     palette: { from: '#04121f', via: '#0f4c6e', to: '#05080d', accent: '#4cc9ff' },
   },
   {
@@ -107,7 +110,7 @@ export const experience: CareerExperienceItem[] = [
     period: 'January 2021 - May 2021 · 5 months',
     kind: 'Industrial Training',
     summary: 'Practical training in manual and automation software testing, with test design, defect reporting, and hands-on validation of live websites.',
-    companyDetails: 'Industrial QA training completed in Ahmedabad, combining manual testing fundamentals with introductory browser automation and defect-tracking tools.',
+    companyDetails: 'Makein Technologies is an Ahmedabad-based IT training institute focused on practical, project-oriented learning for students preparing to build careers in technology. Its training areas include software testing, PHP, SEO, web designing, AngularJS, Android, WordPress, and digital marketing. The institute combines technical instruction with live-project exposure so learners can apply concepts to realistic tasks, understand common industry workflows, and strengthen their problem-solving skills. It also provides individual guidance and placement-oriented support to help students prepare for opportunities in the IT sector.',
     points: [
       'Prepared test cases and bug reports for live websites as part of manual and automation testing activities.',
       'Participated in functional, integration, system, regression, black-box, and usability testing of live websites.',
@@ -122,9 +125,10 @@ export const experience: CareerExperienceItem[] = [
     ],
     tools: ['Manual Software Testing', 'Selenium IDE', 'Selenium WebDriver', 'TestNG', 'Mantis', 'Redmine', 'Trello', 'BrowserStack', 'Excel'],
     bannerImage: careerPlaceholderBanner,
-    visualImage: careerPlaceholderVisual,
+    detailBannerImage: careerImage('makein-technologies-banner-1920x645.jpg'),
+    visualImage: careerImage('makein-technologies.png'),
     palette: { from: '#03150f', via: '#0d5a40', to: '#050a08', accent: '#46e3a8' },
-    website: 'https://makeintechnologies.com',
+    website: 'https://www.makeintechnologies.com/',
   },
   {
     id: 'niharika-softweb-solutions',
@@ -134,7 +138,7 @@ export const experience: CareerExperienceItem[] = [
     period: 'December 2018 – December 2020',
     kind: 'Previous Experience',
     summary: 'Application support and website data operations for a government-related project, with an emphasis on accurate records and practical user assistance.',
-    companyDetails: 'Application support role associated with day-to-day website and data operations at New Sachivalaya, Gandhinagar.',
+    companyDetails: 'Niharika Softweb Solutions Pvt. Ltd. is an IT services company focused on helping businesses build and maintain their digital presence. Its service areas include website design, web development, mobile application development, software management, and customer support. The company aims to deliver practical websites and applications suited to client needs, while supporting the ongoing operation and management of digital solutions. Its range of services reflects a focus on combining development work with day-to-day technical assistance for businesses.',
     points: [
       'Managed website content and online data for a government-related project, including entering, updating, and maintaining information on the website.',
       'Provided application support to users at New Sachivalaya, Gandhinagar, helping maintain smooth day-to-day website and data operations.',
@@ -148,7 +152,9 @@ export const experience: CareerExperienceItem[] = [
     ],
     tools: ['Application Support', 'Website Content Management', 'Online Data Management', 'User Assistance', 'Data Accuracy', 'Record Maintenance'],
     bannerImage: careerPlaceholderBanner,
-    visualImage: careerPlaceholderVisual,
+    detailBannerImage: careerImage('niharika-softweb-banner-1920x645.jpg'),
+    visualImage: careerImage('niharika-about-banner-1920x645.jpg'),
+    website: 'http://niharikasofttech.com/',
     palette: { from: '#1c1003', via: '#6b3c06', to: '#0a0806', accent: '#ffb547' },
   },
 ];
